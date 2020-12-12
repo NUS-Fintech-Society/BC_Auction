@@ -1,0 +1,8 @@
+{
+    "root": "app/",
+    "routes": {
+        "/assets/*": "/assets/",
+        "/**": "index.html"
+    },
+    "https_only": true
+}

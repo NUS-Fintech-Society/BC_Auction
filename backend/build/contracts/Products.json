@@ -1,0 +1,241 @@
+{
+  "contractName": "Products",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.7.0+commit.9e61f92b\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/mnt/c/Users/rsadi/FintechProject/backend/contracts/Products.sol\":\"Products\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/mnt/c/Users/rsadi/FintechProject/backend/contracts/Buyers.sol\":{\"keccak256\":\"0xe0db4defa43c0f91333960f095107e1742bd12c4c5db65fc152275ff7dd6025a\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://2b44948030f9495e71def4820fa0934a14704bcfa62f6af4c27480dd195819f9\",\"dweb:/ipfs/QmPikU2Vdx8Spzr1mKrz8dEAMrYqQ9Kb3rCAUUhM3Dv8Pu\"]},\"/mnt/c/Users/rsadi/FintechProject/backend/contracts/Products.sol\":{\"keccak256\":\"0xea6172a168b0aa46a7fdf83f6a85f52333908cfe3a8bf4bc0645315ec32b64de\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://9ce4a5d2ccd3db8bfd7928168c1eb81f24b104c8ead655c76e4bc76df0f29f79\",\"dweb:/ipfs/QmWMZcy7KZCNRvi7ZFRcT8ED4nK2jtJN4V6oEDH9U9opJP\"]},\"/mnt/c/Users/rsadi/FintechProject/backend/contracts/Sellers.sol\":{\"keccak256\":\"0x32ce1621d94f663c40fcd3ca8f7054a16ebfc35681e7c26d8f40a99183187a52\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://4ccc9fec6571a2b93319231c260a9f9f6f269f19b6afa22d44e468e0ea61ade0\",\"dweb:/ipfs/QmeCEcLxY6X4gA6qicCane5Fn9f8U8jB9LcLCkkejRGitA\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea26469706673582212206c2710bc600dc044fd655636c710fd261301c2f3125d4c4e18df06b7612d9f1064736f6c63430007000033",
+  "deployedBytecode": "0x6080604052600080fdfea26469706673582212206c2710bc600dc044fd655636c710fd261301c2f3125d4c4e18df06b7612d9f1064736f6c63430007000033",
+  "immutableReferences": {},
+  "sourceMap": "118:43:2:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "118:43:2:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: UNLICENSED\r\npragma solidity ^0.7.0;\r\n\r\nimport \"./Buyers.sol\";\r\nimport \"./Sellers.sol\";\r\n\r\ncontract Products is Buyers, Sellers {\r\n\r\n}",
+  "sourcePath": "/mnt/c/Users/rsadi/FintechProject/backend/contracts/Products.sol",
+  "ast": {
+    "absolutePath": "/mnt/c/Users/rsadi/FintechProject/backend/contracts/Products.sol",
+    "exportedSymbols": {
+      "Products": [
+        44
+      ]
+    },
+    "id": 45,
+    "license": "UNLICENSED",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 37,
+        "literals": [
+          "solidity",
+          "^",
+          "0.7",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "40:23:2"
+      },
+      {
+        "absolutePath": "/mnt/c/Users/rsadi/FintechProject/backend/contracts/Buyers.sol",
+        "file": "./Buyers.sol",
+        "id": 38,
+        "nodeType": "ImportDirective",
+        "scope": 45,
+        "sourceUnit": 3,
+        "src": "67:22:2",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/mnt/c/Users/rsadi/FintechProject/backend/contracts/Sellers.sol",
+        "file": "./Sellers.sol",
+        "id": 39,
+        "nodeType": "ImportDirective",
+        "scope": 45,
+        "sourceUnit": 48,
+        "src": "91:23:2",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 40,
+              "name": "Buyers",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 2,
+              "src": "139:6:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Buyers_$2",
+                "typeString": "contract Buyers"
+              }
+            },
+            "id": 41,
+            "nodeType": "InheritanceSpecifier",
+            "src": "139:6:2"
+          },
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 42,
+              "name": "Sellers",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 47,
+              "src": "147:7:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Sellers_$47",
+                "typeString": "contract Sellers"
+              }
+            },
+            "id": 43,
+            "nodeType": "InheritanceSpecifier",
+            "src": "147:7:2"
+          }
+        ],
+        "contractDependencies": [
+          2,
+          47
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 44,
+        "linearizedBaseContracts": [
+          44,
+          47,
+          2
+        ],
+        "name": "Products",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 45,
+        "src": "118:43:2"
+      }
+    ],
+    "src": "40:121:2"
+  },
+  "legacyAST": {
+    "absolutePath": "/mnt/c/Users/rsadi/FintechProject/backend/contracts/Products.sol",
+    "exportedSymbols": {
+      "Products": [
+        44
+      ]
+    },
+    "id": 45,
+    "license": "UNLICENSED",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 37,
+        "literals": [
+          "solidity",
+          "^",
+          "0.7",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "40:23:2"
+      },
+      {
+        "absolutePath": "/mnt/c/Users/rsadi/FintechProject/backend/contracts/Buyers.sol",
+        "file": "./Buyers.sol",
+        "id": 38,
+        "nodeType": "ImportDirective",
+        "scope": 45,
+        "sourceUnit": 3,
+        "src": "67:22:2",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/mnt/c/Users/rsadi/FintechProject/backend/contracts/Sellers.sol",
+        "file": "./Sellers.sol",
+        "id": 39,
+        "nodeType": "ImportDirective",
+        "scope": 45,
+        "sourceUnit": 48,
+        "src": "91:23:2",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 40,
+              "name": "Buyers",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 2,
+              "src": "139:6:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Buyers_$2",
+                "typeString": "contract Buyers"
+              }
+            },
+            "id": 41,
+            "nodeType": "InheritanceSpecifier",
+            "src": "139:6:2"
+          },
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 42,
+              "name": "Sellers",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 47,
+              "src": "147:7:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Sellers_$47",
+                "typeString": "contract Sellers"
+              }
+            },
+            "id": 43,
+            "nodeType": "InheritanceSpecifier",
+            "src": "147:7:2"
+          }
+        ],
+        "contractDependencies": [
+          2,
+          47
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 44,
+        "linearizedBaseContracts": [
+          44,
+          47,
+          2
+        ],
+        "name": "Products",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 45,
+        "src": "118:43:2"
+      }
+    ],
+    "src": "40:121:2"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.7.0+commit.9e61f92b.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.2.5",
+  "updatedAt": "2020-12-12T10:18:38.490Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

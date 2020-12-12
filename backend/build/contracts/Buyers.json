@@ -1,0 +1,113 @@
+{
+  "contractName": "Buyers",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.7.0+commit.9e61f92b\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/mnt/c/Users/rsadi/FintechProject/backend/contracts/Buyers.sol\":\"Buyers\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/mnt/c/Users/rsadi/FintechProject/backend/contracts/Buyers.sol\":{\"keccak256\":\"0xe0db4defa43c0f91333960f095107e1742bd12c4c5db65fc152275ff7dd6025a\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://2b44948030f9495e71def4820fa0934a14704bcfa62f6af4c27480dd195819f9\",\"dweb:/ipfs/QmPikU2Vdx8Spzr1mKrz8dEAMrYqQ9Kb3rCAUUhM3Dv8Pu\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220a53dc6a31b78cc0e42dd67d7bb76f3f38233bc4245ea033c4760cba83fff47c964736f6c63430007000033",
+  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220a53dc6a31b78cc0e42dd67d7bb76f3f38233bc4245ea033c4760cba83fff47c964736f6c63430007000033",
+  "immutableReferences": {},
+  "sourceMap": "67:26:0:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "67:26:0:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: UNLICENSED\r\npragma solidity ^0.7.0;\r\n\r\ncontract Buyers {\r\n    \r\n}",
+  "sourcePath": "/mnt/c/Users/rsadi/FintechProject/backend/contracts/Buyers.sol",
+  "ast": {
+    "absolutePath": "/mnt/c/Users/rsadi/FintechProject/backend/contracts/Buyers.sol",
+    "exportedSymbols": {
+      "Buyers": [
+        2
+      ]
+    },
+    "id": 3,
+    "license": "UNLICENSED",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          "^",
+          "0.7",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "40:23:0"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 2,
+        "linearizedBaseContracts": [
+          2
+        ],
+        "name": "Buyers",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 3,
+        "src": "67:26:0"
+      }
+    ],
+    "src": "40:53:0"
+  },
+  "legacyAST": {
+    "absolutePath": "/mnt/c/Users/rsadi/FintechProject/backend/contracts/Buyers.sol",
+    "exportedSymbols": {
+      "Buyers": [
+        2
+      ]
+    },
+    "id": 3,
+    "license": "UNLICENSED",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          "^",
+          "0.7",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "40:23:0"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 2,
+        "linearizedBaseContracts": [
+          2
+        ],
+        "name": "Buyers",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 3,
+        "src": "67:26:0"
+      }
+    ],
+    "src": "40:53:0"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.7.0+commit.9e61f92b.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.2.5",
+  "updatedAt": "2020-12-12T10:18:38.466Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
