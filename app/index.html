@@ -51,12 +51,11 @@
         <h1><div id="root" class="p-2 m-2 invisible inter"></div></h1>
         
         <script type="module">
-            import { isEthEnabled, setAccount } from "./js/startup.js";
+            import { isEthEnabled } from "./js/startup.js";
 
             window.addEventListener("load", async function (_window, event) {
-                console.log("sa");
+
                 if (!isEthEnabled(window)) {
-                    console.log("sfda");
                     // show prompt
                     $("#alert-body")
                         .html("Please install an Ethereum-compatible browser or extension like MetaMask to use this dApp!");
@@ -64,11 +63,8 @@
                     $("#root")
                         .html("");
                 } else {
-                    console.log("ssaa");
                     var network = await web3.eth.net.getNetworkType();
                     if (network !== "ropsten") {
-                        
-                    console.log("sssadsaa");
                         // show prompt
                         $("#alert-body")
                             .html("Please change network to the Ropsten Test Network!");
@@ -76,7 +72,6 @@
                         $("#root")
                             .html("");
                     } else {
-                        setAccount(window);
                         // show main content
                         $("#alert")
                             .html("");
@@ -101,7 +96,7 @@
                 web3.eth.defaultAccount = accounts[0];
 
                 let contractAddress = "";
-
+                
                 $("#root")
                     .html("App has started");
 

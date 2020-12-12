@@ -6,11 +6,3 @@ export async function isEthEnabled(window) {
     }
     return false;
 }
-
-export function setAccount(window) {
-    window.ethereum.enable().then((account) => {
-            window.defaultAccount = account[0];
-            web3.eth.defaultAccount = defaultAccount;
-            window.account = defaultAccount;
-    });
-}
