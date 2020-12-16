@@ -7,6 +7,7 @@ import "./Sellers.sol";
 contract Products is Buyers, Sellers { //TODO: import new holder contract (contains Seller and Buyer)
 
     mapping(bytes32 => Product) activeProducts;
+    bytes32[] activeProductIds;
     mapping(address => Product[]) private sellerToProduct;
 
     modifier isValidBid(bytes32 productId, uint price) {
