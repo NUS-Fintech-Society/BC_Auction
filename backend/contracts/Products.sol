@@ -17,8 +17,8 @@ contract Products is Buyers, Sellers { //TODO: import new holder contract (conta
         sellerToProduct[msg.sender] = product;
     }
 
-    function getAllProducts() public view returns (mapping(bytes32 => Product)) {
-        return activeProducts;
+    function getProductById(bytes32 id) public view returns (Product) {
+        return activeProducts[id];
     }
 
     modifier isValidBid(bytes32 productId, uint price) {
