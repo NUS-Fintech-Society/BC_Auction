@@ -10,6 +10,17 @@ contract Products is Buyers, Sellers { //TODO: import new holder contract (conta
     bytes32[] activeProductIds;
     mapping(address => Product[]) private sellerToProduct;
 
+    function addProduct(bytes32 productId, string name, string description, uint lowerBound, 
+        uint deadline, uint noOfBids, Bid highestBid, bool isReal) public {
+        product = Product(productID, name, description, lowerBound, deadline, noOfBids, highestBid, isReal);
+        activeProducts[productId] = product;
+        sellerToProduct[msg.sender] = product;
+    }
+
+    function getAllProducts() public view returns (mapping(bytes32 => Product)) {
+        return activeProducts;
+    }
+
     modifier isValidBid(bytes32 productId, uint price) {
         Product storage currentProduct = activeProducts[productId];
         require(currentProduct.isReal, "Product does not exist");
