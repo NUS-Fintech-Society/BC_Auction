@@ -9,16 +9,26 @@ contract Products is Buyers, Sellers { //TODO: import new holder contract (conta
     mapping(bytes32 => Product) activeProducts;
     bytes32[] activeProductIds;
     mapping(address => Product[]) private sellerToProduct;
+    uint numOfProducts;
 
-    function addProduct(bytes32 productId, string name, string description, uint lowerBound, 
-        uint deadline, uint noOfBids, Bid highestBid, bool isReal) public {
-        product = Product(productID, name, description, lowerBound, deadline, noOfBids, highestBid, isReal);
-        activeProducts[productId] = product;
-        sellerToProduct[msg.sender] = product;
+    function addProduct(string memory name, string memory description, uint lowerBound, uint deadline) public {
+        bytes32 productID = keccak256(abi.encodePacked(name, description, deadline));
+        Bid memory emptyBid = Bid(address(0), 0, 0);
+        Product memory product = Product(productID, name, description, lowerBound, deadline, 0, emptyBid, true);
+        activeProducts[productID] = product;
+        sellerToProduct[msg.sender][sellerToProduct[msg.sender].length] = product;
+        activeProductIds[numOfProducts] = productID;
+        numOfProducts++;
     }
 
-    function getProductById(bytes32 id) public view returns (Product) {
-        return activeProducts[id];
+    function getProductDetailsById(bytes32 id) public view returns 
+        (string memory _name, string memory _description, uint _lowerBound, uint _deadline) 
+    {
+        Product memory product = activeProducts[id];
+        _name = product.name;
+        _description = product.description;
+        _lowerBound = product.lowerBound;
+        _deadline = product.deadline;
     }
 
     modifier isValidBid(bytes32 productId, uint price) {
