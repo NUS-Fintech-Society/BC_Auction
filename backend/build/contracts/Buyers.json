@@ -1,22 +1,48 @@
 {
   "contractName": "Buyers",
-  "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.7.0+commit.9e61f92b\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/mnt/c/Users/rsadi/FintechProject/backend/contracts/Buyers.sol\":\"Buyers\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/mnt/c/Users/rsadi/FintechProject/backend/contracts/Buyers.sol\":{\"keccak256\":\"0xe0db4defa43c0f91333960f095107e1742bd12c4c5db65fc152275ff7dd6025a\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://2b44948030f9495e71def4820fa0934a14704bcfa62f6af4c27480dd195819f9\",\"dweb:/ipfs/QmPikU2Vdx8Spzr1mKrz8dEAMrYqQ9Kb3rCAUUhM3Dv8Pu\"]}},\"version\":1}",
-  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220a53dc6a31b78cc0e42dd67d7bb76f3f38233bc4245ea033c4760cba83fff47c964736f6c63430007000033",
-  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220a53dc6a31b78cc0e42dd67d7bb76f3f38233bc4245ea033c4760cba83fff47c964736f6c63430007000033",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "bidder",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "productId",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        }
+      ],
+      "name": "BidPlacedEvent",
+      "type": "event"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.7.0+commit.9e61f92b\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"productId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"name\":\"BidPlacedEvent\",\"type\":\"event\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/mnt/c/Users/rsadi/FintechProject/backend/contracts/Buyers.sol\":\"Buyers\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/mnt/c/Users/rsadi/FintechProject/backend/contracts/Buyers.sol\":{\"keccak256\":\"0x3e11f8a7290dcd564bf59337985e535c23606c54e843a1ff8cbad2ce344ee30a\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://59f43ba2bbe13698fc5ea49fc69efeba795195beabf51e7badc207aa201985d3\",\"dweb:/ipfs/QmSgxnWh5z3YUqrBdF7mSfE7ZjjfSjoDE8zXHK73dJs6bX\"]},\"/mnt/c/Users/rsadi/FintechProject/backend/contracts/Structures.sol\":{\"keccak256\":\"0xbff8cae90d951927a247bb1b217d497829355548ec7d249fd119a1128a6fd49e\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://7f2a27628882400e128cb5268508e867048f26dc7f245ef2788d31a05d7c61ef\",\"dweb:/ipfs/QmUw8kAZn55ae8Jeo5aupe9wADoSHuSC4Z3Dh3GpRAcFJD\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea26469706673582212205192c7945f8f95f970de6c4c461d46bb628bc41d42b1a680667cde0f4a90885a64736f6c63430007000033",
+  "deployedBytecode": "0x6080604052600080fdfea26469706673582212205192c7945f8f95f970de6c4c461d46bb628bc41d42b1a680667cde0f4a90885a64736f6c63430007000033",
   "immutableReferences": {},
-  "sourceMap": "67:26:0:-:0;;;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "67:26:0:-:0;;;;;",
-  "source": "// SPDX-License-Identifier: UNLICENSED\r\npragma solidity ^0.7.0;\r\n\r\ncontract Buyers {\r\n    \r\n}",
+  "sourceMap": "97:124:0:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "97:124:0:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: UNLICENSED\r\npragma solidity ^0.7.0;\r\n\r\nimport \"./Structures.sol\";\r\n\r\ncontract Buyers is Structures {\r\n\r\n    event BidPlacedEvent(address indexed bidder, bytes32 productId, uint price);\r\n    \r\n}\r\n",
   "sourcePath": "/mnt/c/Users/rsadi/FintechProject/backend/contracts/Buyers.sol",
   "ast": {
     "absolutePath": "/mnt/c/Users/rsadi/FintechProject/backend/contracts/Buyers.sol",
     "exportedSymbols": {
       "Buyers": [
-        2
+        13
       ]
     },
-    "id": 3,
+    "id": 14,
     "license": "UNLICENSED",
     "nodeType": "SourceUnit",
     "nodes": [
@@ -32,33 +58,170 @@
         "src": "40:23:0"
       },
       {
+        "absolutePath": "/mnt/c/Users/rsadi/FintechProject/backend/contracts/Structures.sol",
+        "file": "./Structures.sol",
+        "id": 2,
+        "nodeType": "ImportDirective",
+        "scope": 14,
+        "sourceUnit": 207,
+        "src": "67:26:0",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
         "abstract": false,
-        "baseContracts": [],
-        "contractDependencies": [],
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 3,
+              "name": "Structures",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 206,
+              "src": "116:10:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Structures_$206",
+                "typeString": "contract Structures"
+              }
+            },
+            "id": 4,
+            "nodeType": "InheritanceSpecifier",
+            "src": "116:10:0"
+          }
+        ],
+        "contractDependencies": [
+          206
+        ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 2,
+        "id": 13,
         "linearizedBaseContracts": [
-          2
+          13,
+          206
         ],
         "name": "Buyers",
         "nodeType": "ContractDefinition",
-        "nodes": [],
-        "scope": 3,
-        "src": "67:26:0"
+        "nodes": [
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 12,
+            "name": "BidPlacedEvent",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 11,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "bidder",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 12,
+                  "src": "157:22:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "157:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 8,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "productId",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 12,
+                  "src": "181:17:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 7,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "181:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 10,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "price",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 12,
+                  "src": "200:10:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "200:4:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "156:55:0"
+            },
+            "src": "136:76:0"
+          }
+        ],
+        "scope": 14,
+        "src": "97:124:0"
       }
     ],
-    "src": "40:53:0"
+    "src": "40:183:0"
   },
   "legacyAST": {
     "absolutePath": "/mnt/c/Users/rsadi/FintechProject/backend/contracts/Buyers.sol",
     "exportedSymbols": {
       "Buyers": [
-        2
+        13
       ]
     },
-    "id": 3,
+    "id": 14,
     "license": "UNLICENSED",
     "nodeType": "SourceUnit",
     "nodes": [
@@ -74,32 +237,169 @@
         "src": "40:23:0"
       },
       {
+        "absolutePath": "/mnt/c/Users/rsadi/FintechProject/backend/contracts/Structures.sol",
+        "file": "./Structures.sol",
+        "id": 2,
+        "nodeType": "ImportDirective",
+        "scope": 14,
+        "sourceUnit": 207,
+        "src": "67:26:0",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
         "abstract": false,
-        "baseContracts": [],
-        "contractDependencies": [],
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 3,
+              "name": "Structures",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 206,
+              "src": "116:10:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Structures_$206",
+                "typeString": "contract Structures"
+              }
+            },
+            "id": 4,
+            "nodeType": "InheritanceSpecifier",
+            "src": "116:10:0"
+          }
+        ],
+        "contractDependencies": [
+          206
+        ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 2,
+        "id": 13,
         "linearizedBaseContracts": [
-          2
+          13,
+          206
         ],
         "name": "Buyers",
         "nodeType": "ContractDefinition",
-        "nodes": [],
-        "scope": 3,
-        "src": "67:26:0"
+        "nodes": [
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 12,
+            "name": "BidPlacedEvent",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 11,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "bidder",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 12,
+                  "src": "157:22:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "157:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 8,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "productId",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 12,
+                  "src": "181:17:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 7,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "181:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 10,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "price",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 12,
+                  "src": "200:10:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "200:4:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "156:55:0"
+            },
+            "src": "136:76:0"
+          }
+        ],
+        "scope": 14,
+        "src": "97:124:0"
       }
     ],
-    "src": "40:53:0"
+    "src": "40:183:0"
   },
   "compiler": {
     "name": "solc",
     "version": "0.7.0+commit.9e61f92b.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.2.5",
-  "updatedAt": "2020-12-12T10:18:38.466Z",
+  "schemaVersion": "3.3.2",
+  "updatedAt": "2020-12-16T10:05:00.606Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

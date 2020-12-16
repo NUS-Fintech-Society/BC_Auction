@@ -5,8 +5,8 @@ contract Structures {
     
     struct Bid {
         address bidder;
-        uint bidprice;
-        uint purchaseDate;
+        uint bidPrice;
+        uint bidTime;
     }
 
     struct Product {
@@ -16,7 +16,8 @@ contract Structures {
         uint lowerBound;
         uint deadline;
         uint noOfBids;
-        Bid highestBid; 
+        Bid highestBid;
+        bool isReal; 
     }
 
 }

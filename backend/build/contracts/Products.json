@@ -1,27 +1,121 @@
 {
   "contractName": "Products",
-  "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.7.0+commit.9e61f92b\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/mnt/c/Users/rsadi/FintechProject/backend/contracts/Products.sol\":\"Products\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/mnt/c/Users/rsadi/FintechProject/backend/contracts/Buyers.sol\":{\"keccak256\":\"0xe0db4defa43c0f91333960f095107e1742bd12c4c5db65fc152275ff7dd6025a\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://2b44948030f9495e71def4820fa0934a14704bcfa62f6af4c27480dd195819f9\",\"dweb:/ipfs/QmPikU2Vdx8Spzr1mKrz8dEAMrYqQ9Kb3rCAUUhM3Dv8Pu\"]},\"/mnt/c/Users/rsadi/FintechProject/backend/contracts/Products.sol\":{\"keccak256\":\"0xea6172a168b0aa46a7fdf83f6a85f52333908cfe3a8bf4bc0645315ec32b64de\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://9ce4a5d2ccd3db8bfd7928168c1eb81f24b104c8ead655c76e4bc76df0f29f79\",\"dweb:/ipfs/QmWMZcy7KZCNRvi7ZFRcT8ED4nK2jtJN4V6oEDH9U9opJP\"]},\"/mnt/c/Users/rsadi/FintechProject/backend/contracts/Sellers.sol\":{\"keccak256\":\"0x32ce1621d94f663c40fcd3ca8f7054a16ebfc35681e7c26d8f40a99183187a52\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://4ccc9fec6571a2b93319231c260a9f9f6f269f19b6afa22d44e468e0ea61ade0\",\"dweb:/ipfs/QmeCEcLxY6X4gA6qicCane5Fn9f8U8jB9LcLCkkejRGitA\"]}},\"version\":1}",
-  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea26469706673582212206c2710bc600dc044fd655636c710fd261301c2f3125d4c4e18df06b7612d9f1064736f6c63430007000033",
-  "deployedBytecode": "0x6080604052600080fdfea26469706673582212206c2710bc600dc044fd655636c710fd261301c2f3125d4c4e18df06b7612d9f1064736f6c63430007000033",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "bidder",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "productId",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        }
+      ],
+      "name": "BidPlacedEvent",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "seller",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "productId",
+          "type": "bytes32"
+        }
+      ],
+      "name": "ProductLaunchEvent",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "seller",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "buyer",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "name": "ProductSoldEvent",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "productId",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        }
+      ],
+      "name": "placeBid",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.7.0+commit.9e61f92b\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"productId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"name\":\"BidPlacedEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"productId\",\"type\":\"bytes32\"}],\"name\":\"ProductLaunchEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"}],\"name\":\"ProductSoldEvent\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"productId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"name\":\"placeBid\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/mnt/c/Users/rsadi/FintechProject/backend/contracts/Products.sol\":\"Products\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/mnt/c/Users/rsadi/FintechProject/backend/contracts/Buyers.sol\":{\"keccak256\":\"0x3e11f8a7290dcd564bf59337985e535c23606c54e843a1ff8cbad2ce344ee30a\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://59f43ba2bbe13698fc5ea49fc69efeba795195beabf51e7badc207aa201985d3\",\"dweb:/ipfs/QmSgxnWh5z3YUqrBdF7mSfE7ZjjfSjoDE8zXHK73dJs6bX\"]},\"/mnt/c/Users/rsadi/FintechProject/backend/contracts/Products.sol\":{\"keccak256\":\"0xe44b8822deec9277bd5601988eb628b8b21b171f9642d3ce0a65a70115909eba\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://209ca8c1ae434c875da7a8955ab36396b7b9fb6c6198143a5dae2bde422f3637\",\"dweb:/ipfs/QmZ4atCVyy2WnT4L72f8dQ16joPL9M3ZnKNR9w3cEvQkAq\"]},\"/mnt/c/Users/rsadi/FintechProject/backend/contracts/Sellers.sol\":{\"keccak256\":\"0x705dcc62142e50d0c08aaea5046c7b2d8dfee3d1aa9dd7fa2af299a0a3050236\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://af0ddc1860e76c82c934dbd792538dab0ddc11d68996db29ff2ad58b570f4408\",\"dweb:/ipfs/QmbQEB3TXBirwe8QdwDfs4Ur1cB7GC6pXqDbd9Ace3Z6PM\"]},\"/mnt/c/Users/rsadi/FintechProject/backend/contracts/Structures.sol\":{\"keccak256\":\"0xbff8cae90d951927a247bb1b217d497829355548ec7d249fd119a1128a6fd49e\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://7f2a27628882400e128cb5268508e867048f26dc7f245ef2788d31a05d7c61ef\",\"dweb:/ipfs/QmUw8kAZn55ae8Jeo5aupe9wADoSHuSC4Z3Dh3GpRAcFJD\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50610422806100206000396000f3fe608060405234801561001057600080fd5b506004361061002b5760003560e01c8063bca1aaa314610030575b600080fd5b6100666004803603604081101561004657600080fd5b810190808035906020019092919080359060200190929190505050610068565b005b8181600080600084815260200190815260200160002090508060090160009054906101000a900460ff16610104576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260168152602001807f50726f6475637420646f6573206e6f742065786973740000000000000000000081525060200191505060405180910390fd5b8060040154421061017d576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260148152602001807f41756374696f6e2074696d6520656c617073656400000000000000000000000081525060200191505060405180910390fd5b806006016001015482116101dc576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260298152602001806103c46029913960400191505060405180910390fd5b8060030154821015610239576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252602981526020018061039b6029913960400191505060405180910390fd5b60008060008781526020019081526020016000209050610257610363565b60405180606001604052803373ffffffffffffffffffffffffffffffffffffffff168152602001878152602001428152509050808260060160008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550602082015181600101556040820151816002015590505060018260050160008282540192505081905550806000015173ffffffffffffffffffffffffffffffffffffffff167f11034bf5a8999be1961a6eb59ebc62f2b0ad67cfdc04a45e152332b99977e3918888604051808381526020018281526020019250505060405180910390a250505050505050565b6040518060600160405280600073ffffffffffffffffffffffffffffffffffffffff1681526020016000815260200160008152509056fe426964207072696365206d75737420626520686967686572207468616e206c6f77657220626f756e64426964207072696365206d75737420626520686967686572207468616e2063757272656e7420626964a2646970667358221220fe0e0849b3e2ad06f145bf2cad068e563885958e7ada56f14953549825e30fed64736f6c63430007000033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061002b5760003560e01c8063bca1aaa314610030575b600080fd5b6100666004803603604081101561004657600080fd5b810190808035906020019092919080359060200190929190505050610068565b005b8181600080600084815260200190815260200160002090508060090160009054906101000a900460ff16610104576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260168152602001807f50726f6475637420646f6573206e6f742065786973740000000000000000000081525060200191505060405180910390fd5b8060040154421061017d576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260148152602001807f41756374696f6e2074696d6520656c617073656400000000000000000000000081525060200191505060405180910390fd5b806006016001015482116101dc576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260298152602001806103c46029913960400191505060405180910390fd5b8060030154821015610239576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252602981526020018061039b6029913960400191505060405180910390fd5b60008060008781526020019081526020016000209050610257610363565b60405180606001604052803373ffffffffffffffffffffffffffffffffffffffff168152602001878152602001428152509050808260060160008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550602082015181600101556040820151816002015590505060018260050160008282540192505081905550806000015173ffffffffffffffffffffffffffffffffffffffff167f11034bf5a8999be1961a6eb59ebc62f2b0ad67cfdc04a45e152332b99977e3918888604051808381526020018281526020019250505060405180910390a250505050505050565b6040518060600160405280600073ffffffffffffffffffffffffffffffffffffffff1681526020016000815260200160008152509056fe426964207072696365206d75737420626520686967686572207468616e206c6f77657220626f756e64426964207072696365206d75737420626520686967686572207468616e2063757272656e7420626964a2646970667358221220fe0e0849b3e2ad06f145bf2cad068e563885958e7ada56f14953549825e30fed64736f6c63430007000033",
   "immutableReferences": {},
-  "sourceMap": "118:43:2:-:0;;;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "118:43:2:-:0;;;;;",
-  "source": "// SPDX-License-Identifier: UNLICENSED\r\npragma solidity ^0.7.0;\r\n\r\nimport \"./Buyers.sol\";\r\nimport \"./Sellers.sol\";\r\n\r\ncontract Products is Buyers, Sellers {\r\n\r\n}",
+  "sourceMap": "118:1241:2:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "118:1241:2:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;877:473;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;944:9;955:5;433:30;466:14;:25;481:9;466:25;;;;;;;;;;;433:58;;510:14;:21;;;;;;;;;;;;502:56;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;595:14;:23;;;577:15;:41;569:74;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;670:14;:25;;:34;;;662:5;:42;654:96;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;778:14;:25;;;769:5;:34;;761:88;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;973:30:::1;1006:14:::0;:25:::1;1021:9;1006:25;;;;;;;;;;;973:58;;1052:17;;:::i;:::-;1072:118;;;;;;;;1099:10;1072:118;;;;;;1134:5;1072:118;;;;1163:15;1072:118;;::::0;1052:138:::1;;1231:6;1203:14;:25;;:34;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1275:1;1248:14;:23;;;:28;;;;;;;;;;;1309:6;:13;;;1294:47;;;1324:9;1335:5;1294:47;;;;;;;;;;;;;;;;;;;;;;;;860:1;;877:473:::0;;;;;:::o;-1:-1:-1:-;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "// SPDX-License-Identifier: UNLICENSED\r\npragma solidity ^0.7.0;\r\n\r\nimport \"./Buyers.sol\";\r\nimport \"./Sellers.sol\";\r\n\r\ncontract Products is Buyers, Sellers { //TODO: import new holder contract (contains Seller and Buyer)\r\n\r\n    mapping(bytes32 => Product) activeProducts;\r\n    bytes32[] activeProductIds;\r\n    mapping(address => Product[]) private sellerToProduct;\r\n\r\n    modifier isValidBid(bytes32 productId, uint price) {\r\n        Product storage currentProduct = activeProducts[productId];\r\n        require(currentProduct.isReal, \"Product does not exist\");\r\n        require(block.timestamp < currentProduct.deadline, \"Auction time elapsed\");\r\n        require(price > currentProduct.highestBid.bidPrice, \"Bid price must be higher than current bid\");\r\n        require(price >= currentProduct.lowerBound, \"Bid price must be higher than lower bound\");\r\n        _;\r\n    }\r\n\r\n    function placeBid(bytes32 productId, uint price) public isValidBid(productId, price) {\r\n        Product storage currentProduct = activeProducts[productId];\r\n        \r\n        Bid memory newBid = Bid({\r\n            bidder: msg.sender,\r\n            bidPrice: price,\r\n            bidTime: block.timestamp\r\n        });\r\n\r\n        currentProduct.highestBid = newBid;\r\n        currentProduct.noOfBids += 1;\r\n\r\n        emit BidPlacedEvent(newBid.bidder, productId, price); \r\n    }\r\n    \r\n}\r\n",
   "sourcePath": "/mnt/c/Users/rsadi/FintechProject/backend/contracts/Products.sol",
   "ast": {
     "absolutePath": "/mnt/c/Users/rsadi/FintechProject/backend/contracts/Products.sol",
     "exportedSymbols": {
       "Products": [
-        44
+        160
       ]
     },
-    "id": 45,
+    "id": 161,
     "license": "UNLICENSED",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 37,
+        "id": 48,
         "literals": [
           "solidity",
           "^",
@@ -34,10 +128,10 @@
       {
         "absolutePath": "/mnt/c/Users/rsadi/FintechProject/backend/contracts/Buyers.sol",
         "file": "./Buyers.sol",
-        "id": 38,
+        "id": 49,
         "nodeType": "ImportDirective",
-        "scope": 45,
-        "sourceUnit": 3,
+        "scope": 161,
+        "sourceUnit": 14,
         "src": "67:22:2",
         "symbolAliases": [],
         "unitAlias": ""
@@ -45,10 +139,10 @@
       {
         "absolutePath": "/mnt/c/Users/rsadi/FintechProject/backend/contracts/Sellers.sol",
         "file": "./Sellers.sol",
-        "id": 39,
+        "id": 50,
         "nodeType": "ImportDirective",
-        "scope": 45,
-        "sourceUnit": 48,
+        "scope": 161,
+        "sourceUnit": 183,
         "src": "91:23:2",
         "symbolAliases": [],
         "unitAlias": ""
@@ -60,17 +154,17 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 40,
+              "id": 51,
               "name": "Buyers",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2,
+              "referencedDeclaration": 13,
               "src": "139:6:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Buyers_$2",
+                "typeIdentifier": "t_contract$_Buyers_$13",
                 "typeString": "contract Buyers"
               }
             },
-            "id": 41,
+            "id": 52,
             "nodeType": "InheritanceSpecifier",
             "src": "139:6:2"
           },
@@ -78,56 +172,1495 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 42,
+              "id": 53,
               "name": "Sellers",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 47,
+              "referencedDeclaration": 182,
               "src": "147:7:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Sellers_$47",
+                "typeIdentifier": "t_contract$_Sellers_$182",
                 "typeString": "contract Sellers"
               }
             },
-            "id": 43,
+            "id": 54,
             "nodeType": "InheritanceSpecifier",
             "src": "147:7:2"
           }
         ],
         "contractDependencies": [
-          2,
-          47
+          13,
+          182,
+          209
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 44,
+        "id": 160,
         "linearizedBaseContracts": [
-          44,
-          47,
-          2
+          160,
+          182,
+          13,
+          209
         ],
         "name": "Products",
         "nodeType": "ContractDefinition",
-        "nodes": [],
-        "scope": 45,
-        "src": "118:43:2"
+        "nodes": [
+          {
+            "constant": false,
+            "id": 58,
+            "mutability": "mutable",
+            "name": "activeProducts",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 160,
+            "src": "227:42:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Product_$208_storage_$",
+              "typeString": "mapping(bytes32 => struct Structures.Product)"
+            },
+            "typeName": {
+              "id": 57,
+              "keyType": {
+                "id": 55,
+                "name": "bytes32",
+                "nodeType": "ElementaryTypeName",
+                "src": "235:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "227:27:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Product_$208_storage_$",
+                "typeString": "mapping(bytes32 => struct Structures.Product)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 56,
+                "name": "Product",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 208,
+                "src": "246:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Product_$208_storage_ptr",
+                  "typeString": "struct Structures.Product"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 61,
+            "mutability": "mutable",
+            "name": "activeProductIds",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 160,
+            "src": "276:26:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
+              "typeString": "bytes32[]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 59,
+                "name": "bytes32",
+                "nodeType": "ElementaryTypeName",
+                "src": "276:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                }
+              },
+              "id": 60,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "276:9:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                "typeString": "bytes32[]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 66,
+            "mutability": "mutable",
+            "name": "sellerToProduct",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 160,
+            "src": "309:53:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_struct$_Product_$208_storage_$dyn_storage_$",
+              "typeString": "mapping(address => struct Structures.Product[])"
+            },
+            "typeName": {
+              "id": 65,
+              "keyType": {
+                "id": 62,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "317:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "309:29:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_struct$_Product_$208_storage_$dyn_storage_$",
+                "typeString": "mapping(address => struct Structures.Product[])"
+              },
+              "valueType": {
+                "baseType": {
+                  "contractScope": null,
+                  "id": 63,
+                  "name": "Product",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 208,
+                  "src": "328:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Product_$208_storage_ptr",
+                    "typeString": "struct Structures.Product"
+                  }
+                },
+                "id": 64,
+                "length": null,
+                "nodeType": "ArrayTypeName",
+                "src": "328:9:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_struct$_Product_$208_storage_$dyn_storage_ptr",
+                  "typeString": "struct Structures.Product[]"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "body": {
+              "id": 111,
+              "nodeType": "Block",
+              "src": "422:447:2",
+              "statements": [
+                {
+                  "assignments": [
+                    73
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 73,
+                      "mutability": "mutable",
+                      "name": "currentProduct",
+                      "nodeType": "VariableDeclaration",
+                      "overrides": null,
+                      "scope": 111,
+                      "src": "433:30:2",
+                      "stateVariable": false,
+                      "storageLocation": "storage",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Product_$208_storage_ptr",
+                        "typeString": "struct Structures.Product"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 72,
+                        "name": "Product",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 208,
+                        "src": "433:7:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Product_$208_storage_ptr",
+                          "typeString": "struct Structures.Product"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 77,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "baseExpression": {
+                      "argumentTypes": null,
+                      "id": 74,
+                      "name": "activeProducts",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 58,
+                      "src": "466:14:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Product_$208_storage_$",
+                        "typeString": "mapping(bytes32 => struct Structures.Product storage ref)"
+                      }
+                    },
+                    "id": 76,
+                    "indexExpression": {
+                      "argumentTypes": null,
+                      "id": 75,
+                      "name": "productId",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 68,
+                      "src": "481:9:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "466:25:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Product_$208_storage",
+                      "typeString": "struct Structures.Product storage ref"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "433:58:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 79,
+                          "name": "currentProduct",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 73,
+                          "src": "510:14:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Product_$208_storage_ptr",
+                            "typeString": "struct Structures.Product storage pointer"
+                          }
+                        },
+                        "id": 80,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "isReal",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 207,
+                        "src": "510:21:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "50726f6475637420646f6573206e6f74206578697374",
+                        "id": 81,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "533:24:2",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_024c62f1b19c7769a4597e49b2c712fccb7b90866e80d0db4592b32e89de4592",
+                          "typeString": "literal_string \"Product does not exist\""
+                        },
+                        "value": "Product does not exist"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_024c62f1b19c7769a4597e49b2c712fccb7b90866e80d0db4592b32e89de4592",
+                          "typeString": "literal_string \"Product does not exist\""
+                        }
+                      ],
+                      "id": 78,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "502:7:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 82,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "502:56:2",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 83,
+                  "nodeType": "ExpressionStatement",
+                  "src": "502:56:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 89,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 85,
+                            "name": "block",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": -4,
+                            "src": "577:5:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_block",
+                              "typeString": "block"
+                            }
+                          },
+                          "id": 86,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "timestamp",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "577:15:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "<",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 87,
+                            "name": "currentProduct",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 73,
+                            "src": "595:14:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_Product_$208_storage_ptr",
+                              "typeString": "struct Structures.Product storage pointer"
+                            }
+                          },
+                          "id": 88,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "deadline",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 201,
+                          "src": "595:23:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "src": "577:41:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "41756374696f6e2074696d6520656c6170736564",
+                        "id": 90,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "620:22:2",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_f5da45587289bbe862855c981d9841e55af1bd969ad5d331fb53c9163d8b6511",
+                          "typeString": "literal_string \"Auction time elapsed\""
+                        },
+                        "value": "Auction time elapsed"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_f5da45587289bbe862855c981d9841e55af1bd969ad5d331fb53c9163d8b6511",
+                          "typeString": "literal_string \"Auction time elapsed\""
+                        }
+                      ],
+                      "id": 84,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "569:7:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 91,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "569:74:2",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 92,
+                  "nodeType": "ExpressionStatement",
+                  "src": "569:74:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 98,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "id": 94,
+                          "name": "price",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 70,
+                          "src": "662:5:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": ">",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 95,
+                              "name": "currentProduct",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 73,
+                              "src": "670:14:2",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_Product_$208_storage_ptr",
+                                "typeString": "struct Structures.Product storage pointer"
+                              }
+                            },
+                            "id": 96,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "highestBid",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 205,
+                            "src": "670:25:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_Bid_$191_storage",
+                              "typeString": "struct Structures.Bid storage ref"
+                            }
+                          },
+                          "id": 97,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "bidPrice",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 188,
+                          "src": "670:34:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "src": "662:42:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "426964207072696365206d75737420626520686967686572207468616e2063757272656e7420626964",
+                        "id": 99,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "706:43:2",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_de1d18d1ab9b9c4debeeb47c138e665b5f42f9050254bbeac210851a26b7dd22",
+                          "typeString": "literal_string \"Bid price must be higher than current bid\""
+                        },
+                        "value": "Bid price must be higher than current bid"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_de1d18d1ab9b9c4debeeb47c138e665b5f42f9050254bbeac210851a26b7dd22",
+                          "typeString": "literal_string \"Bid price must be higher than current bid\""
+                        }
+                      ],
+                      "id": 93,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "654:7:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 100,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "654:96:2",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 101,
+                  "nodeType": "ExpressionStatement",
+                  "src": "654:96:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 106,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "id": 103,
+                          "name": "price",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 70,
+                          "src": "769:5:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": ">=",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 104,
+                            "name": "currentProduct",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 73,
+                            "src": "778:14:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_Product_$208_storage_ptr",
+                              "typeString": "struct Structures.Product storage pointer"
+                            }
+                          },
+                          "id": 105,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "lowerBound",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 199,
+                          "src": "778:25:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "src": "769:34:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "426964207072696365206d75737420626520686967686572207468616e206c6f77657220626f756e64",
+                        "id": 107,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "805:43:2",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_b84f6a5d407f5ac4fcbe1df3bf70520553ca671585fadc18c49ae17090db82bc",
+                          "typeString": "literal_string \"Bid price must be higher than lower bound\""
+                        },
+                        "value": "Bid price must be higher than lower bound"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_b84f6a5d407f5ac4fcbe1df3bf70520553ca671585fadc18c49ae17090db82bc",
+                          "typeString": "literal_string \"Bid price must be higher than lower bound\""
+                        }
+                      ],
+                      "id": 102,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "761:7:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 108,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "761:88:2",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 109,
+                  "nodeType": "ExpressionStatement",
+                  "src": "761:88:2"
+                },
+                {
+                  "id": 110,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "860:1:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 112,
+            "name": "isValidBid",
+            "nodeType": "ModifierDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 71,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 68,
+                  "mutability": "mutable",
+                  "name": "productId",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 112,
+                  "src": "391:17:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 67,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "391:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 70,
+                  "mutability": "mutable",
+                  "name": "price",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 112,
+                  "src": "410:10:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 69,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "410:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "390:31:2"
+            },
+            "src": "371:498:2",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 158,
+              "nodeType": "Block",
+              "src": "962:388:2",
+              "statements": [
+                {
+                  "assignments": [
+                    124
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 124,
+                      "mutability": "mutable",
+                      "name": "currentProduct",
+                      "nodeType": "VariableDeclaration",
+                      "overrides": null,
+                      "scope": 158,
+                      "src": "973:30:2",
+                      "stateVariable": false,
+                      "storageLocation": "storage",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Product_$208_storage_ptr",
+                        "typeString": "struct Structures.Product"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 123,
+                        "name": "Product",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 208,
+                        "src": "973:7:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Product_$208_storage_ptr",
+                          "typeString": "struct Structures.Product"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 128,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "baseExpression": {
+                      "argumentTypes": null,
+                      "id": 125,
+                      "name": "activeProducts",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 58,
+                      "src": "1006:14:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Product_$208_storage_$",
+                        "typeString": "mapping(bytes32 => struct Structures.Product storage ref)"
+                      }
+                    },
+                    "id": 127,
+                    "indexExpression": {
+                      "argumentTypes": null,
+                      "id": 126,
+                      "name": "productId",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 114,
+                      "src": "1021:9:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "1006:25:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Product_$208_storage",
+                      "typeString": "struct Structures.Product storage ref"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "973:58:2"
+                },
+                {
+                  "assignments": [
+                    130
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 130,
+                      "mutability": "mutable",
+                      "name": "newBid",
+                      "nodeType": "VariableDeclaration",
+                      "overrides": null,
+                      "scope": 158,
+                      "src": "1052:17:2",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Bid_$191_memory_ptr",
+                        "typeString": "struct Structures.Bid"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 129,
+                        "name": "Bid",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 191,
+                        "src": "1052:3:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Bid_$191_storage_ptr",
+                          "typeString": "struct Structures.Bid"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 138,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 132,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": -15,
+                          "src": "1099:3:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 133,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "1099:10:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 134,
+                        "name": "price",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 116,
+                        "src": "1134:5:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 135,
+                          "name": "block",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": -4,
+                          "src": "1163:5:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_block",
+                            "typeString": "block"
+                          }
+                        },
+                        "id": 136,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "timestamp",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "1163:15:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 131,
+                      "name": "Bid",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 191,
+                      "src": "1072:3:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_struct$_Bid_$191_storage_ptr_$",
+                        "typeString": "type(struct Structures.Bid storage pointer)"
+                      }
+                    },
+                    "id": 137,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "structConstructorCall",
+                    "lValueRequested": false,
+                    "names": [
+                      "bidder",
+                      "bidPrice",
+                      "bidTime"
+                    ],
+                    "nodeType": "FunctionCall",
+                    "src": "1072:118:2",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Bid_$191_memory_ptr",
+                      "typeString": "struct Structures.Bid memory"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1052:138:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 143,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 139,
+                        "name": "currentProduct",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 124,
+                        "src": "1203:14:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Product_$208_storage_ptr",
+                          "typeString": "struct Structures.Product storage pointer"
+                        }
+                      },
+                      "id": 141,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "highestBid",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 205,
+                      "src": "1203:25:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Bid_$191_storage",
+                        "typeString": "struct Structures.Bid storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 142,
+                      "name": "newBid",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 130,
+                      "src": "1231:6:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Bid_$191_memory_ptr",
+                        "typeString": "struct Structures.Bid memory"
+                      }
+                    },
+                    "src": "1203:34:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Bid_$191_storage",
+                      "typeString": "struct Structures.Bid storage ref"
+                    }
+                  },
+                  "id": 144,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1203:34:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 149,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 145,
+                        "name": "currentProduct",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 124,
+                        "src": "1248:14:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Product_$208_storage_ptr",
+                          "typeString": "struct Structures.Product storage pointer"
+                        }
+                      },
+                      "id": 147,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "noOfBids",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 203,
+                      "src": "1248:23:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "+=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "31",
+                      "id": 148,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1275:1:2",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_1_by_1",
+                        "typeString": "int_const 1"
+                      },
+                      "value": "1"
+                    },
+                    "src": "1248:28:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 150,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1248:28:2"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 152,
+                          "name": "newBid",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 130,
+                          "src": "1309:6:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Bid_$191_memory_ptr",
+                            "typeString": "struct Structures.Bid memory"
+                          }
+                        },
+                        "id": 153,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "bidder",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 186,
+                        "src": "1309:13:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 154,
+                        "name": "productId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 114,
+                        "src": "1324:9:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 155,
+                        "name": "price",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 116,
+                        "src": "1335:5:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 151,
+                      "name": "BidPlacedEvent",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 12,
+                      "src": "1294:14:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_bytes32_$_t_uint256_$returns$__$",
+                        "typeString": "function (address,bytes32,uint256)"
+                      }
+                    },
+                    "id": 156,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1294:47:2",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 157,
+                  "nodeType": "EmitStatement",
+                  "src": "1289:52:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "bca1aaa3",
+            "id": 159,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 119,
+                    "name": "productId",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 114,
+                    "src": "944:9:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  {
+                    "argumentTypes": null,
+                    "id": 120,
+                    "name": "price",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 116,
+                    "src": "955:5:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                ],
+                "id": 121,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 118,
+                  "name": "isValidBid",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 112,
+                  "src": "933:10:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$_t_bytes32_$_t_uint256_$",
+                    "typeString": "modifier (bytes32,uint256)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "933:28:2"
+              }
+            ],
+            "name": "placeBid",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 117,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 114,
+                  "mutability": "mutable",
+                  "name": "productId",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 159,
+                  "src": "895:17:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 113,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "895:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 116,
+                  "mutability": "mutable",
+                  "name": "price",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 159,
+                  "src": "914:10:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 115,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "914:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "894:31:2"
+            },
+            "returnParameters": {
+              "id": 122,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "962:0:2"
+            },
+            "scope": 160,
+            "src": "877:473:2",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 161,
+        "src": "118:1241:2"
       }
     ],
-    "src": "40:121:2"
+    "src": "40:1321:2"
   },
   "legacyAST": {
     "absolutePath": "/mnt/c/Users/rsadi/FintechProject/backend/contracts/Products.sol",
     "exportedSymbols": {
       "Products": [
-        44
+        160
       ]
     },
-    "id": 45,
+    "id": 161,
     "license": "UNLICENSED",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 37,
+        "id": 48,
         "literals": [
           "solidity",
           "^",
@@ -140,10 +1673,10 @@
       {
         "absolutePath": "/mnt/c/Users/rsadi/FintechProject/backend/contracts/Buyers.sol",
         "file": "./Buyers.sol",
-        "id": 38,
+        "id": 49,
         "nodeType": "ImportDirective",
-        "scope": 45,
-        "sourceUnit": 3,
+        "scope": 161,
+        "sourceUnit": 14,
         "src": "67:22:2",
         "symbolAliases": [],
         "unitAlias": ""
@@ -151,10 +1684,10 @@
       {
         "absolutePath": "/mnt/c/Users/rsadi/FintechProject/backend/contracts/Sellers.sol",
         "file": "./Sellers.sol",
-        "id": 39,
+        "id": 50,
         "nodeType": "ImportDirective",
-        "scope": 45,
-        "sourceUnit": 48,
+        "scope": 161,
+        "sourceUnit": 183,
         "src": "91:23:2",
         "symbolAliases": [],
         "unitAlias": ""
@@ -166,17 +1699,17 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 40,
+              "id": 51,
               "name": "Buyers",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2,
+              "referencedDeclaration": 13,
               "src": "139:6:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Buyers_$2",
+                "typeIdentifier": "t_contract$_Buyers_$13",
                 "typeString": "contract Buyers"
               }
             },
-            "id": 41,
+            "id": 52,
             "nodeType": "InheritanceSpecifier",
             "src": "139:6:2"
           },
@@ -184,50 +1717,1489 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 42,
+              "id": 53,
               "name": "Sellers",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 47,
+              "referencedDeclaration": 182,
               "src": "147:7:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Sellers_$47",
+                "typeIdentifier": "t_contract$_Sellers_$182",
                 "typeString": "contract Sellers"
               }
             },
-            "id": 43,
+            "id": 54,
             "nodeType": "InheritanceSpecifier",
             "src": "147:7:2"
           }
         ],
         "contractDependencies": [
-          2,
-          47
+          13,
+          182,
+          209
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 44,
+        "id": 160,
         "linearizedBaseContracts": [
-          44,
-          47,
-          2
+          160,
+          182,
+          13,
+          209
         ],
         "name": "Products",
         "nodeType": "ContractDefinition",
-        "nodes": [],
-        "scope": 45,
-        "src": "118:43:2"
+        "nodes": [
+          {
+            "constant": false,
+            "id": 58,
+            "mutability": "mutable",
+            "name": "activeProducts",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 160,
+            "src": "227:42:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Product_$208_storage_$",
+              "typeString": "mapping(bytes32 => struct Structures.Product)"
+            },
+            "typeName": {
+              "id": 57,
+              "keyType": {
+                "id": 55,
+                "name": "bytes32",
+                "nodeType": "ElementaryTypeName",
+                "src": "235:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "227:27:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Product_$208_storage_$",
+                "typeString": "mapping(bytes32 => struct Structures.Product)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 56,
+                "name": "Product",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 208,
+                "src": "246:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Product_$208_storage_ptr",
+                  "typeString": "struct Structures.Product"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 61,
+            "mutability": "mutable",
+            "name": "activeProductIds",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 160,
+            "src": "276:26:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
+              "typeString": "bytes32[]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 59,
+                "name": "bytes32",
+                "nodeType": "ElementaryTypeName",
+                "src": "276:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                }
+              },
+              "id": 60,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "276:9:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                "typeString": "bytes32[]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 66,
+            "mutability": "mutable",
+            "name": "sellerToProduct",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 160,
+            "src": "309:53:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_struct$_Product_$208_storage_$dyn_storage_$",
+              "typeString": "mapping(address => struct Structures.Product[])"
+            },
+            "typeName": {
+              "id": 65,
+              "keyType": {
+                "id": 62,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "317:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "309:29:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_struct$_Product_$208_storage_$dyn_storage_$",
+                "typeString": "mapping(address => struct Structures.Product[])"
+              },
+              "valueType": {
+                "baseType": {
+                  "contractScope": null,
+                  "id": 63,
+                  "name": "Product",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 208,
+                  "src": "328:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Product_$208_storage_ptr",
+                    "typeString": "struct Structures.Product"
+                  }
+                },
+                "id": 64,
+                "length": null,
+                "nodeType": "ArrayTypeName",
+                "src": "328:9:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_struct$_Product_$208_storage_$dyn_storage_ptr",
+                  "typeString": "struct Structures.Product[]"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "body": {
+              "id": 111,
+              "nodeType": "Block",
+              "src": "422:447:2",
+              "statements": [
+                {
+                  "assignments": [
+                    73
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 73,
+                      "mutability": "mutable",
+                      "name": "currentProduct",
+                      "nodeType": "VariableDeclaration",
+                      "overrides": null,
+                      "scope": 111,
+                      "src": "433:30:2",
+                      "stateVariable": false,
+                      "storageLocation": "storage",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Product_$208_storage_ptr",
+                        "typeString": "struct Structures.Product"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 72,
+                        "name": "Product",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 208,
+                        "src": "433:7:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Product_$208_storage_ptr",
+                          "typeString": "struct Structures.Product"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 77,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "baseExpression": {
+                      "argumentTypes": null,
+                      "id": 74,
+                      "name": "activeProducts",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 58,
+                      "src": "466:14:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Product_$208_storage_$",
+                        "typeString": "mapping(bytes32 => struct Structures.Product storage ref)"
+                      }
+                    },
+                    "id": 76,
+                    "indexExpression": {
+                      "argumentTypes": null,
+                      "id": 75,
+                      "name": "productId",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 68,
+                      "src": "481:9:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "466:25:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Product_$208_storage",
+                      "typeString": "struct Structures.Product storage ref"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "433:58:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 79,
+                          "name": "currentProduct",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 73,
+                          "src": "510:14:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Product_$208_storage_ptr",
+                            "typeString": "struct Structures.Product storage pointer"
+                          }
+                        },
+                        "id": 80,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "isReal",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 207,
+                        "src": "510:21:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "50726f6475637420646f6573206e6f74206578697374",
+                        "id": 81,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "533:24:2",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_024c62f1b19c7769a4597e49b2c712fccb7b90866e80d0db4592b32e89de4592",
+                          "typeString": "literal_string \"Product does not exist\""
+                        },
+                        "value": "Product does not exist"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_024c62f1b19c7769a4597e49b2c712fccb7b90866e80d0db4592b32e89de4592",
+                          "typeString": "literal_string \"Product does not exist\""
+                        }
+                      ],
+                      "id": 78,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "502:7:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 82,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "502:56:2",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 83,
+                  "nodeType": "ExpressionStatement",
+                  "src": "502:56:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 89,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 85,
+                            "name": "block",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": -4,
+                            "src": "577:5:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_block",
+                              "typeString": "block"
+                            }
+                          },
+                          "id": 86,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "timestamp",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "577:15:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "<",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 87,
+                            "name": "currentProduct",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 73,
+                            "src": "595:14:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_Product_$208_storage_ptr",
+                              "typeString": "struct Structures.Product storage pointer"
+                            }
+                          },
+                          "id": 88,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "deadline",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 201,
+                          "src": "595:23:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "src": "577:41:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "41756374696f6e2074696d6520656c6170736564",
+                        "id": 90,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "620:22:2",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_f5da45587289bbe862855c981d9841e55af1bd969ad5d331fb53c9163d8b6511",
+                          "typeString": "literal_string \"Auction time elapsed\""
+                        },
+                        "value": "Auction time elapsed"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_f5da45587289bbe862855c981d9841e55af1bd969ad5d331fb53c9163d8b6511",
+                          "typeString": "literal_string \"Auction time elapsed\""
+                        }
+                      ],
+                      "id": 84,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "569:7:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 91,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "569:74:2",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 92,
+                  "nodeType": "ExpressionStatement",
+                  "src": "569:74:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 98,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "id": 94,
+                          "name": "price",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 70,
+                          "src": "662:5:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": ">",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 95,
+                              "name": "currentProduct",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 73,
+                              "src": "670:14:2",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_Product_$208_storage_ptr",
+                                "typeString": "struct Structures.Product storage pointer"
+                              }
+                            },
+                            "id": 96,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "highestBid",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 205,
+                            "src": "670:25:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_Bid_$191_storage",
+                              "typeString": "struct Structures.Bid storage ref"
+                            }
+                          },
+                          "id": 97,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "bidPrice",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 188,
+                          "src": "670:34:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "src": "662:42:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "426964207072696365206d75737420626520686967686572207468616e2063757272656e7420626964",
+                        "id": 99,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "706:43:2",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_de1d18d1ab9b9c4debeeb47c138e665b5f42f9050254bbeac210851a26b7dd22",
+                          "typeString": "literal_string \"Bid price must be higher than current bid\""
+                        },
+                        "value": "Bid price must be higher than current bid"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_de1d18d1ab9b9c4debeeb47c138e665b5f42f9050254bbeac210851a26b7dd22",
+                          "typeString": "literal_string \"Bid price must be higher than current bid\""
+                        }
+                      ],
+                      "id": 93,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "654:7:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 100,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "654:96:2",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 101,
+                  "nodeType": "ExpressionStatement",
+                  "src": "654:96:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 106,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "id": 103,
+                          "name": "price",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 70,
+                          "src": "769:5:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": ">=",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 104,
+                            "name": "currentProduct",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 73,
+                            "src": "778:14:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_Product_$208_storage_ptr",
+                              "typeString": "struct Structures.Product storage pointer"
+                            }
+                          },
+                          "id": 105,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "lowerBound",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 199,
+                          "src": "778:25:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "src": "769:34:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "426964207072696365206d75737420626520686967686572207468616e206c6f77657220626f756e64",
+                        "id": 107,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "805:43:2",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_b84f6a5d407f5ac4fcbe1df3bf70520553ca671585fadc18c49ae17090db82bc",
+                          "typeString": "literal_string \"Bid price must be higher than lower bound\""
+                        },
+                        "value": "Bid price must be higher than lower bound"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_b84f6a5d407f5ac4fcbe1df3bf70520553ca671585fadc18c49ae17090db82bc",
+                          "typeString": "literal_string \"Bid price must be higher than lower bound\""
+                        }
+                      ],
+                      "id": 102,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "761:7:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 108,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "761:88:2",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 109,
+                  "nodeType": "ExpressionStatement",
+                  "src": "761:88:2"
+                },
+                {
+                  "id": 110,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "860:1:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 112,
+            "name": "isValidBid",
+            "nodeType": "ModifierDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 71,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 68,
+                  "mutability": "mutable",
+                  "name": "productId",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 112,
+                  "src": "391:17:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 67,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "391:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 70,
+                  "mutability": "mutable",
+                  "name": "price",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 112,
+                  "src": "410:10:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 69,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "410:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "390:31:2"
+            },
+            "src": "371:498:2",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 158,
+              "nodeType": "Block",
+              "src": "962:388:2",
+              "statements": [
+                {
+                  "assignments": [
+                    124
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 124,
+                      "mutability": "mutable",
+                      "name": "currentProduct",
+                      "nodeType": "VariableDeclaration",
+                      "overrides": null,
+                      "scope": 158,
+                      "src": "973:30:2",
+                      "stateVariable": false,
+                      "storageLocation": "storage",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Product_$208_storage_ptr",
+                        "typeString": "struct Structures.Product"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 123,
+                        "name": "Product",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 208,
+                        "src": "973:7:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Product_$208_storage_ptr",
+                          "typeString": "struct Structures.Product"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 128,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "baseExpression": {
+                      "argumentTypes": null,
+                      "id": 125,
+                      "name": "activeProducts",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 58,
+                      "src": "1006:14:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Product_$208_storage_$",
+                        "typeString": "mapping(bytes32 => struct Structures.Product storage ref)"
+                      }
+                    },
+                    "id": 127,
+                    "indexExpression": {
+                      "argumentTypes": null,
+                      "id": 126,
+                      "name": "productId",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 114,
+                      "src": "1021:9:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "1006:25:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Product_$208_storage",
+                      "typeString": "struct Structures.Product storage ref"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "973:58:2"
+                },
+                {
+                  "assignments": [
+                    130
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 130,
+                      "mutability": "mutable",
+                      "name": "newBid",
+                      "nodeType": "VariableDeclaration",
+                      "overrides": null,
+                      "scope": 158,
+                      "src": "1052:17:2",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Bid_$191_memory_ptr",
+                        "typeString": "struct Structures.Bid"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 129,
+                        "name": "Bid",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 191,
+                        "src": "1052:3:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Bid_$191_storage_ptr",
+                          "typeString": "struct Structures.Bid"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 138,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 132,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": -15,
+                          "src": "1099:3:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 133,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "1099:10:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 134,
+                        "name": "price",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 116,
+                        "src": "1134:5:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 135,
+                          "name": "block",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": -4,
+                          "src": "1163:5:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_block",
+                            "typeString": "block"
+                          }
+                        },
+                        "id": 136,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "timestamp",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "1163:15:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 131,
+                      "name": "Bid",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 191,
+                      "src": "1072:3:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_struct$_Bid_$191_storage_ptr_$",
+                        "typeString": "type(struct Structures.Bid storage pointer)"
+                      }
+                    },
+                    "id": 137,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "structConstructorCall",
+                    "lValueRequested": false,
+                    "names": [
+                      "bidder",
+                      "bidPrice",
+                      "bidTime"
+                    ],
+                    "nodeType": "FunctionCall",
+                    "src": "1072:118:2",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Bid_$191_memory_ptr",
+                      "typeString": "struct Structures.Bid memory"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1052:138:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 143,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 139,
+                        "name": "currentProduct",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 124,
+                        "src": "1203:14:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Product_$208_storage_ptr",
+                          "typeString": "struct Structures.Product storage pointer"
+                        }
+                      },
+                      "id": 141,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "highestBid",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 205,
+                      "src": "1203:25:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Bid_$191_storage",
+                        "typeString": "struct Structures.Bid storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 142,
+                      "name": "newBid",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 130,
+                      "src": "1231:6:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Bid_$191_memory_ptr",
+                        "typeString": "struct Structures.Bid memory"
+                      }
+                    },
+                    "src": "1203:34:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Bid_$191_storage",
+                      "typeString": "struct Structures.Bid storage ref"
+                    }
+                  },
+                  "id": 144,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1203:34:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 149,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 145,
+                        "name": "currentProduct",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 124,
+                        "src": "1248:14:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Product_$208_storage_ptr",
+                          "typeString": "struct Structures.Product storage pointer"
+                        }
+                      },
+                      "id": 147,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "noOfBids",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 203,
+                      "src": "1248:23:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "+=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "31",
+                      "id": 148,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1275:1:2",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_1_by_1",
+                        "typeString": "int_const 1"
+                      },
+                      "value": "1"
+                    },
+                    "src": "1248:28:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 150,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1248:28:2"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 152,
+                          "name": "newBid",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 130,
+                          "src": "1309:6:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Bid_$191_memory_ptr",
+                            "typeString": "struct Structures.Bid memory"
+                          }
+                        },
+                        "id": 153,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "bidder",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 186,
+                        "src": "1309:13:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 154,
+                        "name": "productId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 114,
+                        "src": "1324:9:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 155,
+                        "name": "price",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 116,
+                        "src": "1335:5:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 151,
+                      "name": "BidPlacedEvent",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 12,
+                      "src": "1294:14:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_bytes32_$_t_uint256_$returns$__$",
+                        "typeString": "function (address,bytes32,uint256)"
+                      }
+                    },
+                    "id": 156,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1294:47:2",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 157,
+                  "nodeType": "EmitStatement",
+                  "src": "1289:52:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "bca1aaa3",
+            "id": 159,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 119,
+                    "name": "productId",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 114,
+                    "src": "944:9:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  {
+                    "argumentTypes": null,
+                    "id": 120,
+                    "name": "price",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 116,
+                    "src": "955:5:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                ],
+                "id": 121,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 118,
+                  "name": "isValidBid",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 112,
+                  "src": "933:10:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$_t_bytes32_$_t_uint256_$",
+                    "typeString": "modifier (bytes32,uint256)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "933:28:2"
+              }
+            ],
+            "name": "placeBid",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 117,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 114,
+                  "mutability": "mutable",
+                  "name": "productId",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 159,
+                  "src": "895:17:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 113,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "895:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 116,
+                  "mutability": "mutable",
+                  "name": "price",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 159,
+                  "src": "914:10:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 115,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "914:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "894:31:2"
+            },
+            "returnParameters": {
+              "id": 122,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "962:0:2"
+            },
+            "scope": 160,
+            "src": "877:473:2",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 161,
+        "src": "118:1241:2"
       }
     ],
-    "src": "40:121:2"
+    "src": "40:1321:2"
   },
   "compiler": {
     "name": "solc",
     "version": "0.7.0+commit.9e61f92b.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.2.5",
-  "updatedAt": "2020-12-12T10:18:38.490Z",
+  "schemaVersion": "3.3.2",
+  "updatedAt": "2020-12-16T10:17:32.971Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
