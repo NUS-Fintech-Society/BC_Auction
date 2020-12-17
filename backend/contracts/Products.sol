@@ -7,7 +7,6 @@ import "./Sellers.sol";
 contract Products is Buyers, Sellers { //TODO: import new holder contract (contains Seller and Buyer)
 
     mapping(bytes32 => Product) activeProducts;
-    bytes32[] activeProductIds;
     mapping(address => Product[]) private sellerToProduct;
 
     function addProduct(bytes32 productId, string name, string description, uint lowerBound, 
@@ -45,15 +44,15 @@ contract Products is Buyers, Sellers { //TODO: import new holder contract (conta
         emit BidPlacedEvent(newBid.bidder, productId, price); 
     }
 
-     function viewAllActiveContracts() public view returns(Product[] memory) { //add modifier Seller               
+    function viewAllActiveContracts() public view returns(Product[] memory) { //add modifier Seller               
          Product[] memory currAll = SellerToProduct[msg.sender] ;
          Product[] memory currActive;
 
          uint index = 0;
          for(uint i = 0 ; i<currAll.length; i++) {
             if(activeProducts[currAll[i].id].id != 0){
-               currActive[index]=currAll[i];
-               index+=1;
+               currActive[index] = currAll[i];
+               index += 1;
             }
          }
          return currActive;
