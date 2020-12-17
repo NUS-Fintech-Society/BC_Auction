@@ -60,8 +60,8 @@ contract Products is Buyers,Sellers { //TODO: import new holder contract (contai
         _;
     }
 
-    function viewAllActiveProducts() onlySeller public view returns(Product[] memory)  { //add modifier Seller               
-         Product[] memory currAll = SellerToProduct[msg.sender] ;
+    function viewAllActiveProducts() onlySellers public view returns(Product[] memory)  { //add modifier Seller               
+         Product[] memory currAll = sellerToProduct[msg.sender] ;
          Product[] memory currActive;
 
          uint index = 0;
@@ -76,7 +76,7 @@ contract Products is Buyers,Sellers { //TODO: import new holder contract (contai
 
 
     function highestBid(bytes32 productId) public view returns(uint) { 
-         return activeProducts[productId].highestBid.bidprice;
+         return activeProducts[productId].highestBid.bidPrice;
     }   
     
 }
