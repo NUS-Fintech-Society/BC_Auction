@@ -52,27 +52,26 @@
       "type": "event"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.7.0+commit.9e61f92b\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"productId\",\"type\":\"bytes32\"}],\"name\":\"ProductLaunchEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"}],\"name\":\"ProductSoldEvent\",\"type\":\"event\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/mnt/c/Users/rsadi/FintechProject/backend/contracts/Sellers.sol\":\"Sellers\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/mnt/c/Users/rsadi/FintechProject/backend/contracts/Sellers.sol\":{\"keccak256\":\"0x705dcc62142e50d0c08aaea5046c7b2d8dfee3d1aa9dd7fa2af299a0a3050236\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://af0ddc1860e76c82c934dbd792538dab0ddc11d68996db29ff2ad58b570f4408\",\"dweb:/ipfs/QmbQEB3TXBirwe8QdwDfs4Ur1cB7GC6pXqDbd9Ace3Z6PM\"]},\"/mnt/c/Users/rsadi/FintechProject/backend/contracts/Structures.sol\":{\"keccak256\":\"0xbff8cae90d951927a247bb1b217d497829355548ec7d249fd119a1128a6fd49e\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://7f2a27628882400e128cb5268508e867048f26dc7f245ef2788d31a05d7c61ef\",\"dweb:/ipfs/QmUw8kAZn55ae8Jeo5aupe9wADoSHuSC4Z3Dh3GpRAcFJD\"]}},\"version\":1}",
-  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea26469706673582212207e3d45b39556ec78fc37b8859cf4f99fbe3bda9a7b4fe74e1b78a3d36593098564736f6c63430007000033",
-  "deployedBytecode": "0x6080604052600080fdfea26469706673582212207e3d45b39556ec78fc37b8859cf4f99fbe3bda9a7b4fe74e1b78a3d36593098564736f6c63430007000033",
-  "immutableReferences": {},
-  "sourceMap": "97:239:3:-:0;;;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "97:239:3:-:0;;;;;",
-  "source": "// SPDX-License-Identifier: UNLICENSED\r\npragma solidity ^0.7.0;\r\n\r\nimport \"./Structures.sol\";\r\n\r\ncontract Sellers is Structures {\r\n\r\n    event ProductLaunchEvent(address indexed seller, bytes32 productId);\r\n    event ProductSoldEvent(address indexed seller, address indexed buyer, uint price, string name); //highest price by buyer\r\n\r\n}\r\n",
-  "sourcePath": "/mnt/c/Users/rsadi/FintechProject/backend/contracts/Sellers.sol",
+  "metadata": "{\"compiler\":{\"version\":\"0.7.0+commit.9e61f92b\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"productId\",\"type\":\"bytes32\"}],\"name\":\"ProductLaunchEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"}],\"name\":\"ProductSoldEvent\",\"type\":\"event\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/C/Users/leahr/BlockchainAuction/backend/contracts/Sellers.sol\":\"Sellers\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/leahr/BlockchainAuction/backend/contracts/Sellers.sol\":{\"keccak256\":\"0x77fb380face98641cc03250769a385395dc8aac8cd662cb8bc68ce9bd6f2ff43\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://af943448a18c9325cbf0fddf9156923c4be96fdcad9b2ec0650a73d7e20b8a0c\",\"dweb:/ipfs/QmWaJUw76x9o5dtzzpierzJFRsiP25EBd8GssQAPPTHJhU\"]},\"/C/Users/leahr/BlockchainAuction/backend/contracts/Structures.sol\":{\"keccak256\":\"0xc3dbc09b7392d027faa0e3438f2171ca2d0d4992f7bdb4989b75f5044bab6bcb\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://c50dbce5e5eeb12aa1b86d8ffd17833c605e5527f0d47b253d8e571221461206\",\"dweb:/ipfs/QmXhCsUGw63DY4Cen577wJRpPZbQiW16pd5HZGPPH1Ybht\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220aef42c1f850659f25f3410c5cf509144a564d236ebb50aa86806f0f63763b96864736f6c63430007000033",
+  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220aef42c1f850659f25f3410c5cf509144a564d236ebb50aa86806f0f63763b96864736f6c63430007000033",
+  "sourceMap": "97:237:3:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "97:237:3:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: UNLICENSED\r\npragma solidity ^0.7.0;\r\n\r\nimport \"./Structures.sol\";\r\n\r\ncontract Sellers is Structures {\r\n\r\n    event ProductLaunchEvent(address indexed seller, bytes32 productId);\r\n    event ProductSoldEvent(address indexed seller, address indexed buyer, uint price, string name); //highest price by buyer\r\n}\r\n",
+  "sourcePath": "C:\\Users\\leahr\\BlockchainAuction\\backend\\contracts\\Sellers.sol",
   "ast": {
-    "absolutePath": "/mnt/c/Users/rsadi/FintechProject/backend/contracts/Sellers.sol",
+    "absolutePath": "/C/Users/leahr/BlockchainAuction/backend/contracts/Sellers.sol",
     "exportedSymbols": {
       "Sellers": [
-        179
+        392
       ]
     },
-    "id": 180,
+    "id": 393,
     "license": "UNLICENSED",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 159,
+        "id": 372,
         "literals": [
           "solidity",
           "^",
@@ -83,12 +82,12 @@
         "src": "40:23:3"
       },
       {
-        "absolutePath": "/mnt/c/Users/rsadi/FintechProject/backend/contracts/Structures.sol",
+        "absolutePath": "/C/Users/leahr/BlockchainAuction/backend/contracts/Structures.sol",
         "file": "./Structures.sol",
-        "id": 160,
+        "id": 373,
         "nodeType": "ImportDirective",
-        "scope": 180,
-        "sourceUnit": 207,
+        "scope": 393,
+        "sourceUnit": 420,
         "src": "67:26:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -100,31 +99,31 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 161,
+              "id": 374,
               "name": "Structures",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 206,
+              "referencedDeclaration": 419,
               "src": "117:10:3",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Structures_$206",
+                "typeIdentifier": "t_contract$_Structures_$419",
                 "typeString": "contract Structures"
               }
             },
-            "id": 162,
+            "id": 375,
             "nodeType": "InheritanceSpecifier",
             "src": "117:10:3"
           }
         ],
         "contractDependencies": [
-          206
+          419
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 179,
+        "id": 392,
         "linearizedBaseContracts": [
-          179,
-          206
+          392,
+          419
         ],
         "name": "Sellers",
         "nodeType": "ContractDefinition",
@@ -132,22 +131,22 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 168,
+            "id": 381,
             "name": "ProductLaunchEvent",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 167,
+              "id": 380,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 164,
+                  "id": 377,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "seller",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 168,
+                  "scope": 381,
                   "src": "162:22:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -156,7 +155,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 163,
+                    "id": 376,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "162:7:3",
@@ -171,13 +170,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 166,
+                  "id": 379,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "productId",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 168,
+                  "scope": 381,
                   "src": "186:17:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -186,7 +185,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 165,
+                    "id": 378,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "186:7:3",
@@ -206,22 +205,22 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 178,
+            "id": 391,
             "name": "ProductSoldEvent",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 177,
+              "id": 390,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 170,
+                  "id": 383,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "seller",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 178,
+                  "scope": 391,
                   "src": "234:22:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -230,7 +229,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 169,
+                    "id": 382,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "234:7:3",
@@ -245,13 +244,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 172,
+                  "id": 385,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "buyer",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 178,
+                  "scope": 391,
                   "src": "258:21:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -260,7 +259,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 171,
+                    "id": 384,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "258:7:3",
@@ -275,13 +274,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 174,
+                  "id": 387,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "price",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 178,
+                  "scope": 391,
                   "src": "281:10:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -290,7 +289,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 173,
+                    "id": 386,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "281:4:3",
@@ -304,13 +303,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 176,
+                  "id": 389,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "name",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 178,
+                  "scope": 391,
                   "src": "293:11:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -319,7 +318,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 175,
+                    "id": 388,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "293:6:3",
@@ -337,25 +336,25 @@
             "src": "211:95:3"
           }
         ],
-        "scope": 180,
-        "src": "97:239:3"
+        "scope": 393,
+        "src": "97:237:3"
       }
     ],
-    "src": "40:298:3"
+    "src": "40:296:3"
   },
   "legacyAST": {
-    "absolutePath": "/mnt/c/Users/rsadi/FintechProject/backend/contracts/Sellers.sol",
+    "absolutePath": "/C/Users/leahr/BlockchainAuction/backend/contracts/Sellers.sol",
     "exportedSymbols": {
       "Sellers": [
-        179
+        392
       ]
     },
-    "id": 180,
+    "id": 393,
     "license": "UNLICENSED",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 159,
+        "id": 372,
         "literals": [
           "solidity",
           "^",
@@ -366,12 +365,12 @@
         "src": "40:23:3"
       },
       {
-        "absolutePath": "/mnt/c/Users/rsadi/FintechProject/backend/contracts/Structures.sol",
+        "absolutePath": "/C/Users/leahr/BlockchainAuction/backend/contracts/Structures.sol",
         "file": "./Structures.sol",
-        "id": 160,
+        "id": 373,
         "nodeType": "ImportDirective",
-        "scope": 180,
-        "sourceUnit": 207,
+        "scope": 393,
+        "sourceUnit": 420,
         "src": "67:26:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -383,31 +382,31 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 161,
+              "id": 374,
               "name": "Structures",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 206,
+              "referencedDeclaration": 419,
               "src": "117:10:3",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Structures_$206",
+                "typeIdentifier": "t_contract$_Structures_$419",
                 "typeString": "contract Structures"
               }
             },
-            "id": 162,
+            "id": 375,
             "nodeType": "InheritanceSpecifier",
             "src": "117:10:3"
           }
         ],
         "contractDependencies": [
-          206
+          419
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 179,
+        "id": 392,
         "linearizedBaseContracts": [
-          179,
-          206
+          392,
+          419
         ],
         "name": "Sellers",
         "nodeType": "ContractDefinition",
@@ -415,22 +414,22 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 168,
+            "id": 381,
             "name": "ProductLaunchEvent",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 167,
+              "id": 380,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 164,
+                  "id": 377,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "seller",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 168,
+                  "scope": 381,
                   "src": "162:22:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -439,7 +438,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 163,
+                    "id": 376,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "162:7:3",
@@ -454,13 +453,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 166,
+                  "id": 379,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "productId",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 168,
+                  "scope": 381,
                   "src": "186:17:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -469,7 +468,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 165,
+                    "id": 378,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "186:7:3",
@@ -489,22 +488,22 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 178,
+            "id": 391,
             "name": "ProductSoldEvent",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 177,
+              "id": 390,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 170,
+                  "id": 383,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "seller",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 178,
+                  "scope": 391,
                   "src": "234:22:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -513,7 +512,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 169,
+                    "id": 382,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "234:7:3",
@@ -528,13 +527,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 172,
+                  "id": 385,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "buyer",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 178,
+                  "scope": 391,
                   "src": "258:21:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -543,7 +542,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 171,
+                    "id": 384,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "258:7:3",
@@ -558,13 +557,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 174,
+                  "id": 387,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "price",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 178,
+                  "scope": 391,
                   "src": "281:10:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -573,7 +572,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 173,
+                    "id": 386,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "281:4:3",
@@ -587,13 +586,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 176,
+                  "id": 389,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "name",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 178,
+                  "scope": 391,
                   "src": "293:11:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -602,7 +601,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 175,
+                    "id": 388,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "293:6:3",
@@ -620,19 +619,19 @@
             "src": "211:95:3"
           }
         ],
-        "scope": 180,
-        "src": "97:239:3"
+        "scope": 393,
+        "src": "97:237:3"
       }
     ],
-    "src": "40:298:3"
+    "src": "40:296:3"
   },
   "compiler": {
     "name": "solc",
     "version": "0.7.0+commit.9e61f92b.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.3.2",
-  "updatedAt": "2020-12-16T10:05:00.663Z",
+  "schemaVersion": "3.0.20",
+  "updatedAt": "2020-12-18T14:17:27.399Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
