@@ -40,12 +40,12 @@ contract Products is Buyers, Sellers { //TODO: import new holder contract (conta
         _;
     }
 
-    function placeBid(bytes32 productId, uint price) public isValidBid(productId, price) {
+    function placeBid(bytes32 productId, uint price) public payable isValidBid(productId, price) {
         Product storage currentProduct = activeProducts[productId];
         
         Bid memory newBid = Bid({
             bidder: msg.sender,
-            bidPrice: price,
+            bidPrice: msg.value,
             bidTime: block.timestamp
         });
 
