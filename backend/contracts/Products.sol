@@ -42,7 +42,7 @@ contract Products is Buyers,Sellers { //TODO: import new holder contract (contai
     function addProduct(string memory name, string memory description, uint lowerBound, uint deadline) public {
         bytes32 productID = keccak256(abi.encodePacked(name, description, deadline));
         Bid memory emptyBid = Bid(address(0), 0, 0);
-        Product memory product = Product(productID, name, description, lowerBound, deadline, 0, emptyBid, true);
+        Product memory product = Product(productID, name, description, lowerBound, deadline, 0, emptyBid, true, seller);
         activeProducts[productID] = product;
         sellerToProduct[msg.sender][sellerToProduct[msg.sender].length] = product;
         activeProductIds[numOfProducts] = productID;
@@ -50,13 +50,14 @@ contract Products is Buyers,Sellers { //TODO: import new holder contract (contai
     }
 
     function getProductDetailsById(bytes32 id) public view returns 
-        (string memory _name, string memory _description, uint _lowerBound, uint _deadline) 
+        (string memory _name, string memory _description, uint _lowerBound, uint _deadline, address _seller) 
     {
         Product memory product = activeProducts[id];
         _name = product.name;
         _description = product.description;
         _lowerBound = product.lowerBound;
         _deadline = product.deadline;
+        _seller = product.seller;
     }
 
     modifier isValidBid(bytes32 productId, uint price) {
@@ -66,7 +67,7 @@ contract Products is Buyers,Sellers { //TODO: import new holder contract (contai
         require(block.timestamp < currentProduct.deadline, "Auction time elapsed");
         require(price > currentProduct.highestBid.bidPrice, "Bid price must be higher than current bid");
         require(price >= currentProduct.lowerBound, "Bid price must be higher than lower bound");
-        
+        require(msg.sender != currentProduct.seller, "You are not allowed to place a bid");
         _;
     }
 
