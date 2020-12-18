@@ -52,7 +52,7 @@ contract Products is Buyers,Sellers { //TODO: import new holder contract (contai
         currentProduct.highestBid = newBid;
         currentProduct.noOfBids += 1;
 
-        emit BidPlacedEvent(newBid.bidder, productId, price); 
+        emit BidPlaced(newBid.bidder, productId, price); 
     }
     
     modifier onlySellers() {
