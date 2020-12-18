@@ -62,7 +62,6 @@ contract Products is Buyers,Sellers { //TODO: import new holder contract (contai
     modifier isValidBid(bytes32 productId, uint price) {
         Product storage currentProduct = activeProducts[productId];
         require(currentProduct.isReal, "Product does not exist");
-        
         require(block.timestamp < currentProduct.deadline, "Auction time elapsed");
         require(price > currentProduct.highestBid.bidPrice, "Bid price must be higher than current bid");
         require(price >= currentProduct.lowerBound, "Bid price must be higher than lower bound");
@@ -78,6 +77,10 @@ contract Products is Buyers,Sellers { //TODO: import new holder contract (contai
             bidPrice: msg.value,
             bidTime: block.timestamp
         });
+
+        address payable previousBidder = address(uint(currentProduct.highestBid.bidder));
+        uint returnBidAmount = currentProduct.highestBid.bidPrice;
+        previousBidder.transfer(returnBidAmount);
 
         currentProduct.highestBid = newBid;
         currentProduct.noOfBids += 1;
