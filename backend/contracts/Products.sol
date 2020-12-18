@@ -50,14 +50,13 @@ contract Products is Buyers,Sellers { //TODO: import new holder contract (contai
     }
 
     function getProductDetailsById(bytes32 id) public view returns 
-        (string memory _name, string memory _description, uint _lowerBound, uint _deadline, address _seller) 
+        (string memory _name, string memory _description, uint _lowerBound, uint _deadline) 
     {
         Product memory product = activeProducts[id];
         _name = product.name;
         _description = product.description;
         _lowerBound = product.lowerBound;
         _deadline = product.deadline;
-        _seller = product.seller;
     }
 
     modifier isValidBid(bytes32 productId, uint price) {
