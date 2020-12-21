@@ -90,7 +90,7 @@ contract Products is Buyers,Sellers { //TODO: import new holder contract (contai
         _;
     }
 
-    function placeBid(bytes32 productId, uint msg.value) public payable isValidBid(productId, msg.value) {
+    function placeBid(bytes32 productId) public payable isValidBid(productId) {
         Product storage currentProduct = activeProducts[productId];
         
         Bid memory newBid = Bid({
