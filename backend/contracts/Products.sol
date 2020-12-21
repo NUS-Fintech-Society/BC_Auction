@@ -59,17 +59,17 @@ contract Products is Buyers,Sellers { //TODO: import new holder contract (contai
         _deadline = product.deadline;
     }
 
-    modifier isValidBid(bytes32 productId, uint price) {
+    modifier isValidBid(bytes32 productId, uint msg.value) {
         Product storage currentProduct = activeProducts[productId];
         require(currentProduct.isReal, "Product does not exist");
         require(block.timestamp < currentProduct.deadline, "Auction time elapsed");
-        require(price > currentProduct.highestBid.bidPrice, "Bid price must be higher than current bid");
-        require(price >= currentProduct.lowerBound, "Bid price must be higher than lower bound");
+        require(msg.value > currentProduct.highestBid.bidPrice, "Bid price must be higher than current bid");
+        require(msg.value >= currentProduct.lowerBound, "Bid price must be higher than lower bound");
         require(msg.sender != currentProduct.seller, "You are not allowed to place a bid");
         _;
     }
 
-    function placeBid(bytes32 productId, uint price) public payable isValidBid(productId, price) {
+    function placeBid(bytes32 productId, uint msg.value) public payable isValidBid(productId, msg.value) {
         Product storage currentProduct = activeProducts[productId];
         
         Bid memory newBid = Bid({
@@ -78,14 +78,16 @@ contract Products is Buyers,Sellers { //TODO: import new holder contract (contai
             bidTime: block.timestamp
         });
 
-        address payable previousBidder = address(uint(currentProduct.highestBid.bidder));
+        if (currentProduct.noOfBids >= 1) {
+        address payable previousBidder = address(uint(currentProduct.highestBid.bidder));   
         uint returnBidAmount = currentProduct.highestBid.bidPrice;
         previousBidder.transfer(returnBidAmount);
-
+        }
+        
         currentProduct.highestBid = newBid;
         currentProduct.noOfBids += 1;
 
-        emit BidPlaced(newBid.bidder, productId, price); 
+        emit BidPlaced(newBid.bidder, productId, msg.value); 
     }
     
     
