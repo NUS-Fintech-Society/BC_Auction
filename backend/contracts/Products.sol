@@ -19,9 +19,25 @@ contract Products is Buyers,Sellers { //TODO: import new holder contract (contai
     }
 
     function closeAuction(bytes32 productId) public payable onlySellers() {
-        address payable highestBidder = address(uint(activeProducts[productId].highestBid.bidder));
+        Product storage currentProduct = activeProducts[productId];
+        require(block.timestamp >= currentProduct.deadline);
+        require(msg.sender == currentProduct.seller, "You can't declare the auction as closed");
+        //address payable highestBidder = address(uint(activeProducts[productId].highestBid.bidder));
         uint highestBidPrice = activeProducts[productId].highestBid.bidPrice;
-        highestBidder.transfer(highestBidPrice);
+        msg.sender.transfer(highestBidPrice);
+        
+
+        removeProduct(productId);
+
+    }
+
+    function soldAuction(bytes32 productId) public payable onlySellers() {
+        Product storage currentProduct = activeProducts[productId];
+        require(block.timestamp < currentProduct.deadline);
+        require(msg.sender == currentProduct.seller, "You can't declare the auction as sold");
+        //address payable highestBidder = address(uint(activeProducts[productId].highestBid.bidder));
+        uint highestBidPrice = activeProducts[productId].highestBid.bidPrice;
+        msg.sender.transfer(highestBidPrice);
         
 
         removeProduct(productId);
@@ -29,7 +45,12 @@ contract Products is Buyers,Sellers { //TODO: import new holder contract (contai
     }
 
     function removeProduct(bytes32 productId) internal onlySellers() {
-        delete activeProducts[productId];
+        if (productId >= array.length) return;
+
+        for (uint i = productId; i<array.length-1; i++){
+            array[i] = array[i+1];
+        }
+        array.length--;
 
     }
 
@@ -59,7 +80,7 @@ contract Products is Buyers,Sellers { //TODO: import new holder contract (contai
         _deadline = product.deadline;
     }
 
-    modifier isValidBid(bytes32 productId, uint msg.value) {
+    modifier isValidBid(bytes32 productId) {
         Product storage currentProduct = activeProducts[productId];
         require(currentProduct.isReal, "Product does not exist");
         require(block.timestamp < currentProduct.deadline, "Auction time elapsed");
