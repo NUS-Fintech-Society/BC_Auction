@@ -92,7 +92,7 @@ contract Products is Buyers,Sellers { //TODO: import new holder contract (contai
     
     
 
-    function viewAllActiveProducts() onlySellers public view returns(Product[] memory)  { //add modifier Seller               
+    function getMyProducts() onlySellers public view returns(Product[] memory)  { //add modifier Seller               
          Product[] memory currAll = sellerToProduct[msg.sender] ;
          Product[] memory currActive;
 
