@@ -11,8 +11,6 @@ contract Products is Buyers,Sellers { //TODO: import new holder contract (contai
     mapping(address => Product[]) private sellerToProduct;
     uint numOfProducts;
 
-    
-
     modifier onlySellers() {
         require(sellerToProduct[msg.sender].length > 0 );
         _;
@@ -28,7 +26,6 @@ contract Products is Buyers,Sellers { //TODO: import new holder contract (contai
         
 
         removeProduct(productId);
-
     }
 
     function soldAuction(bytes32 productId) public payable onlySellers() {
@@ -47,14 +44,11 @@ contract Products is Buyers,Sellers { //TODO: import new holder contract (contai
     function removeProduct(bytes32 productId) internal onlySellers() {
         if (productId >= array.length) return;
 
-        for (uint i = productId; i<array.length-1; i++){
+        for (uint i = productId; i< array.length-1; i++) {
             array[i] = array[i+1];
         }
         array.length--;
-
     }
-
-    
 
     // function getProductById(bytes32 id) public view returns (Product) {
     //     return activeProducts[id];
@@ -108,7 +102,7 @@ contract Products is Buyers,Sellers { //TODO: import new holder contract (contai
         currentProduct.highestBid = newBid;
         currentProduct.noOfBids += 1;
 
-        emit BidPlaced(newBid.bidder, productId, msg.value); 
+        emit BidPlacedEvent(newBid.bidder, productId, msg.value); 
     }
     
     
