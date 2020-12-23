@@ -47,7 +47,7 @@ contract Products is Buyers,Sellers { //TODO: import new holder contract (contai
         emit ProductSoldEvent(msg.sender, highestBidder, highestBidPrice, currentProduct.name);
 
     }
-
+    
     function removeProduct(bytes32 productId) internal onlySellers() {
         //if (productId >= array.length) return;
 
@@ -86,10 +86,11 @@ contract Products is Buyers,Sellers { //TODO: import new holder contract (contai
 
     function addProduct(string memory name, string memory description, uint lowerBound, uint deadline) public {
         bytes32 productID = keccak256(abi.encodePacked(name, description, deadline));
+        require(activeProducts[productID].isReal, "Product Already exists");
         Bid memory emptyBid = Bid(address(0), 0, 0);
         Product memory product = Product(productID, name, description, lowerBound, deadline, 0, emptyBid, true, seller);
         activeProducts[productID] = product;
-        sellerToProduct[msg.sender][sellerToProduct[msg.sender].length] = product;
+        sellerToProduct[msg.sender].push(product);
         activeProductIds[numOfProducts] = productID;
         numOfProducts++;
     }
