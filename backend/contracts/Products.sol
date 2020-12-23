@@ -55,18 +55,22 @@ contract Products is Buyers,Sellers { //TODO: import new holder contract (contai
 
         for(uint i = 0; i < numOfProducts; i++){
             if(activeProductIds[i] == productId){
-                for(uint j = i; j < numOfProducts-1; j++){
-                    activeProductIds[j] = activeProductIds[j+1];
-                }
+                // for(uint j = i; j < numOfProducts-1; j++){
+                //     activeProductIds[j] = activeProductIds[j+1];
+                // }
+                activeProductIds[i] = activeProductIds[activeProductIds.length-1];
+                delete activeProductIds[activeProductIds.length-1];
             }
         }
         
 
         for(uint i = 0; i< sellerToProduct[msg.sender].length; i++){
             if (sellerToProduct[msg.sender][i] == activeProducts[productId]){
-                for(uint j = i; j < sellerToProduct[msg.sender].length-1; j++){
-                    sellerToProduct[msg.sender][j] = sellerToProduct[msg.sender][j+1];
-                }
+                // for(uint j = i; j < sellerToProduct[msg.sender].length-1; j++){
+                //     sellerToProduct[msg.sender][j] = sellerToProduct[msg.sender][j+1];
+                // }
+                sellerToProduct[msg.sender][i] = sellerToProduct[msg.sender][sellerToProduct[msg.sender].length-1];
+                delete sellerToProduct[msg.sender][[sellerToProduct[msg.sender].length-1]];
             }
 
         }
