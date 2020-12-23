@@ -29,30 +29,50 @@ contract Products is Buyers,Sellers { //TODO: import new holder contract (contai
 
         removeProduct(productId);
 
+        emit ProductClosedEvent(msg.sender, productId);
+
     }
 
     function soldAuction(bytes32 productId) public payable onlySellers() {
         Product storage currentProduct = activeProducts[productId];
         require(block.timestamp < currentProduct.deadline);
         require(msg.sender == currentProduct.seller, "You can't declare the auction as sold");
-        //address payable highestBidder = address(uint(activeProducts[productId].highestBid.bidder));
+        address payable highestBidder = address(uint(activeProducts[productId].highestBid.bidder));
         uint highestBidPrice = activeProducts[productId].highestBid.bidPrice;
         msg.sender.transfer(highestBidPrice);
         
 
         removeProduct(productId);
 
+        emit ProductSoldEvent(msg.sender, highestBidder, highestBidPrice, currentProduct.name);
+
     }
 
     function removeProduct(bytes32 productId) internal onlySellers() {
-        if (productId >= array.length) return;
+        //if (productId >= array.length) return;
 
-        for (uint i = productId; i<array.length-1; i++){
-            array[i] = array[i+1];
+        delete activeProducts[productId];
+
+        for(uint i = 0; i < numOfProducts; i++){
+            if(activeProductIds[i] == productId){
+                for(uint j = i; j < numOfProducts-1; j++){
+                    activeProductIds[j] = activeProductIds[j+1];
+                }
+            }
         }
-        array.length--;
+        
 
+        for(uint i = 0; i< sellerToProduct[msg.sender].length; i++){
+            if (sellerToProduct[msg.sender][i] == activeProducts[productId]){
+                for(uint j = i; j < sellerToProduct[msg.sender].length-1; j++){
+                    sellerToProduct[msg.sender][j] = sellerToProduct[msg.sender][j+1];
+                }
+            }
+
+        }
     }
+
+    
 
     
 
