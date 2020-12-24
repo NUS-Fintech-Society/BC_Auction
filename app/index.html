@@ -52,6 +52,7 @@
         
         <script type="module">
             import { isEthEnabled } from "./js/startup.js";
+            import { contractAddress, contractAbi } from "./js/contract.js";
 
             window.addEventListener("load", async function (_window, event) {
 
@@ -89,21 +90,18 @@
             });
 
             async function startApp() {
-                let contractAbi = [];
 
                 let accounts = await web3.eth.getAccounts();
 
                 web3.eth.defaultAccount = accounts[0];
-
-                let contractAddress = "";
                 
                 $("#root")
                     .html("App has started");
 
-                // let contract = new web3.eth.Contract(
-                //     contractAbi,
-                //     contractAddress
-                // );
+                let contract = new web3.eth.Contract(
+                    contractAbi,
+                    contractAddress
+                );
             }
         
         </script>
