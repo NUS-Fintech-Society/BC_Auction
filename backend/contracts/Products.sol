@@ -48,6 +48,10 @@ contract Products is Buyers, Sellers {
         return product;
     }
 
+    function getProductIds() public view returns (bytes32[] memory) {
+        return activeProductIds;
+    }
+
     function placeBid(bytes32 productId) public payable isValidBid(productId) 
     {
         Product storage currentProduct = activeProducts[productId];

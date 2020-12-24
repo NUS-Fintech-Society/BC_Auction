@@ -82,7 +82,7 @@
         "id": 2,
         "nodeType": "ImportDirective",
         "scope": 20,
-        "sourceUnit": 695,
+        "sourceUnit": 704,
         "src": "65:26:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -97,10 +97,10 @@
               "id": 3,
               "name": "Structures",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 694,
+              "referencedDeclaration": 703,
               "src": "114:10:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Structures_$694",
+                "typeIdentifier": "t_contract$_Structures_$703",
                 "typeString": "contract Structures"
               }
             },
@@ -110,7 +110,7 @@
           }
         ],
         "contractDependencies": [
-          694
+          703
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -118,7 +118,7 @@
         "id": 19,
         "linearizedBaseContracts": [
           19,
-          694
+          703
         ],
         "name": "Buyers",
         "nodeType": "ContractDefinition",
@@ -333,7 +333,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 695,
+          "SourceUnit": 704,
           "absolutePath": "/C/Users/rsadi/BlockchainAuction/backend/contracts/Structures.sol",
           "file": "./Structures.sol",
           "scope": 20,
@@ -350,14 +350,14 @@
         "attributes": {
           "abstract": false,
           "contractDependencies": [
-            694
+            703
           ],
           "contractKind": "contract",
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
             19,
-            694
+            703
           ],
           "name": "Buyers",
           "scope": 20
@@ -372,7 +372,7 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "Structures",
-                  "referencedDeclaration": 694,
+                  "referencedDeclaration": 703,
                   "type": "contract Structures"
                 },
                 "id": 3,
@@ -585,7 +585,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.3",
-  "updatedAt": "2020-12-24T15:38:04.523Z",
+  "updatedAt": "2020-12-24T16:41:26.070Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
