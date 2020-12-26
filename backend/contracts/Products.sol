@@ -4,95 +4,20 @@ pragma experimental ABIEncoderV2;
 import "./Buyers.sol";
 import "./Sellers.sol";
 
-contract Products is Buyers,Sellers { //TODO: import new holder contract (contains Seller and Buyer)
+contract Products is Buyers, Sellers {
 
     mapping(bytes32 => Product) activeProducts;
-    bytes32[] activeProductIds;
+    bytes32[] public activeProductIds;
     mapping(address => Product[]) private sellerToProduct;
-    uint numOfProducts;
 
-    modifier onlySellers() {
-        require(sellerToProduct[msg.sender].length > 0 );
+    modifier onlySellers() 
+    {
+        require(sellerToProduct[msg.sender].length > 0);
         _;
     }
 
-    function closeAuction(bytes32 productId) public payable onlySellers() {
-        Product storage currentProduct = activeProducts[productId];
-        require(block.timestamp >= currentProduct.deadline);
-        require(msg.sender == currentProduct.seller, "You can't declare the auction as closed");
-        //address payable highestBidder = address(uint(activeProducts[productId].highestBid.bidder));
-        uint highestBidPrice = activeProducts[productId].highestBid.bidPrice;
-        msg.sender.transfer(highestBidPrice);
-        
-        removeProduct(productId);
-        emit ProductClosedEvent(msg.sender, productId);
-
-    }
-
-    function soldAuction(bytes32 productId) public payable onlySellers() {
-        Product storage currentProduct = activeProducts[productId];
-        require(block.timestamp < currentProduct.deadline);
-        require(msg.sender == currentProduct.seller, "You can't declare the auction as sold");
-        address payable highestBidder = address(uint(activeProducts[productId].highestBid.bidder));
-        uint highestBidPrice = activeProducts[productId].highestBid.bidPrice;
-        msg.sender.transfer(highestBidPrice);
-        
-
-        removeProduct(productId);
-
-        emit ProductSoldEvent(msg.sender, highestBidder, highestBidPrice, currentProduct.name);
-
-    }
-
-    function removeProduct(bytes32 productId) internal onlySellers() {
-        //if (productId >= array.length) return;
-        delete activeProducts[productId];
-
-        for(uint i = 0; i < numOfProducts; i++){
-            if(activeProductIds[i] == productId){
-                for(uint j = i; j < numOfProducts-1; j++){
-                    activeProductIds[j] = activeProductIds[j+1];
-                }
-            }
-        }
-        
-
-        for(uint i = 0; i< sellerToProduct[msg.sender].length; i++){
-            if (sellerToProduct[msg.sender][i] == activeProducts[productId]){
-                for(uint j = i; j < sellerToProduct[msg.sender].length-1; j++){
-                    sellerToProduct[msg.sender][j] = sellerToProduct[msg.sender][j+1];
-                }
-            }
-
-        }
-    }
-
-
-    // function getProductById(bytes32 id) public view returns (Product) {
-    //     return activeProducts[id];
-    // }
-
-    function addProduct(string memory name, string memory description, uint lowerBound, uint deadline) public {
-        bytes32 productID = keccak256(abi.encodePacked(name, description, deadline));
-        Bid memory emptyBid = Bid(address(0), 0, 0);
-        Product memory product = Product(productID, name, description, lowerBound, deadline, 0, emptyBid, true, seller);
-        activeProducts[productID] = product;
-        sellerToProduct[msg.sender][sellerToProduct[msg.sender].length] = product;
-        activeProductIds[numOfProducts] = productID;
-        numOfProducts++;
-    }
-
-    function getProductDetailsById(bytes32 id) public view returns 
-        (string memory _name, string memory _description, uint _lowerBound, uint _deadline) 
+    modifier isValidBid(bytes32 productId) 
     {
-        Product memory product = activeProducts[id];
-        _name = product.name;
-        _description = product.description;
-        _lowerBound = product.lowerBound;
-        _deadline = product.deadline;
-    }
-
-    modifier isValidBid(bytes32 productId) {
         Product storage currentProduct = activeProducts[productId];
         require(currentProduct.isReal, "Product does not exist");
         require(block.timestamp < currentProduct.deadline, "Auction time elapsed");
@@ -102,19 +27,47 @@ contract Products is Buyers,Sellers { //TODO: import new holder contract (contai
         _;
     }
 
-    function placeBid(bytes32 productId) public payable isValidBid(productId) {
+    function addProduct(string memory name, string memory description, uint lowerBound, uint deadline) public 
+    {
+        bytes32 productId = keccak256(abi.encodePacked(name, description, deadline));
+        require(!activeProducts[productId].isReal, "Product already exists");
+        Bid memory emptyBid = Bid(address(0), 0, 0);
+        Product memory product = Product(productId, name, description, lowerBound, deadline, 0, emptyBid, true, msg.sender);
+        activeProducts[productId] = product;
+        sellerToProduct[msg.sender].push(product);
+        activeProductIds.push(productId);
+
+        emit ProductLaunchEvent(msg.sender, productId, name, description);
+    }
+
+    function getProductDetailsById(bytes32 productId) public view returns (Product memory)
+    {
+        require(activeProducts[productId].isReal, "Product does not exist");
+        
+        Product memory product = activeProducts[productId];
+        return product;
+    }
+
+    function getProductIds() public view returns (bytes32[] memory) {
+        return activeProductIds;
+    }
+
+    function placeBid(bytes32 productId) public payable isValidBid(productId) 
+    {
         Product storage currentProduct = activeProducts[productId];
         
         Bid memory newBid = Bid({
-            bidder: payable(msg.sender),
+            bidder: msg.sender,
             bidPrice: msg.value,
             bidTime: block.timestamp
         });
 
         if (currentProduct.noOfBids >= 1) {
-        address payable previousBidder = address(uint(currentProduct.highestBid.bidder));   
-        uint returnBidAmount = currentProduct.highestBid.bidPrice;
-        previousBidder.transfer(returnBidAmount);
+            address payable previousBidder = address(uint(currentProduct.highestBid.bidder));   
+            uint returnBidAmount = currentProduct.highestBid.bidPrice;
+            previousBidder.transfer(returnBidAmount);
+
+            emit BidFailedEvent(previousBidder, productId);
         }
         
         currentProduct.highestBid = newBid;
@@ -122,29 +75,75 @@ contract Products is Buyers,Sellers { //TODO: import new holder contract (contai
 
         emit BidPlacedEvent(newBid.bidder, productId, msg.value); 
     }
-    
-    
 
-    function getMyProducts() onlySellers public view returns(Product[] memory)  { //add modifier Seller               
-         Product[] memory currAll = sellerToProduct[msg.sender] ;
-         Product[] memory currActive;
-
-         uint index = 0;
-         for(uint i = 0 ; i<currAll.length; i++) {
-            if(activeProducts[currAll[i].id].isReal){
-               currActive[index] = currAll[i];
-               index += 1;
-            }
-         }
-
-         return currActive;
+    function getMyProducts() onlySellers public view returns(Product[] memory)  
+    {               
+        Product[] memory currAll = sellerToProduct[msg.sender];
+        return currAll;
      } 
 
 
-    function highestBid(bytes32 productId) public view returns(uint) { 
-         return activeProducts[productId].highestBid.bidPrice;
+    function getHighestBid(bytes32 productId) public view returns(Bid memory) 
+    { 
+         return activeProducts[productId].highestBid;
     }   
     
+    function closeAuction(bytes32 productId) public payable onlySellers() 
+    {
+        Product storage currentProduct = activeProducts[productId];
+        require(block.timestamp >= currentProduct.deadline);
+        require(msg.sender == currentProduct.seller, "You can't declare the auction as closed");
+
+        if (currentProduct.highestBid.bidder != address(0)) {         
+            uint highestBidPrice = currentProduct.highestBid.bidPrice;
+            address payable previousBidder = address(uint(currentProduct.highestBid.bidder));   
+            previousBidder.transfer(highestBidPrice);
+
+            emit BidFailedEvent(previousBidder, productId);
+        }
+        
+        removeProduct(productId);
+
+        emit ProductClosedEvent(msg.sender, productId);
+    }
+
+    function sellAuction(bytes32 productId) public payable onlySellers() 
+    {
+        Product storage currentProduct = activeProducts[productId];
+        require(block.timestamp < currentProduct.deadline);
+        require(msg.sender == currentProduct.seller, "You cannot declare the auction as sold");
+        require(currentProduct.highestBid.bidder != address(0), "You cannot sell a product with no bids");
+
+        uint highestBidPrice = activeProducts[productId].highestBid.bidPrice;
+        msg.sender.transfer(highestBidPrice);
+
+        address payable highestBidder = address(uint(activeProducts[productId].highestBid.bidder));
+
+        removeProduct(productId);
+
+        emit ProductSoldEvent(msg.sender, highestBidder, highestBidPrice);
+
+    }
+    
+    function removeProduct(bytes32 productId) internal 
+    {
+        delete activeProducts[productId];
+
+        for(uint i = 0; i < activeProductIds.length; i++) {
+            if(activeProductIds[i] == productId) {
+                activeProductIds[i] = activeProductIds[activeProductIds.length-1];
+                activeProductIds.pop();
+            }
+        }
+        
+
+        for(uint i = 0; i < sellerToProduct[msg.sender].length; i++) {
+            if (sellerToProduct[msg.sender][i].id == activeProducts[productId].id) {
+                sellerToProduct[msg.sender][i] = sellerToProduct[msg.sender][sellerToProduct[msg.sender].length - 1];
+                sellerToProduct[msg.sender].pop();
+            }
+        }
+        
+    }
+
 }
-
-

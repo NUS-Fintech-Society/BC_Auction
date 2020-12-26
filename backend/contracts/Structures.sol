@@ -17,7 +17,7 @@ contract Structures {
         uint deadline;
         uint noOfBids;
         Bid highestBid;
-        bool isReal; 
+        bool isReal;
         address seller;
     }
 

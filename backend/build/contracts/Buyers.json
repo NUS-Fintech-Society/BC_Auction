@@ -15,6 +15,25 @@
           "internalType": "bytes32",
           "name": "productId",
           "type": "bytes32"
+        }
+      ],
+      "name": "BidFailedEvent",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "bidder",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "productId",
+          "type": "bytes32"
         },
         {
           "indexed": false,
@@ -23,25 +42,26 @@
           "type": "uint256"
         }
       ],
-      "name": "BidPlaced",
+      "name": "BidPlacedEvent",
       "type": "event"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.7.0+commit.9e61f92b\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"productId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"name\":\"BidPlaced\",\"type\":\"event\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/C/Users/leahr/BlockchainAuction/backend/contracts/Buyers.sol\":\"Buyers\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/leahr/BlockchainAuction/backend/contracts/Buyers.sol\":{\"keccak256\":\"0x65692d7292c5e079e396ea909642fdae1fa44b361da3b066b7273a1b44c542e3\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://9fe0acc004ae5354990baa50850389f05b338edbdb63cb15305fc4d5a5505b8b\",\"dweb:/ipfs/QmbLbnjTmJad8R9v19P6Ka9RrG2NiRUxXGDnnAZNWyzYV6\"]},\"/C/Users/leahr/BlockchainAuction/backend/contracts/Structures.sol\":{\"keccak256\":\"0xc3dbc09b7392d027faa0e3438f2171ca2d0d4992f7bdb4989b75f5044bab6bcb\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://c50dbce5e5eeb12aa1b86d8ffd17833c605e5527f0d47b253d8e571221461206\",\"dweb:/ipfs/QmXhCsUGw63DY4Cen577wJRpPZbQiW16pd5HZGPPH1Ybht\"]}},\"version\":1}",
-  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea264697066735822122041eaa98da00c1959ca9473649986e4f37f0310b14c86622ab4f4bf7fe185324664736f6c63430007000033",
-  "deployedBytecode": "0x6080604052600080fdfea264697066735822122041eaa98da00c1959ca9473649986e4f37f0310b14c86622ab4f4bf7fe185324664736f6c63430007000033",
-  "sourceMap": "95:115:0:-:0;;;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "95:115:0:-:0;;;;;",
-  "source": "// SPDX-License-Identifier: UNLICENSED\r\npragma solidity ^0.7.0;\r\n\r\nimport \"./Structures.sol\";\r\ncontract Buyers is Structures {\r\n        event BidPlaced(address indexed bidder, bytes32 productId, uint price);\r\n}",
-  "sourcePath": "C:\\Users\\leahr\\BlockchainAuction\\backend\\contracts\\Buyers.sol",
+  "metadata": "{\"compiler\":{\"version\":\"0.7.0+commit.9e61f92b\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"productId\",\"type\":\"bytes32\"}],\"name\":\"BidFailedEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"productId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"name\":\"BidPlacedEvent\",\"type\":\"event\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/C/Users/rsadi/BlockchainAuction/backend/contracts/Buyers.sol\":\"Buyers\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/rsadi/BlockchainAuction/backend/contracts/Buyers.sol\":{\"keccak256\":\"0x51fb17610ce4c36f8f074a68c83ec994b177b091f8792bbebcf74fd242ad5071\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://643fc5f2a94b6123b5e6836725fb1b28d4ddc03f37be6324740deaa6e8237390\",\"dweb:/ipfs/QmTqyM8QXD18fWH77kRuCoJMAxGqTXbNhLNNSQvAVUP9iU\"]},\"/C/Users/rsadi/BlockchainAuction/backend/contracts/Structures.sol\":{\"keccak256\":\"0x44d1d68bbd37010a2ab94de061c1020d0422390df15ddd9de84442577602bd36\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://5a15c6952bfcafbf858e996de840d13be2452d2eed9aba4dd4e8db67b8cda86a\",\"dweb:/ipfs/QmWPkACpkWszKqKvqEMqPMvbbsSKL353FZtUKEQkGPw3Nv\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220384207d0ddd0433f2e3a59c803358d87e4cc791f1c85a1c4b0569d670d2c9c3364736f6c63430007000033",
+  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220384207d0ddd0433f2e3a59c803358d87e4cc791f1c85a1c4b0569d670d2c9c3364736f6c63430007000033",
+  "immutableReferences": {},
+  "sourceMap": "95:198:0:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "95:198:0:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: UNLICENSED\r\npragma solidity ^0.7.0;\r\nimport \"./Structures.sol\";\r\n\r\ncontract Buyers is Structures {\r\n\r\n    event BidPlacedEvent(address indexed bidder, bytes32 productId, uint price);\r\n    event BidFailedEvent(address indexed bidder, bytes32 productId);\r\n        \r\n}",
+  "sourcePath": "C:\\Users\\rsadi\\BlockchainAuction\\backend\\contracts\\Buyers.sol",
   "ast": {
-    "absolutePath": "/C/Users/leahr/BlockchainAuction/backend/contracts/Buyers.sol",
+    "absolutePath": "/C/Users/rsadi/BlockchainAuction/backend/contracts/Buyers.sol",
     "exportedSymbols": {
       "Buyers": [
-        13
+        19
       ]
     },
-    "id": 14,
+    "id": 20,
     "license": "UNLICENSED",
     "nodeType": "SourceUnit",
     "nodes": [
@@ -57,13 +77,13 @@
         "src": "40:23:0"
       },
       {
-        "absolutePath": "/C/Users/leahr/BlockchainAuction/backend/contracts/Structures.sol",
+        "absolutePath": "/C/Users/rsadi/BlockchainAuction/backend/contracts/Structures.sol",
         "file": "./Structures.sol",
         "id": 2,
         "nodeType": "ImportDirective",
-        "scope": 14,
-        "sourceUnit": 420,
-        "src": "67:26:0",
+        "scope": 20,
+        "sourceUnit": 704,
+        "src": "65:26:0",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -77,10 +97,10 @@
               "id": 3,
               "name": "Structures",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 419,
+              "referencedDeclaration": 703,
               "src": "114:10:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Structures_$419",
+                "typeIdentifier": "t_contract$_Structures_$703",
                 "typeString": "contract Structures"
               }
             },
@@ -90,15 +110,15 @@
           }
         ],
         "contractDependencies": [
-          419
+          703
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 13,
+        "id": 19,
         "linearizedBaseContracts": [
-          13,
-          419
+          19,
+          703
         ],
         "name": "Buyers",
         "nodeType": "ContractDefinition",
@@ -107,7 +127,7 @@
             "anonymous": false,
             "documentation": null,
             "id": 12,
-            "name": "BidPlaced",
+            "name": "BidPlacedEvent",
             "nodeType": "EventDefinition",
             "parameters": {
               "id": 11,
@@ -122,7 +142,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 12,
-                  "src": "152:22:0",
+                  "src": "155:22:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -133,7 +153,7 @@
                     "id": 5,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "152:7:0",
+                    "src": "155:7:0",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -152,7 +172,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 12,
-                  "src": "176:17:0",
+                  "src": "179:17:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -163,7 +183,7 @@
                     "id": 7,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "176:7:0",
+                    "src": "179:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -181,7 +201,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 12,
-                  "src": "195:10:0",
+                  "src": "198:10:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -192,7 +212,7 @@
                     "id": 9,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "195:4:0",
+                    "src": "198:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -202,203 +222,370 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "151:55:0"
+              "src": "154:55:0"
             },
-            "src": "136:71:0"
+            "src": "134:76:0"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 18,
+            "name": "BidFailedEvent",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 17,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "bidder",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 18,
+                  "src": "237:22:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 13,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "237:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 16,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "productId",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 18,
+                  "src": "261:17:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 15,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "261:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "236:43:0"
+            },
+            "src": "216:64:0"
           }
         ],
-        "scope": 14,
-        "src": "95:115:0"
+        "scope": 20,
+        "src": "95:198:0"
       }
     ],
-    "src": "40:170:0"
+    "src": "40:253:0"
   },
   "legacyAST": {
-    "absolutePath": "/C/Users/leahr/BlockchainAuction/backend/contracts/Buyers.sol",
-    "exportedSymbols": {
-      "Buyers": [
-        13
-      ]
+    "attributes": {
+      "absolutePath": "/C/Users/rsadi/BlockchainAuction/backend/contracts/Buyers.sol",
+      "exportedSymbols": {
+        "Buyers": [
+          19
+        ]
+      },
+      "license": "UNLICENSED"
     },
-    "id": 14,
-    "license": "UNLICENSED",
-    "nodeType": "SourceUnit",
-    "nodes": [
+    "children": [
       {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.7",
+            ".0"
+          ]
+        },
         "id": 1,
-        "literals": [
-          "solidity",
-          "^",
-          "0.7",
-          ".0"
-        ],
-        "nodeType": "PragmaDirective",
+        "name": "PragmaDirective",
         "src": "40:23:0"
       },
       {
-        "absolutePath": "/C/Users/leahr/BlockchainAuction/backend/contracts/Structures.sol",
-        "file": "./Structures.sol",
+        "attributes": {
+          "SourceUnit": 704,
+          "absolutePath": "/C/Users/rsadi/BlockchainAuction/backend/contracts/Structures.sol",
+          "file": "./Structures.sol",
+          "scope": 20,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
         "id": 2,
-        "nodeType": "ImportDirective",
-        "scope": 14,
-        "sourceUnit": 420,
-        "src": "67:26:0",
-        "symbolAliases": [],
-        "unitAlias": ""
+        "name": "ImportDirective",
+        "src": "65:26:0"
       },
       {
-        "abstract": false,
-        "baseContracts": [
+        "attributes": {
+          "abstract": false,
+          "contractDependencies": [
+            703
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            19,
+            703
+          ],
+          "name": "Buyers",
+          "scope": 20
+        },
+        "children": [
           {
-            "arguments": null,
-            "baseName": {
-              "contractScope": null,
-              "id": 3,
-              "name": "Structures",
-              "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 419,
-              "src": "114:10:0",
-              "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Structures_$419",
-                "typeString": "contract Structures"
+            "attributes": {
+              "arguments": null
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "Structures",
+                  "referencedDeclaration": 703,
+                  "type": "contract Structures"
+                },
+                "id": 3,
+                "name": "UserDefinedTypeName",
+                "src": "114:10:0"
               }
-            },
+            ],
             "id": 4,
-            "nodeType": "InheritanceSpecifier",
+            "name": "InheritanceSpecifier",
             "src": "114:10:0"
-          }
-        ],
-        "contractDependencies": [
-          419
-        ],
-        "contractKind": "contract",
-        "documentation": null,
-        "fullyImplemented": true,
-        "id": 13,
-        "linearizedBaseContracts": [
-          13,
-          419
-        ],
-        "name": "Buyers",
-        "nodeType": "ContractDefinition",
-        "nodes": [
+          },
           {
-            "anonymous": false,
-            "documentation": null,
-            "id": 12,
-            "name": "BidPlaced",
-            "nodeType": "EventDefinition",
-            "parameters": {
-              "id": 11,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 6,
-                  "indexed": true,
-                  "mutability": "mutable",
-                  "name": "bidder",
-                  "nodeType": "VariableDeclaration",
-                  "overrides": null,
-                  "scope": 12,
-                  "src": "152:22:0",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  },
-                  "typeName": {
-                    "id": 5,
-                    "name": "address",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "152:7:0",
-                    "stateMutability": "nonpayable",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 8,
-                  "indexed": false,
-                  "mutability": "mutable",
-                  "name": "productId",
-                  "nodeType": "VariableDeclaration",
-                  "overrides": null,
-                  "scope": 12,
-                  "src": "176:17:0",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_bytes32",
-                    "typeString": "bytes32"
-                  },
-                  "typeName": {
-                    "id": 7,
-                    "name": "bytes32",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "176:7:0",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_bytes32",
-                      "typeString": "bytes32"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 10,
-                  "indexed": false,
-                  "mutability": "mutable",
-                  "name": "price",
-                  "nodeType": "VariableDeclaration",
-                  "overrides": null,
-                  "scope": 12,
-                  "src": "195:10:0",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 9,
-                    "name": "uint",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "195:4:0",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                }
-              ],
-              "src": "151:55:0"
+            "attributes": {
+              "anonymous": false,
+              "documentation": null,
+              "name": "BidPlacedEvent"
             },
-            "src": "136:71:0"
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": true,
+                      "mutability": "mutable",
+                      "name": "bidder",
+                      "overrides": null,
+                      "scope": 12,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 5,
+                        "name": "ElementaryTypeName",
+                        "src": "155:7:0"
+                      }
+                    ],
+                    "id": 6,
+                    "name": "VariableDeclaration",
+                    "src": "155:22:0"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "mutability": "mutable",
+                      "name": "productId",
+                      "overrides": null,
+                      "scope": 12,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 7,
+                        "name": "ElementaryTypeName",
+                        "src": "179:7:0"
+                      }
+                    ],
+                    "id": 8,
+                    "name": "VariableDeclaration",
+                    "src": "179:17:0"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "mutability": "mutable",
+                      "name": "price",
+                      "overrides": null,
+                      "scope": 12,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 9,
+                        "name": "ElementaryTypeName",
+                        "src": "198:4:0"
+                      }
+                    ],
+                    "id": 10,
+                    "name": "VariableDeclaration",
+                    "src": "198:10:0"
+                  }
+                ],
+                "id": 11,
+                "name": "ParameterList",
+                "src": "154:55:0"
+              }
+            ],
+            "id": 12,
+            "name": "EventDefinition",
+            "src": "134:76:0"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "documentation": null,
+              "name": "BidFailedEvent"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": true,
+                      "mutability": "mutable",
+                      "name": "bidder",
+                      "overrides": null,
+                      "scope": 18,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 13,
+                        "name": "ElementaryTypeName",
+                        "src": "237:7:0"
+                      }
+                    ],
+                    "id": 14,
+                    "name": "VariableDeclaration",
+                    "src": "237:22:0"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "mutability": "mutable",
+                      "name": "productId",
+                      "overrides": null,
+                      "scope": 18,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 15,
+                        "name": "ElementaryTypeName",
+                        "src": "261:7:0"
+                      }
+                    ],
+                    "id": 16,
+                    "name": "VariableDeclaration",
+                    "src": "261:17:0"
+                  }
+                ],
+                "id": 17,
+                "name": "ParameterList",
+                "src": "236:43:0"
+              }
+            ],
+            "id": 18,
+            "name": "EventDefinition",
+            "src": "216:64:0"
           }
         ],
-        "scope": 14,
-        "src": "95:115:0"
+        "id": 19,
+        "name": "ContractDefinition",
+        "src": "95:198:0"
       }
     ],
-    "src": "40:170:0"
+    "id": 20,
+    "name": "SourceUnit",
+    "src": "40:253:0"
   },
   "compiler": {
     "name": "solc",
     "version": "0.7.0+commit.9e61f92b.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.0.20",
-  "updatedAt": "2020-12-18T14:17:27.387Z",
+  "schemaVersion": "3.3.3",
+  "updatedAt": "2020-12-24T16:41:26.070Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
