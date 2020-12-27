@@ -121,7 +121,7 @@ contract Products is Buyers, Sellers {
 
         removeProduct(productId);
 
-        emit ProductSoldEvent(msg.sender, highestBidder, highestBidPrice);
+        emit ProductSoldEvent(msg.sender, highestBidder, productId, highestBidPrice);
 
     }
     

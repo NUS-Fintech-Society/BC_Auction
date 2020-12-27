@@ -1,0 +1,22 @@
+.bid {
+    border-radius: 2rem;
+}
+
+.bid-outbid {
+    background-color: #fad4e3;
+    color: #9e0042;
+}
+
+.bid-pending {
+    background-color: #fff1cf;
+    color: #b37f00;
+}
+
+.bid-sold {
+    background-color: #d2ffcf;
+    color: #0a9100;
+}
+
+.bid-btn {
+    border-radius: 20px;
+}
