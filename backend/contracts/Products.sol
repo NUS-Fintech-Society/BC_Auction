@@ -10,6 +10,7 @@ contract Products is Buyers, Sellers {
     bytes32[] public activeProductIds;
     mapping(address => Product[]) private sellerToProduct;
 
+    //did not put message
     modifier onlySellers() 
     {
         require(sellerToProduct[msg.sender].length > 0);
