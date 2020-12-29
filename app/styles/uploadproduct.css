@@ -67,6 +67,7 @@ body {
 }
 
 .input-group {
+   margin-top: 51px;
    margin-bottom: 2rem;
    display: flex;
    flex-direction: column;
