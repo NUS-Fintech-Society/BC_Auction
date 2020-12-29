@@ -1,0 +1,111 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+</style>
+
+*, *::before, *::after {
+   box-sizing: border-box;
+}
+
+body {
+   padding: 0;
+   margin: 0;
+   background-color: #2F303A;
+   font-family: 'Poppins', sans-serif;
+   font-size 1.2rem;
+   color: white;
+}
+
+.btn{
+   color:white;
+   background-color: #1762A7;
+   padding: .75rem 1.5rem;
+   border-radius: .5rem;
+   text-decoration: none;
+   font-size: .9rem;
+   outline: none;
+   border: none;
+   cursor: pointer;
+}
+
+.btn:hover {
+   background-color: #2180d8;
+}
+
+.btn:focus {
+   background-color: #2796FF;
+}
+
+.upload-product-section {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   flex-grow: 1;
+}
+
+
+.upload-product {
+   font-size: 3.5em;
+   font-weight: bold;
+   display: inline-block;
+   margin-top: 0em;
+   margin-left: auto;
+   margin-right: auto;
+   text-align: left;
+}
+
+.upload-form {
+   background-color: #202027;
+   width: 50vw;
+   max-width: 50%;
+   padding: 2rem 4rem;
+   border-radius: 20px;
+   display: inline-block;
+   margin-top: 5em;
+   margin-left: auto;
+   margin-right: auto;
+   text-align: left;
+}
+
+.input-group {
+   margin-bottom: 2rem;
+   display: flex;
+   flex-direction: column;
+}
+
+.inputgroup:last-child {
+   margin-bottom: 0;
+}
+
+.input-group label {
+font-weight: bold;
+margin-bottom: .5rem;
+}
+
+.input-group input {
+   outline: none;
+   background: none;
+   border: 1px solid #2E3852
+   font-size: 1em;
+   padding: .5em;
+   color: inherit;
+   border-radius: 5px;
+}
+
+.input-group input:focus {
+   border-color: #596da0;
+}
+
+@media (max-width: 900px) {
+.upload-product-section {
+   flex-direction: column;
+   justify-content: center;
+}
+
+.upload-form {
+   width: 80vw;
+   max-width: inehrit;
+   margin: 2rem 0;
+}
+
+
+}
