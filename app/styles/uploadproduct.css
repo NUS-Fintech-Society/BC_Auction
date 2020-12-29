@@ -7,8 +7,8 @@
 }
 
 body {
-   padding: 1em;
-   margin-top: 100px;
+   padding: 0;
+   margin: 0;
    background-color: #2F303A;
    font-family: 'Poppins', sans-serif;
    font-size 1.2rem;
@@ -67,7 +67,6 @@ body {
 }
 
 .input-group {
-   margin-top: 51px;
    margin-bottom: 2rem;
    display: flex;
    flex-direction: column;
