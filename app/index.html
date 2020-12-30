@@ -68,10 +68,13 @@
                 </div>
             </nav>
         </div>
+
+        
         
         <script type="module">
             import { isEthEnabled } from "./js/startup.js";
             import { contractAddress, contractAbi } from "./js/contract.js";
+            import {productComponent, getActiveProducts} from "./js/productlisting.js";
 
             window.addEventListener("load", async function (_window, event) {
 
@@ -125,6 +128,12 @@
 
                 $("#account-address")
                     .html(accounts[0].slice(0, 6) + "..." + accounts[0].slice(accounts[0].length - 6));
+
+                getActiveProducts(contract, (product) => {
+                    $("#content").append(productComponent(product));
+                });
+                
+            
             }
         
         </script>
