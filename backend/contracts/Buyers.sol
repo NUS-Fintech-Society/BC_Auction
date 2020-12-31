@@ -6,5 +6,5 @@ contract Buyers is Structures {
 
     event BidPlacedEvent(address indexed bidder, bytes32 productId, uint price);
     event BidFailedEvent(address indexed bidder, bytes32 productId);
-        
+
 }

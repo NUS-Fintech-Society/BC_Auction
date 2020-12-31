@@ -1,1 +1,31 @@
-.inter { font-family: Inter; }
+.inter {
+    font-family: Inter;
+}
+
+.inter-bold {
+    font-family: Inter;
+    font-weight: 600;
+}
+
+.inter-thicc {
+    font-family: Inter;
+    font-weight: 800;
+}
+
+.mx-6 {
+    margin-left: 6rem;
+    margin-right: 6rem;
+}
+
+.rounded-nav {
+    border-radius: 0rem 0rem 3rem 3rem;
+    background-color: black;
+}
+
+.margin-top {
+    margin-top: 6rem;
+}
+
+.navbar-color {
+    background-color: #e3e3e3;
+}
