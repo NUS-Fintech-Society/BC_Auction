@@ -43,7 +43,6 @@ contract Products is Buyers, Sellers {
     function getProductDetailsById(bytes32 productId) public view returns (Product memory)
     {
         require(activeProducts[productId].isReal, "Product does not exist");
-        
         Product memory product = activeProducts[productId];
         return product;
     }
