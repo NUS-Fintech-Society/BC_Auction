@@ -151,6 +151,7 @@
 <div class="container">
 <section class="upload-product-section">
     <h1 class="upload-product">Upload a product</h1>
+
     <form id = "form" class ="upload-form" >
         <div class ="input-group">
             <label for="name">Name</label>
@@ -164,14 +165,31 @@
             <label for="lowerbound">Lower Bound</label>
             <input type="number" name="lowerbound" id="lowerbound" placeholder="Input lowerbound of your product">
         </div>
+
+<!--
         <div class ="input-group">
             <label for="deadline">Deadline</label>
             <input type="date" name="deadline" id="deadline">
         </div>
+-->
+
+        <div class ="input-group">
+        <p>Current Unix Timestamp: </p>
+        <script>
+        var currentDate= new Date();
+        var epochSeconds = Math.round(currentDate.getTime() / 1000);
+        document.write(epochSeconds);
+        //console.log(epochSeconds); 
+         </script>
+         </div>
+
+<!--
         <div class ="input-group">
             <label for="file">File</label>
             <input type="file" name="file" id="file">
         </div>
+-->
+
         <div class ="input-group">
             <button type="reset" class="btn">Reset</button>
         </div>
@@ -199,5 +217,7 @@
 
 </body>
 <!--Form end-->
+
+
 
 </html>
