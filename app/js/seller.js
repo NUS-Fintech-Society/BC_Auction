@@ -1,30 +1,3 @@
-export function bidComponent(bid) {
-    var icon, explanation, btnCss;
-    if (bid.type === "sold") {
-        icon = "fa-check";
-        explanation = `${bid.buyer}` + "has successfully won this item in the auction!";
-        btnCss = "table-success";
-    } else if (bid.type === "closed") {
-        icon = "fa-times";
-        explanation = "Seller has decided that the product isn't up for sale anymore";
-        btnCss = "table-danger";
-    }
-
-    return `<div class="card bid border-light m-5">
-     <table>
-     <tr class="stable-success">
-       <td>${bid.description} </td>
-       <td>${bid.name} </td>
-       <td>${explanation} </td>
-       <td> <a href="product.html?id=${bid.productId}">click</a></td>
-
-     </tr>
-    </table>
-    </div>`;
-}
-
-
-
 export function getAllClosedSoldProducts(contract, account, title, callback) {
     contract.events.ProductLaunchEvent({
         filter: { seller: account },
@@ -53,6 +26,23 @@ export function getAllClosedSoldProducts(contract, account, title, callback) {
                 }
             });
                 break;
+
+            case "sold": contract.events.ProductSoldEvent({
+                filter: { productId: launchEvent.returnValues.productId },
+                fromBlock: 0
+            }, async (_error, _soldEvent) => {
+                if (_soldEvent.returnValues.productId == launchEvent.returnValues.productId) {
+                    product.type = "sold";
+                    product.buyer = _soldEvent.returnValues.buyer
+                    product.price = web3.utils.fromWei(_soldEvent.returnValues.price, 'ether')
+                    callback(product);
+
+                } else {
+                    callback();
+                }
+            });
+                break;
+
             case "open": callback(product);
                 break;
 
@@ -67,7 +57,6 @@ export function getAllClosedSoldProducts(contract, account, title, callback) {
 
 
 export function getActiveProducts(contract, account, title, callback) {
-
     contract.events.ProductClosedEvent({
         filter: { seller: account },
         fromBlock: 0
@@ -91,21 +80,6 @@ export function getActiveProducts(contract, account, title, callback) {
         filter: { seller: account },
         fromBlock: 0
     }, async (_error, event) => {
-        contract.events.ProductSoldEvent({
-            filter: { productId: event.returnValues.productId },
-            fromBlock: 0
-        }, async (_error, launchEvent) => {
-            return callback();
-        })
-
-        contract.events.ProductClosedEvent({
-            filter: { productId: event.returnValues.productId },
-            fromBlock: 0
-        }, async (_error, launchEvent) => {
-            return callback();
-
-        })
-
          getAllProducts(contract, account, (send) =>{
             callback(send);
          });
@@ -124,7 +98,9 @@ function  getAllProducts(contract, account,callback) {
         if (result.length > 0) {
 
             console.log(result.length);
-            var m = `<table class="table">
+            var m = `<table class="table"  data-toggle="table"
+            data-height="460"
+            data-pagination="true">
         <thead class="thead-dark">
           <tr>
             <th scope="col">#</th>
@@ -141,7 +117,7 @@ function  getAllProducts(contract, account,callback) {
 
             for (var i = 0; i < result.length; i++) {
                 var curr = result[i];
-                console.log(curr);
+                // console.log(curr);
                 var row = `<tr>
          <th scope="row">${i}</th>
          <td>${curr.name} </td>
@@ -149,12 +125,12 @@ function  getAllProducts(contract, account,callback) {
          <td>${curr.deadline} </td>
          <td> <a href="product.html?id=${curr.id}">click</a></td>
         </tr>`;
-                console.log(web3.utils.hexToAscii(curr.id));
+                // console.log(web3.utils.hexToAscii(curr.id));
                 //$("#openContent").append(row);      
                 m += row;
             }
             m += `</tbody></table>`;
-            console.log(m);
+            // console.log(m);
              callback(m);
         } else {
               callback(m);
@@ -163,18 +139,4 @@ function  getAllProducts(contract, account,callback) {
 }
 
 
-            // case "sold": contract.events.ProductSoldEvent({
-            //     filter: { productId: launchEvent.returnValues.productId },
-            //     fromBlock: 0
-            // }, async (_error, _soldEvent) => {
-            //     if (_soldEvent.returnValues.productId == launchEvent.returnValues.productId) {
-            //         product.type = "sold";
-            //         product.buyer = launchEvent.returnValues.buyer
-            //         product.price = web3.utils.fromWei(launchEvent.returnValues.price, 'ether')
-            //         callback(product);
-
-            //     } else {
-            //         callback();
-            //     }
-            // });
-            //     break;
+  

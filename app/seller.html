@@ -2,191 +2,271 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Auction</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <head>
+    <title>Auction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <!-- CDN -->
+    <!-- CDN -->
 
-        <!-- Bootstrap CSS only -->
-        <link 
-            rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-            crossorigin="anonymous"
-        />
+    <!-- Bootstrap CSS only -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
 
-        <!-- Inter Font CSS -->
-        <link 
-            href="https://cdnjs.cloudflare.com/ajax/libs/inter-ui/3.15.0/inter.css"
-            rel="stylesheet" 
-            integrity="sha512-2ScEqx8oE365TaMpvEhzeFgNndX303Y62SJfTqJ7xeBUS7FV86//D1MAKOjCglApnQMteDSQzn+HqYFIFeNJrw==" 
-            crossorigin="anonymous" 
-        />
+    <!-- Inter Font CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/inter-ui/3.15.0/inter.css"
+      rel="stylesheet"
+      integrity="sha512-2ScEqx8oE365TaMpvEhzeFgNndX303Y62SJfTqJ7xeBUS7FV86//D1MAKOjCglApnQMteDSQzn+HqYFIFeNJrw=="
+      crossorigin="anonymous"
+    />
 
-        <!-- Font Awesome -->
-        <link 
-            rel="stylesheet"
-            href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-            integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-            crossorigin="anonymous"
-        />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
 
-        <!-- jQuery JS -->
-        <script 
-            src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-        ></script>
+    <!-- jQuery JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-        <!-- Web3 JS -->
-        <script 
-            src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.3.0/web3.min.js"
-        ></script>
+    <link
+      href="https://unpkg.com/bootstrap-table@1.18.1/dist/bootstrap-table.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/bootstrap-table@1.18.1/dist/bootstrap-table.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 
-        <link 
-            rel="stylesheet" 
-            href="./styles/styles.css"
-        />
-        <link 
-            rel="stylesheet" 
-            href="./styles/bids.css"
-        />
-    </head>
+    <script src="http://cdn.datatables.net/1.10.3/js/jquery.dataTables.min.js"></script>
+    <!-- Web3 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.3.0/web3.min.js"></script>
 
-    <body class="inter">
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <link rel="stylesheet" href="./styles/bids.css" />
+  </head>
 
-        <div id="alert" class="card w-auto h-auto">  
-            <div id="alert-header" class="card-header">Alert</div>
-            <div id="alert-body" class="card-body"></div>
-            <div id="alert-btn"></div>
-        </div>
+  <body class="inter">
+    <div style="margin-bottom: 25px">
+      <div id="alert" class="card w-auto h-auto">
+        <div id="alert-header" class="card-header">Alert</div>
+        <div id="alert-body" class="card-body"></div>
+        <div id="alert-btn"></div>
+      </div>
 
-        <div id="root" class="invisible inter">
-            <nav class="navbar navbar-expand-sm navbar-light p-3 fixed-top mx-6 rounded-nav navbar-color">
-                <a href="index.html" class="navbar-brand inter-thicc m-1">Blocktion</a>
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav">
-                        <a href="index.html" class="nav-item nav-link inter-bold">Products</a>
-                        <a href="bids.html" class="nav-item nav-link active inter-bold">My Bids</a>
-                    </div>
-                    <div class="navbar-nav ml-auto">
-                        <a href="seller.html" class="nav-item nav-link inter-bold">Seller's Page</a>
-                        <a href="uploadproduct.html" class="nav-item nav-link inter-bold">Sell Now</a>
-                        <span class="nav-item nav-link inter" id="account-address">Account Address</span>
-                    </div>
-                </div>
-            </nav>
+      <div id="root" class="invisible inter" style="padding-bottom: 25px">
+        <nav
+          class="navbar navbar-expand-sm navbar-light p-3 fixed-top mx-6 rounded-nav navbar-color"
+        >
+          <a href="index.html" class="navbar-brand inter-thicc m-1"
+            >Blocktion</a
+          >
+          <button
+            type="button"
+            class="navbar-toggler"
+            product-toggle="collapse"
+            product-target="#navbarCollapse"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-            <div id="content" class="margin-top">
-                
-      <div id="content" class="margin-top">
-        <div id="openTitle"></div>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav">
+              <a href="index.html" class="nav-item nav-link inter-bold"
+                >Products</a
+              >
+              <a href="bids.html" class="nav-item nav-link active inter-bold"
+                >My Bids</a
+              >
+            </div>
+            <div class="navbar-nav ml-auto">
+              <a href="seller.html" class="nav-item nav-link inter-bold"
+                >Seller's Page</a
+              >
+              <a href="uploadproduct.html" class="nav-item nav-link inter-bold"
+                >Sell Now</a
+              >
+              <span class="nav-item nav-link inter" id="account-address"
+                >Account Address</span
+              >
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <div
+        id="parent"
+        class="mx-5"
+        style="padding-top: 90px; margin-bottom: 30px"
+      >
+        <div id="openTitle" class="mx-auto" style="text-align: center" ;></div>
         <div id="openContent"></div>
-        <div id="soldTitle"></div>
+        <div id="soldTitle" class="mx-auto" style="text-align: center"></div>
+        <table id="Tab" class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Buyer</th>
+              <th scope="col">Price Sold</th>
+              <th scope="col">Website</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+
         <div id="soldContent"></div>
-        <div id="closedTitle"></div>
+        <div
+          id="closedTitle"
+          class="mx-auto"
+          style="text-align: center; margin-top: 30px"
+        ></div>
+        <table id="Tab1" class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Deadline</th>
+              <th scope="col">Website</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+
         <div id="closedContent"></div>
       </div>
     </div>
 
-            </div>
-        </div>
-        
-        <script type="module">
-            import { isEthEnabled } from "./js/startup.js";
-            import { contractAddress, contractAbi } from "./js/contract.js";
-            import { bidComponent, getActiveProducts,getAllClosedSoldProducts } from "./js/seller.js";
+    
+    <script type="module">
+      import { isEthEnabled } from "./js/startup.js";
+      import { contractAddress, contractAbi } from "./js/contract.js";
+      import {
+        getActiveProducts,
+        getAllClosedSoldProducts,
+      } from "./js/seller.js";
 
-            window.addEventListener("load", async function (_window, event) {
+      window.alert = (function () {
+        var nativeAlert = window.alert;
+        return function (message) {
+          // window.alert = nativeAlert;
+          message.indexOf("DataTables warning") === 0
+            ? console.warn(message)
+            : nativeAlert(message);
+        };
+      })();
 
-                if (!isEthEnabled(window)) {
-                    // show prompt
-                    $("#alert-body")
-                        .html("Please install an Ethereum-compatible browser or extension like MetaMask to use this dApp!");
-                    // clear main content
-                    $("#root")
-                        .html("");
-                } else {
-                    var network = await web3.eth.net.getNetworkType();
-                    if (network !== "ropsten") {
-                        // show prompt
-                        $("#alert-body")
-                            .html("Please change network to the Ropsten Test Network!");
-                        // clear main content
-                        $("#root")
-                            .html("");
-                    } else {
-                        // show main content
-                        $("#alert")
-                            .html("");
-                        $("#root")
-                            .removeClass("invisible");
-                        startApp();
-                    }
-                }
-
-                window.ethereum.autoRefreshOnNetworkChange = false;
-                window.ethereum.on("chainChanged", () => {
-                    document.location.reload();
-                });
-
-            });
-
-            async function startApp() {
-
-                let accounts = await web3.eth.getAccounts();
-                web3.eth.defaultAccount = accounts[0];
-                
-                let contract = new web3.eth.Contract(
-                    contractAbi,
-                    contractAddress
-                );
-                
-                $("#account-address")
-                    .html(accounts[0].slice(0, 6) + "..." + accounts[0].slice(accounts[0].length - 6));
-
-
-                   getAllClosedSoldProducts(contract, accounts[0], 'sold', (product) => {
-          console.log(product)
-          if (product === undefined) {
-            $('#soldTitle').html('<h3>No sold Products Yet</h3>')
+      window.addEventListener("load", async function (_window, event) {
+        if (!isEthEnabled(window)) {
+          // show prompt
+          $("#alert-body").html(
+            "Please install an Ethereum-compatible browser or extension like MetaMask to use this dApp!"
+          );
+          // clear main content
+          $("#root").html("");
+        } else {
+          var network = await web3.eth.net.getNetworkType();
+          if (network !== "ropsten") {
+            // show prompt
+            $("#alert-body").html(
+              "Please change network to the Ropsten Test Network!"
+            );
+            // clear main content
+            $("#root").html("");
           } else {
-            $('#soldContent').append(bidComponent(product))
+            // show main content
+            $("#alert").html("");
+            $("#root").removeClass("invisible");
+            startApp();
           }
-        })
+        }
 
-        getActiveProducts(contract, accounts[0], 'open', (result) => {
-          console.log(result)
+        window.ethereum.autoRefreshOnNetworkChange = false;
+        window.ethereum.on("chainChanged", () => {
+          document.location.reload();
+        });
+      });
+
+      async function startApp() {
+        let accounts = await web3.eth.getAccounts();
+        web3.eth.defaultAccount = accounts[0];
+
+        let contract = new web3.eth.Contract(contractAbi, contractAddress);
+
+        $("#account-address").html(
+          accounts[0].slice(0, 6) +
+            "..." +
+            accounts[0].slice(accounts[0].length - 6)
+        );
+
+        var sIndex = 1;
+        getAllClosedSoldProducts(contract, accounts[0], "sold", (product) => {
+          if (product !== undefined) {
+            $("#Tab")
+              .DataTable()
+              .row.add([
+                sIndex,
+                product.name,
+                product.description,
+                product.buyer,
+                product.deadline,
+              ])
+              .draw();
+            sIndex += 1;
+          }
+
+          if (sIndex > 1) {
+            $("#Tab").show();
+            $("#soldTitle").html("<h3>YAY Sold PRODUCTS</h3>");
+          } else {
+            $("#Tab").hide();
+            $("#soldTitle").html("<h3>No Sold Products Yet</h3>");
+          }
+        });
+
+        getActiveProducts(contract, accounts[0], "open", (result) => {
           if (result !== undefined) {
-            $('#openContent').html(result)
+            $("#openContent").html(result);
           }
 
-          if ($('#openContent').length > 0) {
-            $('#openTitle').html('<h3>YAY OPEN PRODUCTS</h3>')
+          if ($("#openContent").length > 0) {
+            $("#openTitle").html("<h3>YAY OPEN PRODUCTS</h3>");
           } else {
-            $('#openTitle').html('<h3>No Open Products Yet</h3>')
+            $("#openTitle").html("<h3>No Open Products Yet</h3>");
           }
-        })
+        });
 
-        getAllClosedSoldProducts(contract, accounts[0], 'open', (product) => {
-          console.log(product)
-          if (product === undefined) {
-            $('#closedTitle').html('<h3>No closed Products Yet</h3>')
-          } else {
-            $('#closedContent').append(bidComponent(product))
+        var cIndex = 1;
+        getAllClosedSoldProducts(contract, accounts[0], "open", (product) => {
+          if (product !== undefined) {
+            $("#Tab1")
+              .DataTable()
+              .row.add([
+                cIndex,
+                product.name,
+                product.description,
+                product.productId,
+                product.deadline,
+              ])
+              .draw();
+            cIndex += 1;
           }
-        })
-            }
-        
-        </script>
-    </body>
+
+          console.log($("#closedContent").length);
+          if (cIndex > 1) {
+            $("#Tab1").show();
+            $("#closedTitle").html("<h3>YAY Closed PRODUCTS</h3>");
+          } else {
+            $("#Tab1").hide();
+            $("#closedTitle").html("<h3>No Open Products Yet</h3>");
+          }
+        });
+      }
+    </script>
+  </body>
 </html>
-
-
-
-
-
- 
