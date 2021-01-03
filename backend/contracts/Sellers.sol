@@ -5,7 +5,7 @@ import "./Structures.sol";
 contract Sellers is Structures {
 
     event ProductLaunchEvent(address indexed seller, bytes32 indexed productId, string name, string description);
-    event ProductClosedEvent(address indexed seller, bytes32 productId);
+    event ProductClosedEvent(address indexed seller, bytes32 indexed productId);
     event ProductSoldEvent(address indexed seller, address indexed buyer, bytes32 indexed productId, uint price); //highest price by buyer
 
 }

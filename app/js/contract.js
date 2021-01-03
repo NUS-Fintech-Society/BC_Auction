@@ -347,7 +347,7 @@ export const contractAbi = [{
                     "type": "uint256"
                 },
                 {
-                    "internalType": "uint256",
+                    "getMyProductsinternalType": "uint256",
                     "name": "bidTime",
                     "type": "uint256"
                 }

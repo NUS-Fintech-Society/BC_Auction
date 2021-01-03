@@ -10,6 +10,7 @@ contract Products is Buyers, Sellers {
     bytes32[] public activeProductIds;
     mapping(address => Product[]) private sellerToProduct;
 
+    //did not put message
     modifier onlySellers() 
     {
         require(sellerToProduct[msg.sender].length > 0);
@@ -43,7 +44,6 @@ contract Products is Buyers, Sellers {
     function getProductDetailsById(bytes32 productId) public view returns (Product memory)
     {
         require(activeProducts[productId].isReal, "Product does not exist");
-        
         Product memory product = activeProducts[productId];
         return product;
     }
