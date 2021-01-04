@@ -38,6 +38,10 @@
             rel="stylesheet" 
             href="./styles/styles.css"
         />
+        <link 
+            rel="stylesheet" 
+            href="./styles/mainpage.css"
+        />
     </head>
 
     <body class="inter">
@@ -67,7 +71,13 @@
                     </div>
                 </div>
             </nav>
+            <div id="content" class="margin-top"></div>
+            
+            <a href="#" id = "loadMore">Load More</a>
+            
         </div>
+
+        
 
         
         
@@ -110,6 +120,17 @@
                 });
 
             });
+            
+            $(function () {
+                $("div").slice(0, 3).show();
+                $("#loadMore").on('click', function (e) {
+                    e.preventDefault();
+                    $("div:hidden").slice(0, 3).show();
+                    if ($("div:hidden").length == 0) {
+                        $("#loadMore").fadeOut('slow');
+                    }
+                });
+            });
 
             async function startApp() {
 
@@ -119,7 +140,7 @@
                 // window.account = account[0];
                 
                 $("#root")
-                    .prepend("App has started");
+                    .prepend("");
 
                 let contract = new web3.eth.Contract(
                     contractAbi,
