@@ -10,7 +10,8 @@ More platforms like E-Bay are considering Blockchain as a next step to secure th
 - Read more about this: https://news.bitcoin.com/ebay-can-stop-fraud-overnight-using-blockchain/
 
 ## User Flow
-![](app\images\userflow.png)
+![](app/images/userflow.png)
+
 ## User Stories
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
