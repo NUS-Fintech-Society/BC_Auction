@@ -28,6 +28,6 @@ export function showProduct(contract, productId, callback) {
 
 export function makeBid(contract, account, productId, bidPrice, callback) {
     contract.methods.placeBid(productId).send({from: account, value:bidPrice})
-    .on('transactionHash', hash => callback(`Transaction Hash: ${hash}`))
-    .on('error', (error, receipt) => callback(`Error has occured: ${error}`));
+        .on('transactionHash', hash => callback(`Transaction Hash: ${hash}`))
+        .on('error', (error, receipt) => callback(`Error has occured: ${error}`));
 }
