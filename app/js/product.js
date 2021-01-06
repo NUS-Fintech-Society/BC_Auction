@@ -1,5 +1,10 @@
 export function showProduct(contract, productId, callback) {
-    contract.methods.getProductDetailById(productId).call().then(product => 
+    contract.methods.getProductDetailsById(productId).call().then(product => { 
+        var date = new Date(product.deadline*1000);
+        var hours = date.getHours();
+        var minutes = "0" + date.getMinutes();
+        var seconds = "0" + date.getSeconds();
+        var timeTillDeadline = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
         callback( `
             <div class="card-body">
                 <div class="row">
@@ -8,7 +13,7 @@ export function showProduct(contract, productId, callback) {
                         <p class="card-text">
                             ${product.description}
                             <p>Seller: ${product.seller}</p>
-                            <p>Deadline: ${product.deadline}</p>
+                            <p>Deadline: ${timeTillDeadline}</p>
                         </p>
                     </div>
                     <h4 class="col-md-auto align-self-center p-lg-5">
@@ -22,7 +27,7 @@ export function showProduct(contract, productId, callback) {
                     <div id="return-message"></div>
                 </div>
             </div>
-        `)
+        `);}
     ); 
 }
 
