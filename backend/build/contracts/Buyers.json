@@ -46,13 +46,13 @@
       "type": "event"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.7.0+commit.9e61f92b\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"productId\",\"type\":\"bytes32\"}],\"name\":\"BidFailedEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"productId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"name\":\"BidPlacedEvent\",\"type\":\"event\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/C/Users/rsadi/BlockchainAuction/backend/contracts/Buyers.sol\":\"Buyers\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/rsadi/BlockchainAuction/backend/contracts/Buyers.sol\":{\"keccak256\":\"0x51fb17610ce4c36f8f074a68c83ec994b177b091f8792bbebcf74fd242ad5071\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://643fc5f2a94b6123b5e6836725fb1b28d4ddc03f37be6324740deaa6e8237390\",\"dweb:/ipfs/QmTqyM8QXD18fWH77kRuCoJMAxGqTXbNhLNNSQvAVUP9iU\"]},\"/C/Users/rsadi/BlockchainAuction/backend/contracts/Structures.sol\":{\"keccak256\":\"0x44d1d68bbd37010a2ab94de061c1020d0422390df15ddd9de84442577602bd36\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://5a15c6952bfcafbf858e996de840d13be2452d2eed9aba4dd4e8db67b8cda86a\",\"dweb:/ipfs/QmWPkACpkWszKqKvqEMqPMvbbsSKL353FZtUKEQkGPw3Nv\"]}},\"version\":1}",
-  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220384207d0ddd0433f2e3a59c803358d87e4cc791f1c85a1c4b0569d670d2c9c3364736f6c63430007000033",
-  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220384207d0ddd0433f2e3a59c803358d87e4cc791f1c85a1c4b0569d670d2c9c3364736f6c63430007000033",
+  "metadata": "{\"compiler\":{\"version\":\"0.7.0+commit.9e61f92b\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"productId\",\"type\":\"bytes32\"}],\"name\":\"BidFailedEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"productId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"name\":\"BidPlacedEvent\",\"type\":\"event\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/C/Users/rsadi/BlockchainAuction/backend/contracts/Buyers.sol\":\"Buyers\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/rsadi/BlockchainAuction/backend/contracts/Buyers.sol\":{\"keccak256\":\"0x05ba20d57484651f4f66f66baa3d43ed0c18723082e58b41ef04b0e6f951c442\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://18e16a8e9d3c2a44d21ec599aec0094c8c0e2d3202662ed9434e0f04706f21e0\",\"dweb:/ipfs/Qmd25x9xTUE8jrgLXtkhicbFeVH6zeZrshAoZTfYiz4edQ\"]},\"/C/Users/rsadi/BlockchainAuction/backend/contracts/Structures.sol\":{\"keccak256\":\"0x44d1d68bbd37010a2ab94de061c1020d0422390df15ddd9de84442577602bd36\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://5a15c6952bfcafbf858e996de840d13be2452d2eed9aba4dd4e8db67b8cda86a\",\"dweb:/ipfs/QmWPkACpkWszKqKvqEMqPMvbbsSKL353FZtUKEQkGPw3Nv\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea26469706673582212204980355671cbb1052028a2a2b3786d95fbb74890fa50b4aaad104d71b8f34c9d64736f6c63430007000033",
+  "deployedBytecode": "0x6080604052600080fdfea26469706673582212204980355671cbb1052028a2a2b3786d95fbb74890fa50b4aaad104d71b8f34c9d64736f6c63430007000033",
   "immutableReferences": {},
-  "sourceMap": "95:198:0:-:0;;;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "95:198:0:-:0;;;;;",
-  "source": "// SPDX-License-Identifier: UNLICENSED\r\npragma solidity ^0.7.0;\r\nimport \"./Structures.sol\";\r\n\r\ncontract Buyers is Structures {\r\n\r\n    event BidPlacedEvent(address indexed bidder, bytes32 productId, uint price);\r\n    event BidFailedEvent(address indexed bidder, bytes32 productId);\r\n        \r\n}",
+  "sourceMap": "95:190:0:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "95:190:0:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: UNLICENSED\r\npragma solidity ^0.7.0;\r\nimport \"./Structures.sol\";\r\n\r\ncontract Buyers is Structures {\r\n\r\n    event BidPlacedEvent(address indexed bidder, bytes32 productId, uint price);\r\n    event BidFailedEvent(address indexed bidder, bytes32 productId);\r\n\r\n}",
   "sourcePath": "C:\\Users\\rsadi\\BlockchainAuction\\backend\\contracts\\Buyers.sol",
   "ast": {
     "absolutePath": "/C/Users/rsadi/BlockchainAuction/backend/contracts/Buyers.sol",
@@ -82,7 +82,7 @@
         "id": 2,
         "nodeType": "ImportDirective",
         "scope": 20,
-        "sourceUnit": 704,
+        "sourceUnit": 711,
         "src": "65:26:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -97,10 +97,10 @@
               "id": 3,
               "name": "Structures",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 703,
+              "referencedDeclaration": 710,
               "src": "114:10:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Structures_$703",
+                "typeIdentifier": "t_contract$_Structures_$710",
                 "typeString": "contract Structures"
               }
             },
@@ -110,7 +110,7 @@
           }
         ],
         "contractDependencies": [
-          703
+          710
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -118,7 +118,7 @@
         "id": 19,
         "linearizedBaseContracts": [
           19,
-          703
+          710
         ],
         "name": "Buyers",
         "nodeType": "ContractDefinition",
@@ -302,10 +302,10 @@
           }
         ],
         "scope": 20,
-        "src": "95:198:0"
+        "src": "95:190:0"
       }
     ],
-    "src": "40:253:0"
+    "src": "40:245:0"
   },
   "legacyAST": {
     "attributes": {
@@ -333,7 +333,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 704,
+          "SourceUnit": 711,
           "absolutePath": "/C/Users/rsadi/BlockchainAuction/backend/contracts/Structures.sol",
           "file": "./Structures.sol",
           "scope": 20,
@@ -350,14 +350,14 @@
         "attributes": {
           "abstract": false,
           "contractDependencies": [
-            703
+            710
           ],
           "contractKind": "contract",
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
             19,
-            703
+            710
           ],
           "name": "Buyers",
           "scope": 20
@@ -372,7 +372,7 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "Structures",
-                  "referencedDeclaration": 703,
+                  "referencedDeclaration": 710,
                   "type": "contract Structures"
                 },
                 "id": 3,
@@ -572,12 +572,12 @@
         ],
         "id": 19,
         "name": "ContractDefinition",
-        "src": "95:198:0"
+        "src": "95:190:0"
       }
     ],
     "id": 20,
     "name": "SourceUnit",
-    "src": "40:253:0"
+    "src": "40:245:0"
   },
   "compiler": {
     "name": "solc",
@@ -585,7 +585,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.3",
-  "updatedAt": "2020-12-24T16:41:26.070Z",
+  "updatedAt": "2021-01-06T15:18:03.841Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

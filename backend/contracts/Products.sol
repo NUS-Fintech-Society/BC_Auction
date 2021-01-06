@@ -150,7 +150,7 @@ contract Products is Buyers, Sellers {
         
 
         for(uint i = 0; i < sellerToProduct[msg.sender].length; i++) {
-            if (sellerToProduct[msg.sender][i].id == activeProducts[productId].id) {
+            if (sellerToProduct[msg.sender][i].id == productId) {
                 sellerToProduct[msg.sender][i] = sellerToProduct[msg.sender][sellerToProduct[msg.sender].length - 1];
                 sellerToProduct[msg.sender].pop();
             }
