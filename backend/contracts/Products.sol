@@ -76,6 +76,8 @@ contract Products is Buyers, Sellers {
         emit BidPlacedEvent(newBid.bidder, productId, msg.value); 
     }
 
+    /// @notice Function to get all the active Products under a perticular User
+    /// @return returns an array of active Products
     function getMyProducts() onlySellers public view returns(Product[] memory)  
     {               
         Product[] memory currAll = sellerToProduct[msg.sender];
@@ -83,6 +85,9 @@ contract Products is Buyers, Sellers {
      } 
 
 
+    /// @notice Simple function to easily query the highest bidder of any product if exists
+    /// @param productId the id of the Product in question in type bytes32
+    /// @return the struct Bid which contains the highest Bidder 
     function getHighestBid(bytes32 productId) public view returns(Bid memory) 
     { 
          return activeProducts[productId].highestBid;

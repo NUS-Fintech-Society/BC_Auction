@@ -242,7 +242,7 @@
         });
 
         var cIndex = 1;
-        getAllClosedSoldProducts(contract, accounts[0], "open", (product) => {
+        getAllClosedSoldProducts(contract, accounts[0], "closed", (product) => {
           if (product !== undefined) {
             $("#Tab1")
               .DataTable()
@@ -255,9 +255,10 @@
               ])
               .draw();
             cIndex += 1;
+            console.log(product)
           }
 
-          console.log($("#closedContent").length);
+          console.log(cIndex)
           if (cIndex > 1) {
             $("#Tab1").show();
             $("#closedTitle").html("<h3>YAY Closed PRODUCTS</h3>");
