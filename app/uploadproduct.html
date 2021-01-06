@@ -198,7 +198,7 @@
             var unixTime = newDate.getTime()/1000;
             console.log(unixTime);
 
-            activeProducts.addProduct($("#name").val(), $("#description").val(), $("#lowerbound").val(), unixTime);
+            contract.methods.addProduct($("#name").val(), $("#description").val(), $("#lowerbound").val(), unixTime);
 
             alert("Submitted");
 
