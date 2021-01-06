@@ -168,60 +168,9 @@
             <input type="number" name="lowerbound" id="lowerbound" placeholder="Input lowerbound of your product">
         </div>
         <div class ="input-group">
-            <label for="deadline">Deadline (Unix Timestamp Format Only)</label>
-            <input type="number" name="deadline" id="deadline" max="9999999999" min="1000000000" placeholder="Input deadline of your product (e.g. 1609459200)" >
-            <a href="https://www.unixtimestamp.com/index.php" target="_blank">Convert your date into unix time stamp here!</a>
-        </div>
-
-<!-- Deadline Input
-        <div class ="input-group">
             <label for="deadline">Deadline</label>
-            <input type="date" name="deadline" id="deadline">
+            <input name="deadline" id="deadline" placeholder="DD-MM-YYYY">
         </div>
--->
-<!-- Live Unix Time Stamp
-        <div class ="input-group">
-        <p>Current Unix Timestamp: </p>
-        <script>
-        var currentDate= new Date();
-        var epochSeconds = Math.round(currentDate.getTime() / 1000);
-        document.write(epochSeconds);
-        //setInterval(unixTime, 1000);
-        //console.log(epochSeconds); 
-         </script>
-         </div>
--->
-<!-- Attach File
-        <div class ="input-group">
-            <label for="file">File</label>
-            <input type="file" name="file" id="file">
-        </div>
--->
-<!-- Trial and Error 
-    <h5>Enter a Date &amp; Time:</h5>
-            <p>
-              <input style="width:5em;" name="y" type="text" id="y" size="4" maxlength="4" placeholder="YYYY">
-    -
-              <input style="width:3em;" name="m" type="text" id="m" size="2" maxlength="2" placeholder="MM">
-    -
-              <input style="width:3em;" name="d" type="text" id="d" size="2" maxlength="2" placeholder="DD">
-              @
-              <input style="width:3em;" name="hours" type="text" id="m22" value="0" size="2" maxlength="2" placeholder="HH">
-              :
-              <input style="width:3em;" name="min" type="text" id="min" value="0" size="2" maxlength="2" placeholder="MM">
-              :
-              <input style="width:3em;" name="sec" type="text" id="sec" value="0" size="2" maxlength="2" placeholder="SS">
-              (24h:min:sec) </p>
-    <h5>Enter a Timestamp:</h5>
-            <p>
-              <input class= type="text" name="timestamp" id="timestamp" placeholder="1415463675">
-            </p>
-
-            <div class ="input-group">
-              <button class="btn btn-primary" type="submit" value="Convert">Convert</button>
-            </div>
--->
-
         <div class ="input-group">
             <button type="reset" class="btn">Reset</button>
         </div>
@@ -234,19 +183,25 @@
 
 <script>
     $(document).ready(function(){
-
-        $("#form").submit(function() {
-                activeProducts.addProduct($("#name").val(), $("#description").val(), $("#lowerbound").val(), $("#deadline").val());
-        });
-
-        $('#form').submit(function(){
-            alert("Submitted");
-        });
-
+        
         $('#form').submit(function(e){
             e.preventDefault();
-            var name = $('input#name').val();
+            var name = $('#name').val();
             console.log(name);
+            //var newDate = $('#deadline').val();
+            //var unixTime = (Date.parse(newDate)/1000).toFixed(0)
+            //console.log(unixTime);
+
+            var myDate = $('#deadline').val();
+            myDate = myDate.split("-");
+            var newDate = new Date( myDate[2], myDate[1] - 1, myDate[0]);
+            var unixTime = newDate.getTime()/1000;
+            console.log(unixTime);
+
+            contract.methods.addProduct($("#name").val(), $("#description").val(), $("#lowerbound").val(), unixTime);
+
+            alert("Submitted");
+
         });
     });
 </script>

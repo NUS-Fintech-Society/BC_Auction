@@ -9,6 +9,8 @@ The reason why Blockchain forms such a great platform is the promise of accuracy
 More platforms like E-Bay are considering Blockchain as a next step to secure their transactions.
 - Read more about this: https://news.bitcoin.com/ebay-can-stop-fraud-overnight-using-blockchain/
 
+## User Flow
+![](app/images/userflow.png)
 
 ## User Stories
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
