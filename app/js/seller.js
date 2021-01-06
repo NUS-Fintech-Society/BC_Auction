@@ -9,6 +9,7 @@ export function getAllClosedSoldProducts(contract, account, title, callback) {
         name: launchEvent.returnValues.name,
         description: launchEvent.returnValues.description,
         productId: launchEvent.returnValues.productId,
+        deadline: launchEvent.returnValues.deadline,
       };
 
       

@@ -38,7 +38,7 @@ contract Products is Buyers, Sellers {
         sellerToProduct[msg.sender].push(product);
         activeProductIds.push(productId);
 
-        emit ProductLaunchEvent(msg.sender, productId, name, description);
+        emit ProductLaunchEvent(msg.sender, productId, name, description, deadline);
     }
 
     function getProductDetailsById(bytes32 productId) public view returns (Product memory)

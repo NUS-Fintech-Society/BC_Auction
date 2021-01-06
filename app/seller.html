@@ -105,6 +105,9 @@
       >
         <div id="openTitle" class="mx-auto" style="text-align: center" ;></div>
         <div id="openContent"></div>
+        <br>
+        <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
         <div id="soldTitle" class="mx-auto" style="text-align: center"></div>
         <table id="Tab" class="table">
           <thead class="thead-dark">
@@ -113,13 +116,13 @@
               <th scope="col">Name</th>
               <th scope="col">Buyer</th>
               <th scope="col">Price Sold</th>
-              <th scope="col">Website</th>
+              <th scope="col">Deadline</th>
             </tr>
           </thead>
           <tbody></tbody>
         </table>
 
-        <div id="soldContent"></div>
+        <hr style="height:2px;border-width:0;color:gray;background-color:gray">
         <div
           id="closedTitle"
           class="mx-auto"
@@ -131,14 +134,12 @@
               <th scope="col">#</th>
               <th scope="col">Name</th>
               <th scope="col">Description</th>
-              <th scope="col">Deadline</th>
-              <th scope="col">Website</th>
+              <th scope="col">ProductId</th>
             </tr>
           </thead>
           <tbody></tbody>
         </table>
 
-        <div id="closedContent"></div>
       </div>
     </div>
 
@@ -212,8 +213,8 @@
               .row.add([
                 sIndex,
                 product.name,
-                product.description,
                 product.buyer,
+                product.price,
                 product.deadline,
               ])
               .draw();
@@ -251,7 +252,6 @@
                 product.name,
                 product.description,
                 product.productId,
-                product.deadline,
               ])
               .draw();
             cIndex += 1;
