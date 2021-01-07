@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Form</title>
@@ -7,55 +8,35 @@
 
     <!-- CDN -->
 
-        <!-- Bootstrap CSS only -->
-        <link 
-            rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-            crossorigin="anonymous"
-        />
+    <!-- Bootstrap CSS only -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
 
-        <!-- Inter Font CSS -->
-        <link 
-            href="https://cdnjs.cloudflare.com/ajax/libs/inter-ui/3.15.0/inter.css"
-            rel="stylesheet" 
-            integrity="sha512-2ScEqx8oE365TaMpvEhzeFgNndX303Y62SJfTqJ7xeBUS7FV86//D1MAKOjCglApnQMteDSQzn+HqYFIFeNJrw==" 
-            crossorigin="anonymous" 
-        />
+    <!-- Inter Font CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/inter-ui/3.15.0/inter.css" rel="stylesheet"
+        integrity="sha512-2ScEqx8oE365TaMpvEhzeFgNndX303Y62SJfTqJ7xeBUS7FV86//D1MAKOjCglApnQMteDSQzn+HqYFIFeNJrw=="
+        crossorigin="anonymous" />
 
-        <!-- Font Awesome -->
-        <link 
-            rel="stylesheet"
-            href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-            integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-            crossorigin="anonymous"
-        />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
 
-        <!-- jQuery JS -->
-        <script 
-            src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-        ></script>
+    <!-- jQuery JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-        <!-- Web3 JS -->
-        <script 
-            src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.3.0/web3.min.js"
-        ></script>
+    <!-- Web3 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.3.0/web3.min.js"></script>
 
-        <link 
-            rel="stylesheet" 
-            href="./styles/styles.css"
-        />
-        <link 
-            rel="stylesheet" 
-            href="./styles/uploadproduct.css"
-        />
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <link rel="stylesheet" href="./styles/uploadproduct.css" />
 
 </head>
 
 <!--Inner-->
+
 <body class="inter">
 
-    <div id="alert" class="card w-auto h-auto">  
+    <div id="alert" class="card w-auto h-auto">
         <div id="alert-header" class="card-header">Alert</div>
         <div id="alert-body" class="card-body"></div>
         <div id="alert-btn"></div>
@@ -67,7 +48,7 @@
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
-        
+
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav">
                     <a href="index.html" class="nav-item nav-link inter-bold">Products</a>
@@ -83,7 +64,7 @@
 
         <div id="content" class="margin-top"></div>
     </div>
-    
+
     <script type="module">
         import { isEthEnabled } from "./js/startup.js";
         import { contractAddress, contractAbi } from "./js/contract.js";
@@ -138,51 +119,7 @@
             $("#account-address")
                 .html(accounts[0].slice(0, 6) + "..." + accounts[0].slice(accounts[0].length - 6));
 
-           
-        
-        }
-    
-    </script>
-</body>
-<!--Inner-->
-
-
-<!--Form-->
-<body>
-
-<div class="container">
-<section class="upload-product-section">
-    <h1 class="upload-product">Upload a product</h1>
-
-    <form id = "form" class ="upload-form" >
-        <div class ="input-group">
-            <label for="name">Name</label>
-            <input type="text" name="name" id="name" required placeholder="Input name of your product">
-        </div>
-        <div class ="input-group">
-            <label for="description">Description</label>
-            <input name="description" id="description" required placeholder="Input description of your product">
-        </div>
-        <div class ="input-group">
-            <label for="lowerbound">Lower Bound</label>
-            <input type="number" name="lowerbound" id="lowerbound" placeholder="Input lowerbound of your product">
-        </div>
-        <div class ="input-group">
-            <label for="deadline">Deadline</label>
-            <input name="deadline" id="deadline" placeholder="DD-MM-YYYY">
-        </div>
-        <div class ="input-group">
-            <button type="reset" class="btn">Reset</button>
-        </div>
-        <div class ="input-group">
-            <button type="submit" class="btn">Submit</button>
-        </div>
-    </form>
-</section>
-</div>
-
-<script>
-    $(document).ready(function(){
+                $(document).ready(function(){
         
         $('#form').submit(function(e){
             e.preventDefault();
@@ -198,13 +135,55 @@
             var unixTime = newDate.getTime()/1000;
             console.log(unixTime);
 
-            contract.methods.addProduct($("#name").val(), $("#description").val(), $("#lowerbound").val(), unixTime);
+            contract.methods.addProduct($("#name").val(), $("#description").val(), $("#lowerbound").val(), unixTime).call();
 
             alert("Submitted");
 
-        });
-    });
-</script>
+                });
+         });
+        
+        }
+    
+    </script>
+</body>
+<!--Inner-->
+
+
+<!--Form-->
+
+<body>
+
+    <div class="container">
+        <section class="upload-product-section">
+            <h1 class="upload-product">Upload a product</h1>
+
+            <form id="form" class="upload-form">
+                <div class="input-group">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" required placeholder="Input name of your product">
+                </div>
+                <div class="input-group">
+                    <label for="description">Description</label>
+                    <input name="description" id="description" required placeholder="Input description of your product">
+                </div>
+                <div class="input-group">
+                    <label for="lowerbound">Lower Bound</label>
+                    <input type="number" name="lowerbound" id="lowerbound"
+                        placeholder="Input lowerbound of your product">
+                </div>
+                <div class="input-group">
+                    <label for="deadline">Deadline</label>
+                    <input name="deadline" id="deadline" placeholder="DD-MM-YYYY">
+                </div>
+                <div class="input-group">
+                    <button type="reset" class="btn">Reset</button>
+                </div>
+                <div class="input-group">
+                    <button type="submit" class="btn">Submit</button>
+                </div>
+            </form>
+        </section>
+    </div>
 
 </body>
 <!--Form end-->
