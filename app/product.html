@@ -67,9 +67,11 @@
                     </div>
                 </div>
             </nav>
+            <div id="content" class="margin-top"></div>
         </div>
-        <div id="content"></div>
-        <script>
+        
+        <script type="module">
+            import { isEthEnabled } from "./js/startup.js";
             import { contractAddress, contractAbi } from "./js/contract.js";
             import { showProduct, makeBid } from "./js/product.js";
 
@@ -113,7 +115,7 @@
                 let accounts = await web3.eth.getAccounts();
 
                 web3.eth.defaultAccount = accounts[0];
-                window.account = account[0];
+                
                 
                 $("#root")
                     .prepend("App has started");
