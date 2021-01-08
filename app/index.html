@@ -71,11 +71,12 @@
                     </div>
                 </div>
             </nav>
-            <div id="content" class="margin-top"></div>
-            
-            <a href="#" id = "loadMore">Load More</a>
-            
+            <div id="content" class="margin-top" >
+                    <div id = "details" class = "row"></div>
+                    <a href="#" id = "loadMore">Load More</a>
+            </div>
         </div>
+        
 
         
 
@@ -151,7 +152,7 @@
                     .html(accounts[0].slice(0, 6) + "..." + accounts[0].slice(accounts[0].length - 6));
 
                 getActiveProducts(contract, (product) => {
-                    $("#content").append(productComponent(product));
+                    $("#details").append(productComponent(product));
                 });
                 
             

@@ -28,6 +28,7 @@ contract Products is Buyers, Sellers {
         _;
     }
 
+
     function addProduct(string memory name, string memory description, uint lowerBound, uint deadline) public 
     {
         bytes32 productId = keccak256(abi.encodePacked(name, description, deadline));

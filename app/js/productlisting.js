@@ -1,11 +1,12 @@
 export function productComponent (product){
     return `
-    <div class="card border-dark mb-3" style="max-width:18rem;">
+    
+    <div class="card border-dark mb-3" style="max-width:18rem">
         <img class = "card-img-top">
         <div class = "card-header"> ${"Product: " + product.name} </div>
         <div class = "card-body">
                 <p class="card-text">
-                    ${product.desc}
+                    ${"Description: " + product.desc}
                 </p>
                 <p>Seller: ${product.seller}</p>
                 <p>Current Highest Bid Price: ${product.highestbid} ETH </p>
@@ -16,10 +17,12 @@ export function productComponent (product){
         </div>
         </div>
     </div>
+    
+    
     `;
 }
 
-export function getActiveProducts(contract, callback){
+export async function getActiveProducts(contract, callback){
     // contract.events.ProductLaunchEvent(
     //     async(_error, launchEvent) => {
     //         var product = {
@@ -33,14 +36,19 @@ export function getActiveProducts(contract, callback){
 
     //     }
     //     )
-    var productIds = contract.activeProductIds();
+    var productIds = await contract.methods.getProductIds().call();
+    console.log(productIds);
+    var i;
     for(i = 0; i <= productIds.length; i++){
+
+        var product = await contract.methods.getProductDetailsById(productIds[i]).call();
+        console.log(product);
         var currentProduct = {
-            name: productIds[i].name,
-            desc: productIds[i].description,
-            seller: productIds[i].seller,
-            highestbid: web3.utils.fromWei(productIds[i].highestBid.bidPrice, 'ether'),
-            deadline: productIds[i].deadline,
+            name: product.name,
+            desc: product.description,
+            seller: product.seller,
+            highestbid: web3.utils.fromWei(product.highestBid.bidPrice, 'ether'),
+            deadline: product.deadline,
         }
 
         callback(currentProduct);
