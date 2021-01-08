@@ -134,8 +134,9 @@
             var newDate = new Date( myDate[2], myDate[1] - 1, myDate[0]);
             var unixTime = newDate.getTime()/1000;
             console.log(unixTime);
+            console.log(web3.eth.defaultAccount);
 
-            contract.methods.addProduct($("#name").val(), $("#description").val(), $("#lowerbound").val(), unixTime).call({from:window.account}, function(e, d) {
+            contract.methods.addProduct($("#name").val(), $("#description").val(), $("#lowerbound").val(), unixTime).send( {from: web3.eth.defaultAccount}, function(e, d) {
                 console.log(e);
                 console.log("Submitted");
                 console.log(d);
