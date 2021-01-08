@@ -19,11 +19,7 @@ export function showProduct(contract, productId, callback) {
                     <h4 class="col-md-auto align-self-center p-lg-5">
                         Lowest Price: ${product.lowerBound} ETH
                     </h4>
-                    <form id="form"> 
-                        <label for="bid-price"> Make a bid (ETH) </label>
-                        <input type="text" id="bid-price" name="bid-price"><br>
-                        <button type="submit">Submit</button>
-                    </form>
+                    
                     
                 </div>
             </div>

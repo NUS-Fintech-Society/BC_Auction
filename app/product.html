@@ -68,6 +68,13 @@
                 </div>
             </nav>
             <div id="content" class="margin-top"></div>
+            
+                <form id="form"> 
+                    <label for="bid-price"> Make a bid (ETH) </label>
+                    <input type="text" id="bid-price" name="bid-price"><br>
+                    <button type="submit">Submit</button>
+                </form>
+            
             <div id="return-message" class="margin-top"></div>
         </div>
         
@@ -138,19 +145,15 @@
 
                 var productId = getVal('id');
                 
-
                 showProduct(contract, productId, result => $("#content").append(result));
-                
                 $("#form").submit(function(e) {
-                    alert( "Handler for .submit() called." );
-                    e.preventDefault();
                     var bidPrice = $("#bid-price").val();
                     console.log(bidPrice);
                     makeBid(contract, accounts[0], productId, bidPrice, result => {
                         $("#return-message").append(result);
                     });
+                    e.preventDefault();
                 });
-            
             }
 
             
