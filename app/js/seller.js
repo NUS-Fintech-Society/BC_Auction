@@ -103,7 +103,7 @@ export function getActiveProducts(contract, account, title, callback) {
   contract.events.ProductLaunchEvent(
     {
       filter: { seller: account },
-      fromBlock: 'latest',
+      fromBlock: 0,
     },
     async (_error, event) => {
       getAllProducts(contract, account, (send) => {
