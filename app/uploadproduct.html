@@ -135,9 +135,14 @@
             var unixTime = newDate.getTime()/1000;
             console.log(unixTime);
 
-            contract.methods.addProduct($("#name").val(), $("#description").val(), $("#lowerbound").val(), unixTime).call();
+            contract.methods.addProduct($("#name").val(), $("#description").val(), $("#lowerbound").val(), unixTime).call({from:window.account}, function(e, d) {
+                console.log(e);
+                console.log("Submitted");
+                console.log(d);
+                alert("Submited");
 
-            alert("Submitted");
+            
+            });
 
                 });
          });
