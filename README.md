@@ -30,3 +30,37 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `**`  | 	seller | upload pictures for the products.| |
 | `**`  |	seller | see my previous list of auctions and winners.||
 | `**`  |	buyer | sort products by category | easily navigate through the products and find what I’m looking for. |
+
+## Setting up the development environment
+
+Once you clone the repository, you will find two main folders -  `/app` which contains the frontend code and `/backend` which contains the smart contract.
+
+### Frontend
+
+Pre-requisites: `node.js` and `npm`
+
+Since the web app uses web3, and metamask only injects web3 on websites that are stood up on a server (and not just html files), we need serve the `/app` directory.
+
+1. Install `http-server` globally: `npm install -g http-server`
+2. From the `/app` directory, run `http-server .` to serve the web app.
+
+You can also use any web server like [Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en)
+
+### Smart Contract
+
+Pre-requisites: `node.js` and `npm`
+
+1. Install the necessary dependencies (`truffle`) globally: `npm install -g truffle`
+2. Install the dev dependecies for the smart contract by running `npm install` in the `/backend` directory.
+3. Run `truffle develop` to start a local blockchain network and view the addresses
+4. Once you are in the develop console, run `migrate` to deploy the contract on your local blockchain network.
+5. Run `let instance = await Products.deployed()` to have an instance of the deployed contract and call the contract using the instance.
+
+### Deployment
+
+Currently, the contract is configured to be deployed on the Ropsten test network. Add the extra configurations in the `/backend/truffle-config.js` if you need to deploy to another network.
+
+1. Add your mnemonic or seed phrase into `/backend/.secret` file.
+2. From the `/backend` directory, run `truffle migrate --network ropsten` to deploy the contract on ropsten. Replace ropsten with your own network if you're deploying to another network (use the same name as in the `truffle-config.js` file).
+
+Current Address of the Smart Contract on Ropsten: `0xD2b9cdEBe48f924C452C1507E2a2b942Ce5861ca`
