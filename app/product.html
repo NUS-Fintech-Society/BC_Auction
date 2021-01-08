@@ -68,6 +68,7 @@
                 </div>
             </nav>
             <div id="content" class="margin-top"></div>
+            <div id="return-message" class="margin-top"></div>
         </div>
         
         <script type="module">
@@ -136,16 +137,20 @@
                 }
 
                 var productId = getVal('id');
+                
 
                 showProduct(contract, productId, result => $("#content").append(result));
                 
-                $(document).ready(function(){
-                    $("#bid-form").submit(function(event) {
-                        var bidPrice = $("#bid-price").val();
-                        makeBid(contract, account[0], productId, bidPrice, result => 
-                            $("#return-message").append(result));
+                $("#form").submit(function(e) {
+                    alert( "Handler for .submit() called." );
+                    e.preventDefault();
+                    var bidPrice = $("#bid-price").val();
+                    console.log(bidPrice);
+                    makeBid(contract, accounts[0], productId, bidPrice, result => {
+                        $("#return-message").append(result);
                     });
                 });
+            
             }
 
             

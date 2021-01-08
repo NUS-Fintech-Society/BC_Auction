@@ -19,12 +19,12 @@ export function showProduct(contract, productId, callback) {
                     <h4 class="col-md-auto align-self-center p-lg-5">
                         Lowest Price: ${product.lowerBound} ETH
                     </h4>
-                    <form id="bid-form"> 
+                    <form id="form"> 
                         <label for="bid-price"> Make a bid (ETH) </label>
                         <input type="text" id="bid-price" name="bid-price"><br>
-                        <input type="submit" value="Submit"> 
+                        <button type="submit">Submit</button>
                     </form>
-                    <div id="return-message"></div>
+                    
                 </div>
             </div>
         `);}
@@ -32,7 +32,7 @@ export function showProduct(contract, productId, callback) {
 }
 
 export function makeBid(contract, account, productId, bidPrice, callback) {
-    contract.methods.placeBid(productId).send({from: account, value:bidPrice})
+    contract.methods.placeBid(productId).send({from: account, value: bidPrice})
         .on('transactionHash', hash => callback(`Transaction Hash: ${hash}`))
         .on('error', (error, receipt) => callback(`Error has occured: ${error}`));
 }
