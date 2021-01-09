@@ -10,25 +10,27 @@ export function getAllClosedSoldProducts(contract, account, title, callback) {
         description: launchEvent.returnValues.description,
         productId: launchEvent.returnValues.productId,
         deadline: launchEvent.returnValues.deadline,
-      };
+    };
 
-      
-
+    if(title==="closed"){
+    console.log(product)
+    }
       switch (title) {
         case "closed":
           contract.events.ProductClosedEvent(
             {
-              filter: { seller: launchEvent.returnValues.seller },
+              filter: { productId: "0xb6f4600b5a0685ebf9dbac69f6d7ce1377dbf2c332717023f40f94cc7982f697"},
               fromBlock: 0,
             },
             async (_error, _closeEvent) => {
-              console.log(_closeEvent);
               if (
                 _closeEvent.returnValues.productId ===
                 launchEvent.returnValues.productId
               ) {
+
                 product.type = "closed";
-                console.log(product)
+                // console.log(_closeEvent)
+
                 callback(product);
               } else {
                 callback();
@@ -77,7 +79,9 @@ export function getActiveProducts(contract, account, title, callback) {
       fromBlock: 0,
     },
     async (_error, launchEvent) => {
+      console.log(launchEvent)
       getAllProducts(contract, account, (send) => {
+        console.log(send)
         callback(send);
       });
     }
@@ -90,6 +94,7 @@ export function getActiveProducts(contract, account, title, callback) {
     },
     async (_error, launchEvent) => {
       getAllProducts(contract, account, (send) => {
+        // console.log(send)
         callback(send);
       });
     }
@@ -113,7 +118,9 @@ function getAllProducts(contract, account, callback) {
     .getMyProducts()
     .call()
     .then((result) => {
+      console.log(result)
       if (result.length > 0) {
+        console.log(result.length)
         var m = `<table class="table"  data-toggle="table"
             data-height="460"
             data-pagination="true">
@@ -123,6 +130,7 @@ function getAllProducts(contract, account, callback) {
             <th scope="col">Name</th>
             <th scope="col">Description</th>
             <th scope="col">Deadline</th>
+            <th scope="col">ProductId</th>
             <th scope="col">Website</th>
           </tr>
         </thead>
@@ -131,15 +139,14 @@ function getAllProducts(contract, account, callback) {
         for (var i = 0; i < result.length; i++) {
           var curr = result[i];
           // console.log(curr);
-          var row = `<tr id="${curr.id}">
+          var row = `<tr>
          <th scope="row">${i+1}</th>
          <td>${curr.name} </td>
          <td>${curr.description} </td>
          <td>${curr.deadline} </td>
          <td>${curr.id} </td>
-        <td> <a href="product.html?id=${curr.id}">click</a></td>
-         <td><button type="button" onClick="sell(\'' + this.id + '\')" id="${i+1}">Sell</button></td>
 
+         <td> <a href="product.html?id=${curr.id}">click</a></td>
         </tr>`;
           // console.log(web3.utils.hexToAscii(curr.id));
           //$("#openContent").append(row);
@@ -149,8 +156,14 @@ function getAllProducts(contract, account, callback) {
         // console.log(m);
         callback(m);
       } else {
-        callback(m);
+        console.log(result.length)
+
+        callback(undefined);
       }
+    })
+    .catch((error)=> {
+      console.log(error)
+      callback();
     });
 }
 

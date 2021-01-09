@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Form</title>
@@ -7,55 +8,35 @@
 
     <!-- CDN -->
 
-        <!-- Bootstrap CSS only -->
-        <link 
-            rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-            crossorigin="anonymous"
-        />
+    <!-- Bootstrap CSS only -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
 
-        <!-- Inter Font CSS -->
-        <link 
-            href="https://cdnjs.cloudflare.com/ajax/libs/inter-ui/3.15.0/inter.css"
-            rel="stylesheet" 
-            integrity="sha512-2ScEqx8oE365TaMpvEhzeFgNndX303Y62SJfTqJ7xeBUS7FV86//D1MAKOjCglApnQMteDSQzn+HqYFIFeNJrw==" 
-            crossorigin="anonymous" 
-        />
+    <!-- Inter Font CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/inter-ui/3.15.0/inter.css" rel="stylesheet"
+        integrity="sha512-2ScEqx8oE365TaMpvEhzeFgNndX303Y62SJfTqJ7xeBUS7FV86//D1MAKOjCglApnQMteDSQzn+HqYFIFeNJrw=="
+        crossorigin="anonymous" />
 
-        <!-- Font Awesome -->
-        <link 
-            rel="stylesheet"
-            href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-            integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-            crossorigin="anonymous"
-        />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
 
-        <!-- jQuery JS -->
-        <script 
-            src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-        ></script>
+    <!-- jQuery JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-        <!-- Web3 JS -->
-        <script 
-            src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.3.0/web3.min.js"
-        ></script>
+    <!-- Web3 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.3.0/web3.min.js"></script>
 
-        <link 
-            rel="stylesheet" 
-            href="./styles/styles.css"
-        />
-        <link 
-            rel="stylesheet" 
-            href="./styles/uploadproduct.css"
-        />
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <link rel="stylesheet" href="./styles/uploadproduct.css" />
 
 </head>
 
 <!--Inner-->
+
 <body class="inter">
 
-    <div id="alert" class="card w-auto h-auto">  
+    <div id="alert" class="card w-auto h-auto">
         <div id="alert-header" class="card-header">Alert</div>
         <div id="alert-body" class="card-body"></div>
         <div id="alert-btn"></div>
@@ -67,7 +48,7 @@
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
-        
+
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav">
                     <a href="index.html" class="nav-item nav-link inter-bold">Products</a>
@@ -83,7 +64,7 @@
 
         <div id="content" class="margin-top"></div>
     </div>
-    
+
     <script type="module">
         import { isEthEnabled } from "./js/startup.js";
         import { contractAddress, contractAbi } from "./js/contract.js";
@@ -138,7 +119,34 @@
             $("#account-address")
                 .html(accounts[0].slice(0, 6) + "..." + accounts[0].slice(accounts[0].length - 6));
 
-           
+                $(document).ready(function(){
+        
+        $('#form').submit(function(e){
+            e.preventDefault();
+            var name = $('#name').val();
+            console.log(name);
+            //var newDate = $('#deadline').val();
+            //var unixTime = (Date.parse(newDate)/1000).toFixed(0)
+            //console.log(unixTime);
+
+            var myDate = $('#deadline').val();
+            myDate = myDate.split("-");
+            var newDate = new Date( myDate[2], myDate[1] - 1, myDate[0]);
+            var unixTime = newDate.getTime()/1000;
+            console.log(unixTime);
+            console.log(web3.eth.defaultAccount);
+
+            contract.methods.addProduct($("#name").val(), $("#description").val(), $("#lowerbound").val(), unixTime).send( {from: web3.eth.defaultAccount}, function(e, d) {
+                console.log(e);
+                console.log("Submitted");
+                console.log(d);
+                alert("Submitted");
+
+            
+            });
+
+                });
+         });
         
         }
     
@@ -148,108 +156,40 @@
 
 
 <!--Form-->
+
 <body>
 
-<div class="container">
-<section class="upload-product-section">
-    <h1 class="upload-product">Upload a product</h1>
+    <div class="container">
+        <section class="upload-product-section">
+            <h1 class="upload-product">Upload a product</h1>
 
-    <form id = "form" class ="upload-form" >
-        <div class ="input-group">
-            <label for="name">Name</label>
-            <input type="text" name="name" id="name" required placeholder="Input name of your product">
-        </div>
-        <div class ="input-group">
-            <label for="description">Description</label>
-            <input name="description" id="description" required placeholder="Input description of your product">
-        </div>
-        <div class ="input-group">
-            <label for="lowerbound">Lower Bound</label>
-            <input type="number" name="lowerbound" id="lowerbound" placeholder="Input lowerbound of your product">
-        </div>
-        <div class ="input-group">
-            <label for="deadline">Deadline (Unix Timestamp Format Only)</label>
-            <input type="number" name="deadline" id="deadline" max="9999999999" min="1000000000" placeholder="Input deadline of your product (e.g. 1609459200)" >
-            <a href="https://www.unixtimestamp.com/index.php" target="_blank">Convert your date into unix time stamp here!</a>
-        </div>
-
-<!-- Deadline Input
-        <div class ="input-group">
-            <label for="deadline">Deadline</label>
-            <input type="date" name="deadline" id="deadline">
-        </div>
--->
-<!-- Live Unix Time Stamp
-        <div class ="input-group">
-        <p>Current Unix Timestamp: </p>
-        <script>
-        var currentDate= new Date();
-        var epochSeconds = Math.round(currentDate.getTime() / 1000);
-        document.write(epochSeconds);
-        //setInterval(unixTime, 1000);
-        //console.log(epochSeconds); 
-         </script>
-         </div>
--->
-<!-- Attach File
-        <div class ="input-group">
-            <label for="file">File</label>
-            <input type="file" name="file" id="file">
-        </div>
--->
-<!-- Trial and Error 
-    <h5>Enter a Date &amp; Time:</h5>
-            <p>
-              <input style="width:5em;" name="y" type="text" id="y" size="4" maxlength="4" placeholder="YYYY">
-    -
-              <input style="width:3em;" name="m" type="text" id="m" size="2" maxlength="2" placeholder="MM">
-    -
-              <input style="width:3em;" name="d" type="text" id="d" size="2" maxlength="2" placeholder="DD">
-              @
-              <input style="width:3em;" name="hours" type="text" id="m22" value="0" size="2" maxlength="2" placeholder="HH">
-              :
-              <input style="width:3em;" name="min" type="text" id="min" value="0" size="2" maxlength="2" placeholder="MM">
-              :
-              <input style="width:3em;" name="sec" type="text" id="sec" value="0" size="2" maxlength="2" placeholder="SS">
-              (24h:min:sec) </p>
-    <h5>Enter a Timestamp:</h5>
-            <p>
-              <input class= type="text" name="timestamp" id="timestamp" placeholder="1415463675">
-            </p>
-
-            <div class ="input-group">
-              <button class="btn btn-primary" type="submit" value="Convert">Convert</button>
-            </div>
--->
-
-        <div class ="input-group">
-            <button type="reset" class="btn">Reset</button>
-        </div>
-        <div class ="input-group">
-            <button type="submit" class="btn">Submit</button>
-        </div>
-    </form>
-</section>
-</div>
-
-<script>
-    $(document).ready(function(){
-
-        $("#form").submit(function() {
-                activeProducts.addProduct($("#name").val(), $("#description").val(), $("#lowerbound").val(), $("#deadline").val());
-        });
-
-        $('#form').submit(function(){
-            alert("Submitted");
-        });
-
-        $('#form').submit(function(e){
-            e.preventDefault();
-            var name = $('input#name').val();
-            console.log(name);
-        });
-    });
-</script>
+            <form id="form" class="upload-form">
+                <div class="input-group">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" required placeholder="Input name of your product">
+                </div>
+                <div class="input-group">
+                    <label for="description">Description</label>
+                    <input name="description" id="description" required placeholder="Input description of your product">
+                </div>
+                <div class="input-group">
+                    <label for="lowerbound">Lower Bound</label>
+                    <input type="number" name="lowerbound" id="lowerbound"
+                        placeholder="Input lowerbound of your product">
+                </div>
+                <div class="input-group">
+                    <label for="deadline">Deadline</label>
+                    <input name="deadline" id="deadline" placeholder="DD-MM-YYYY">
+                </div>
+                <div class="input-group">
+                    <button type="reset" class="btn">Reset</button>
+                </div>
+                <div class="input-group">
+                    <button type="submit" class="btn">Submit</button>
+                </div>
+            </form>
+        </section>
+    </div>
 
 </body>
 <!--Form end-->

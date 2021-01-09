@@ -6,7 +6,7 @@ import "./Sellers.sol";
 
 contract Products is Buyers, Sellers {
 
-    mapping(bytes32 => Product) activeProducts;
+    mapping(bytes32 => Product) public activeProducts;
     bytes32[] public activeProductIds;
     mapping(address => Product[]) private sellerToProduct;
 
@@ -93,6 +93,9 @@ contract Products is Buyers, Sellers {
          return activeProducts[productId].highestBid;
     }   
     
+    /// @notice This function allows sellers to close the auction before the deadline
+    /// @param productId is the generated ID of the product
+
     function closeAuction(bytes32 productId) public payable onlySellers() 
     {
         Product storage currentProduct = activeProducts[productId];
@@ -111,6 +114,10 @@ contract Products is Buyers, Sellers {
 
         emit ProductClosedEvent(msg.sender, productId);
     }
+
+
+    /// @notice This function allows sellers to succesfully sell a product after the bidding time
+    /// @param productId is the generated ID of the product
 
     function sellAuction(bytes32 productId) public payable onlySellers() 
     {
@@ -143,7 +150,7 @@ contract Products is Buyers, Sellers {
         
 
         for(uint i = 0; i < sellerToProduct[msg.sender].length; i++) {
-            if (sellerToProduct[msg.sender][i].id == activeProducts[productId].id) {
+            if (sellerToProduct[msg.sender][i].id == productId) {
                 sellerToProduct[msg.sender][i] = sellerToProduct[msg.sender][sellerToProduct[msg.sender].length - 1];
                 sellerToProduct[msg.sender].pop();
             }

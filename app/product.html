@@ -67,12 +67,21 @@
                     </div>
                 </div>
             </nav>
+            <div id="content" class="margin-top"></div>
+            
+                <form id="form"> 
+                    <label for="bid-price"> Make a bid (ETH) </label>
+                    <input type="text" id="bid-price" name="bid-price"><br>
+                    <button type="submit">Submit</button>
+                </form>
+            
+            <div id="return-message" class="margin-top"></div>
         </div>
         
         <script type="module">
             import { isEthEnabled } from "./js/startup.js";
             import { contractAddress, contractAbi } from "./js/contract.js";
-            import { showProduct } from "./js/product.js";
+            import { showProduct, makeBid } from "./js/product.js";
 
             window.addEventListener("load", async function (_window, event) {
 
@@ -114,7 +123,7 @@
                 let accounts = await web3.eth.getAccounts();
 
                 web3.eth.defaultAccount = accounts[0];
-                window.account = account[0];
+                
                 
                 $("#root")
                     .prepend("App has started");
@@ -135,8 +144,16 @@
                 }
 
                 var productId = getVal('id');
-
-                $("#content").append(showProduct(contract, productId));
+                
+                showProduct(contract, productId, result => $("#content").append(result));
+                $("#form").submit(function(e) {
+                    var bidPrice = $("#bid-price").val();
+                    console.log(bidPrice);
+                    makeBid(contract, accounts[0], productId, bidPrice, result => {
+                        $("#return-message").append(result);
+                    });
+                    e.preventDefault();
+                });
             }
 
             

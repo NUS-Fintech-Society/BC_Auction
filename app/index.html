@@ -38,6 +38,10 @@
             rel="stylesheet" 
             href="./styles/styles.css"
         />
+        <link 
+            rel="stylesheet" 
+            href="./styles/mainpage.css"
+        />
     </head>
 
     <body class="inter">
@@ -67,11 +71,20 @@
                     </div>
                 </div>
             </nav>
+            <div id="content" class="margin-top"></div>
+            
+            <a href="#" id = "loadMore">Load More</a>
+            
         </div>
+
+        
+
+        
         
         <script type="module">
             import { isEthEnabled } from "./js/startup.js";
             import { contractAddress, contractAbi } from "./js/contract.js";
+            import {productComponent, getActiveProducts} from "./js/productlisting.js";
 
             window.addEventListener("load", async function (_window, event) {
 
@@ -107,6 +120,17 @@
                 });
 
             });
+            
+            $(function () {
+                $("div").slice(0, 3).show();
+                $("#loadMore").on('click', function (e) {
+                    e.preventDefault();
+                    $("div:hidden").slice(0, 3).show();
+                    if ($("div:hidden").length == 0) {
+                        $("#loadMore").fadeOut('slow');
+                    }
+                });
+            });
 
             async function startApp() {
 
@@ -116,7 +140,7 @@
                 // window.account = account[0];
                 
                 $("#root")
-                    .prepend("App has started");
+                    .prepend("");
 
                 let contract = new web3.eth.Contract(
                     contractAbi,
@@ -125,6 +149,12 @@
 
                 $("#account-address")
                     .html(accounts[0].slice(0, 6) + "..." + accounts[0].slice(accounts[0].length - 6));
+
+                getActiveProducts(contract, (product) => {
+                    $("#content").append(productComponent(product));
+                });
+                
+            
             }
         
         </script>

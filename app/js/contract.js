@@ -1,4 +1,4 @@
-export const contractAddress = "0xacD95250C17c4330fF82c6b889b749eb8eA889Bd";
+export const contractAddress = "0xD2b9cdEBe48f924C452C1507E2a2b942Ce5861ca";
 
 export const contractAbi = [{
         "anonymous": false,
@@ -51,7 +51,7 @@ export const contractAbi = [{
                 "type": "address"
             },
             {
-                "indexed": false,
+                "indexed": true,
                 "internalType": "bytes32",
                 "name": "productId",
                 "type": "bytes32"
@@ -69,7 +69,7 @@ export const contractAbi = [{
                 "type": "address"
             },
             {
-                "indexed": false,
+                "indexed": true,
                 "internalType": "bytes32",
                 "name": "productId",
                 "type": "bytes32"
@@ -85,6 +85,12 @@ export const contractAbi = [{
                 "internalType": "string",
                 "name": "description",
                 "type": "string"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "deadline",
+                "type": "uint256"
             }
         ],
         "name": "ProductLaunchEvent",
@@ -103,6 +109,12 @@ export const contractAbi = [{
                 "internalType": "address",
                 "name": "buyer",
                 "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "bytes32",
+                "name": "productId",
+                "type": "bytes32"
             },
             {
                 "indexed": false,
@@ -127,7 +139,81 @@ export const contractAbi = [{
             "type": "bytes32"
         }],
         "stateMutability": "view",
-        "type": "function"
+        "type": "function",
+        "constant": true
+    },
+    {
+        "inputs": [{
+            "internalType": "bytes32",
+            "name": "",
+            "type": "bytes32"
+        }],
+        "name": "activeProducts",
+        "outputs": [{
+                "internalType": "bytes32",
+                "name": "id",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "string",
+                "name": "name",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "description",
+                "type": "string"
+            },
+            {
+                "internalType": "uint256",
+                "name": "lowerBound",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "deadline",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "noOfBids",
+                "type": "uint256"
+            },
+            {
+                "components": [{
+                        "internalType": "address",
+                        "name": "bidder",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "bidPrice",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "bidTime",
+                        "type": "uint256"
+                    }
+                ],
+                "internalType": "struct Structures.Bid",
+                "name": "highestBid",
+                "type": "tuple"
+            },
+            {
+                "internalType": "bool",
+                "name": "isReal",
+                "type": "bool"
+            },
+            {
+                "internalType": "address",
+                "name": "seller",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function",
+        "constant": true
     },
     {
         "inputs": [{
@@ -231,7 +317,8 @@ export const contractAbi = [{
             "type": "tuple"
         }],
         "stateMutability": "view",
-        "type": "function"
+        "type": "function",
+        "constant": true
     },
     {
         "inputs": [],
@@ -242,7 +329,8 @@ export const contractAbi = [{
             "type": "bytes32[]"
         }],
         "stateMutability": "view",
-        "type": "function"
+        "type": "function",
+        "constant": true
     },
     {
         "inputs": [{
@@ -253,7 +341,8 @@ export const contractAbi = [{
         "name": "placeBid",
         "outputs": [],
         "stateMutability": "payable",
-        "type": "function"
+        "type": "function",
+        "payable": true
     },
     {
         "inputs": [],
@@ -326,7 +415,8 @@ export const contractAbi = [{
             "type": "tuple[]"
         }],
         "stateMutability": "view",
-        "type": "function"
+        "type": "function",
+        "constant": true
     },
     {
         "inputs": [{
@@ -347,7 +437,7 @@ export const contractAbi = [{
                     "type": "uint256"
                 },
                 {
-                    "getMyProductsinternalType": "uint256",
+                    "internalType": "uint256",
                     "name": "bidTime",
                     "type": "uint256"
                 }
@@ -357,7 +447,8 @@ export const contractAbi = [{
             "type": "tuple"
         }],
         "stateMutability": "view",
-        "type": "function"
+        "type": "function",
+        "constant": true
     },
     {
         "inputs": [{
@@ -368,7 +459,8 @@ export const contractAbi = [{
         "name": "closeAuction",
         "outputs": [],
         "stateMutability": "payable",
-        "type": "function"
+        "type": "function",
+        "payable": true
     },
     {
         "inputs": [{
@@ -379,6 +471,7 @@ export const contractAbi = [{
         "name": "sellAuction",
         "outputs": [],
         "stateMutability": "payable",
-        "type": "function"
+        "type": "function",
+        "payable": true
     }
 ];
