@@ -128,18 +128,18 @@ function getAllProducts(contract, account, callback) {
         </thead>
         <tbody>`;
 
-        // $("#openContent")
-        //                 .html(m);
-
         for (var i = 0; i < result.length; i++) {
           var curr = result[i];
           // console.log(curr);
-          var row = `<tr>
-         <th scope="row">${i}</th>
+          var row = `<tr id="${curr.id}">
+         <th scope="row">${i+1}</th>
          <td>${curr.name} </td>
          <td>${curr.description} </td>
          <td>${curr.deadline} </td>
-         <td> <a href="product.html?id=${curr.id}">click</a></td>
+         <td>${curr.id} </td>
+        <td> <a href="product.html?id=${curr.id}">click</a></td>
+         <td><button type="button" onClick="sell(\'' + this.id + '\')" id="${i+1}">Sell</button></td>
+
         </tr>`;
           // console.log(web3.utils.hexToAscii(curr.id));
           //$("#openContent").append(row);
@@ -152,4 +152,12 @@ function getAllProducts(contract, account, callback) {
         callback(m);
       }
     });
+}
+
+function sell(val){
+  console.log(val);
+}
+
+function close(val){
+  console.log(val);
 }
