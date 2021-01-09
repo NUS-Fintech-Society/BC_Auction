@@ -138,6 +138,7 @@ function getAllProducts(contract, account, callback) {
         </thead>
         <tbody>`;
 
+        
         for (var i = 0; i < result.length; i++) {
           var curr = result[i];
           // console.log(curr);
@@ -148,7 +149,7 @@ function getAllProducts(contract, account, callback) {
           <td>${curr.deadline} </td>
           <td>${curr.id} </td>
          <td> <a href="product.html?id=${curr.id}">click</a></td>
-          <td><button type="button" onClick="sell(\'' + this.id + '\')" id="${i+1}">Sell</button></td>
+          <td><button type="button" id="sell-${curr.id}">Sell</button></td>
          </tr>`;
           // console.log(web3.utils.hexToAscii(curr.id));
           //$("#openContent").append(row);
@@ -156,7 +157,7 @@ function getAllProducts(contract, account, callback) {
         }
         m += `</tbody></table>`;
         // console.log(m);
-        callback(m);
+        callback({html: m, id: curr.id});
       } else {
         console.log(result.length)
 

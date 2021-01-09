@@ -173,6 +173,11 @@
             : nativeAlert(message);
         };
       })();
+      $(document).ready(function(){ 
+        function sellProduct(val) {
+            console.log("hi" + val);
+        }           
+      });
 
       window.addEventListener("load", async function (_window, event) {
         if (!isEthEnabled(window)) {
@@ -220,6 +225,7 @@
         if (sIndex > 1) {
           $("#Tab").show();
           $("#soldTitle").html("<h3>Sold Products </h3>");
+
         } else {
           $("#Tab").hide();
           $("#soldTitle").html("<h3>No Sold Products Yet</h3>");
@@ -257,21 +263,23 @@
 
         getActiveProducts(contract, accounts[0], "open", (result) => {
           console.log(result);
-          console.log("hi");
-          if (result !== undefined) {
-            $("#openContent").html(result);
+          if (result.html !== undefined) {
+            $("#openContent").html(result.html);
+            $("#sell-" + result.id).click(() => {
+              sell(result.id);
+            })
             $("#openTitle").html("<h3> Open Products </h3>");
           } else {
             console.log(result);
             $("#openContent").html("");
             $("#openTitle").html("<h3>No Open Products Yet</h3>");
           }
+        
         });
 
         function sell(val) {
           console.log(val);
         }
-
         function close(val) {
           console.log(val);
         }
@@ -308,6 +316,7 @@
           }
         });
       }
+
     </script>
   </body>
 </html>
