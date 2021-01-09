@@ -81,8 +81,9 @@ export function getActiveProducts(contract, account, title, callback) {
     async (_error, launchEvent) => {
       console.log(launchEvent)
       getAllProducts(contract, account, (send) => {
-        console.log(send)
-        callback(send);
+        if (send.html !== undefined && send.id !==undefined) {
+          callback(send);
+        }
       });
     }
   );
@@ -94,8 +95,9 @@ export function getActiveProducts(contract, account, title, callback) {
     },
     async (_error, launchEvent) => {
       getAllProducts(contract, account, (send) => {
-        // console.log(send)
-        callback(send);
+        if (send.html !== undefined && send.id !==undefined) {
+          callback(send);
+        }
       });
     }
   );
@@ -107,7 +109,9 @@ export function getActiveProducts(contract, account, title, callback) {
     },
     async (_error, event) => {
       getAllProducts(contract, account, (send) => {
+        if (send.html !== undefined && send.id !==undefined) {
         callback(send);
+        }
       });
     }
   );
@@ -138,10 +142,9 @@ function getAllProducts(contract, account, callback) {
         </thead>
         <tbody>`;
 
-        
+        var ids= [];
         for (var i = 0; i < result.length; i++) {
           var curr = result[i];
-          // console.log(curr);
           var row = `<tr id="${curr.id}">
           <th scope="row">${i+1}</th>
           <td>${curr.name} </td>
@@ -151,22 +154,21 @@ function getAllProducts(contract, account, callback) {
          <td> <a href="product.html?id=${curr.id}">click</a></td>
           <td><button type="button" id="sell-${curr.id}">Sell</button></td>
          </tr>`;
-          // console.log(web3.utils.hexToAscii(curr.id));
-          //$("#openContent").append(row);
+
+         console.log(ids.push(curr.id));
           m += row;
         }
         m += `</tbody></table>`;
         // console.log(m);
-        callback({html: m, id: curr.id});
+        console.log(ids)
+        callback({html: m, id: ids});
       } else {
         console.log(result.length)
-
         callback(undefined);
       }
     })
     .catch((error)=> {
       console.log(error)
-      callback();
     });
 }
 

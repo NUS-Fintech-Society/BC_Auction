@@ -263,11 +263,15 @@
 
         getActiveProducts(contract, accounts[0], "open", (result) => {
           console.log(result);
-          if (result.html !== undefined) {
+          if (result.html !== undefined && result.id !==undefined) {
             $("#openContent").html(result.html);
-            $("#sell-" + result.id).click(() => {
-              sell(result.id);
+            console.log(result)
+            result.id.map(id=> {
+              $("#sell-" + id).click(() => {
+              sell(id);
             })
+            })
+
             $("#openTitle").html("<h3> Open Products </h3>");
           } else {
             console.log(result);
