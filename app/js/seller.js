@@ -137,6 +137,8 @@ function getAllProducts(contract, account, callback) {
             <th scope="col">ProductId</th>
             <th scope="col">Website</th>
             <th scope="col">Sell</th>
+            <th scope="col">Close</th>
+
 
           </tr>
         </thead>
@@ -153,6 +155,8 @@ function getAllProducts(contract, account, callback) {
           <td>${curr.id} </td>
          <td> <a href="product.html?id=${curr.id}">click</a></td>
           <td><button type="button" id="sell-${curr.id}">Sell</button></td>
+          <td><button type="button" id="close-${curr.id}">Close</button></td>
+
          </tr>`;
 
          console.log(ids.push(curr.id));

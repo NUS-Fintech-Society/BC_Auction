@@ -270,6 +270,10 @@
               $("#sell-" + id).click(() => {
               sell(id);
             })
+
+            $("#close-" + id).click(() => {
+              close(id);
+            })
             })
 
             $("#openTitle").html("<h3> Open Products </h3>");
@@ -282,10 +286,10 @@
         });
 
         function sell(val) {
-          console.log(val);
+           contract.methods.sellAuction(val).send({from: accounts[0]}).then(console.log)
         }
         function close(val) {
-          console.log(val);
+          contract.methods.closeAuction(val).send({from: accounts[0]}).then(console.log)
         }
 
         var cIndex = 1;
