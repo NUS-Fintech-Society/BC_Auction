@@ -1,0 +1,11 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #2F303A;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+ }
+
+ table td{
+    color: black;
+  }
