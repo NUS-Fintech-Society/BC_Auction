@@ -2,7 +2,7 @@ export function productComponent (product){
     return `
     
     
-    <div id = "component" class="card border-dark mb-3" style="max-width:18rem">
+    <div id = "component" class="card border-dark mb-3 stuff" style="max-width:18rem; display:none">
         <img class = "card-img-top">
         <div class = "card-header"> ${"Product: " + product.name} </div>
         <div class = "card-body">
@@ -24,19 +24,6 @@ export function productComponent (product){
 }
 
 export async function getActiveProducts(contract, callback){
-    // contract.events.ProductLaunchEvent(
-    //     async(_error, launchEvent) => {
-    //         var product = {
-    //             name: launchEvent.returnValues.name,
-    //             desc: launchEvent.returnValues.description,
-    //             seller: launchEvent.returnValues.seller,
-    //             price: web3.utils.fromWei(returnValues.price, 'ether'),
-    //             productId: returnValues.productId,
-
-    //         }
-
-    //     }
-    //     )
     var productIds = await contract.methods.getProductIds().call();
     console.log(productIds);
     var i;
@@ -49,11 +36,21 @@ export async function getActiveProducts(contract, callback){
             desc: product.description,
             seller: product.seller,
             highestbid: web3.utils.fromWei(product.highestBid.bidPrice, 'ether'),
-            deadline: product.deadline,
+            deadline: timeConverter(product.deadline),
         }
 
         callback(currentProduct);
     }
-        
-    }
+}
+
+export function timeConverter(deadline){
+                
+    var timestamp = new Date(deadline * 1000);
+    var year = timestamp.getFullYear();
+    var month = timestamp.getMonth() + 1;
+    var date = timestamp.getDate();
+
+    var time = date + ' ' + month + ' ' + year;
+    return time;
+}
     

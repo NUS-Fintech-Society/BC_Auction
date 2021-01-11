@@ -1,13 +1,4 @@
-
-a, a:visited {
-    color: #33739E;
-    text-decoration: none;
-    display: block;
-    margin: 10px 0;
-}
-a:hover {
-    text-decoration: none;
-}
+ 
 #loadMore {
     padding: 10px;
     text-align: center;
@@ -23,7 +14,6 @@ a:hover {
     -o-transition: all 600ms ease-in-out;
     margin: 0;
     position: absolute;
-    top: 90%;
     left: 47%;
 }
 #loadMore:hover {
@@ -36,6 +26,7 @@ a:hover {
     justify-content: space-around;
     margin: auto;
     float: none; 
+    position: relative;
     margin-bottom: 10px; 
   }
   

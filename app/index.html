@@ -73,11 +73,12 @@
             </nav>
             <div id="content" class="margin-top" >
                     <div id = "details" class = "row"></div>
-                    
             </div>
-            <a href="#" id = "loadMore">Load More</a>
+            
         </div>
-        
+        <footer>
+            <a href="#" id = "loadMore">Load More</a>
+        </footer>
 
         
         
@@ -121,16 +122,6 @@
 
             });
             
-            $(function () {
-                $("div ").slice(0, 3).show();
-                $("#loadMore").on('click', function (e) {
-                    e.preventDefault();
-                    $("div:hidden").slice(0, 3).show();
-                    if ($("div:hidden").length == 0) {
-                        $("#loadMore").fadeOut('slow');
-                    }
-                });
-            });
             
 
             async function startApp() {
@@ -148,6 +139,21 @@
                     contractAddress
                 );
 
+            
+                
+            $( document ).ready(function () {
+                
+                $('.stuff:hidden').slice(0, 3).show();
+                
+                $("#loadMore").on('click', function (e) {
+                    e.preventDefault();
+                    $(".stuff:hidden").slice(0, 3).show();
+                    if ($(".stuff:hidden").length == 0) {
+                        $("#loadMore").fadeOut('slow');
+                    }
+                });
+            });
+
                 $("#account-address")
                     .html(accounts[0].slice(0, 6) + "..." + accounts[0].slice(accounts[0].length - 6));
 
@@ -160,4 +166,12 @@
         
         </script>
     </body>
+    <!-- <body>
+        <div id="content" class="margin-top" >
+            <div id = "details" class = "row"></div>
+    </div>
+    <footer>
+        <a href="#" id = "loadMore">Load More</a>
+    </footer>
+    </body> -->
 </html>
