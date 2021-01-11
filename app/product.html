@@ -67,15 +67,18 @@
                     </div>
                 </div>
             </nav>
-            <div id="content" class="margin-top"></div>
-            
+            <div class="card-body">
+                <div id="content" class="margin-top"></div>
                 <form id="form"> 
                     <label for="bid-price"> Make a bid (ETH) </label>
-                    <input type="text" id="bid-price" name="bid-price"><br>
+                    <input type="text" id="bid-price" name="bid-price">
+                    <br>
+                    <br>
                     <button type="submit">Submit</button>
                 </form>
+                <div id="return-message" class="margin-top"></div>
+            </div>
             
-            <div id="return-message" class="margin-top"></div>
         </div>
         
         <script type="module">
@@ -124,9 +127,6 @@
 
                 web3.eth.defaultAccount = accounts[0];
                 
-                
-                $("#root")
-                    .prepend("App has started");
 
                 let contract = new web3.eth.Contract(
                     contractAbi,
@@ -148,7 +148,6 @@
                 showProduct(contract, productId, result => $("#content").append(result));
                 $("#form").submit(function(e) {
                     var bidPrice = $("#bid-price").val();
-                    console.log(bidPrice);
                     makeBid(contract, accounts[0], productId, bidPrice, result => {
                         $("#return-message").append(result);
                     });
