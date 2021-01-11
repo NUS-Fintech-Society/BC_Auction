@@ -1,4 +1,13 @@
 
+a, a:visited {
+    color: #33739E;
+    text-decoration: none;
+    display: block;
+    margin: 10px 0;
+}
+a:hover {
+    text-decoration: none;
+}
 #loadMore {
     padding: 10px;
     text-align: center;

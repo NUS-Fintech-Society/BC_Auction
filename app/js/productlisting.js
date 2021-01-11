@@ -1,7 +1,8 @@
 export function productComponent (product){
     return `
     
-    <div class="card border-dark mb-3" style="max-width:18rem">
+    
+    <div id = "component" class="card border-dark mb-3" style="max-width:18rem">
         <img class = "card-img-top">
         <div class = "card-header"> ${"Product: " + product.name} </div>
         <div class = "card-body">
