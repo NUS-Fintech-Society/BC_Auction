@@ -1,6 +1,7 @@
 export function showProduct(contract, productId, callback) {
     contract.methods.getProductDetailsById(productId).call().then(product => { 
         var date = new Date(product.deadline*1000);
+        var price = product.lowerBound * 0.000000000000000001;
         callback( `
                 <div class="row">
                     <div class="col">
@@ -10,7 +11,7 @@ export function showProduct(contract, productId, callback) {
                             <p>${product.description}</p>
                             <p>Seller: ${product.seller}</p>
                             <p>Deadline: ${date}</p>
-                            Lowest Price: ${product.lowerBound} Wei
+                            Lowest Price: ${price} ETH
                         </p>
                     </div>
                 </div>
