@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.3.0/web3.min.js"></script>
 
     <link rel="stylesheet" href="./styles/styles.css" />
-    <link rel="stylesheet" href="./styles/bids.css" />
+    <link rel="stylesheet" href="./styles/seller.css" />
   </head>
 
   <body class="inter">
@@ -110,13 +110,13 @@
           style="
             height: 2px;
             border-width: 0;
-            color: gray;
-            background-color: gray;
+            color: white;
+            background-color: white;
           "
         />
 
         <div id="soldTitle" class="mx-auto" style="text-align: center"></div>
-        <table id="Tab" class="table">
+        <table id="Tab" class="table table-light">
           <thead class="thead-dark">
             <tr>
               <th scope="col">#</th>
@@ -133,8 +133,8 @@
           style="
             height: 2px;
             border-width: 0;
-            color: gray;
-            background-color: gray;
+            color: white;
+            background-color: white;
           "
         />
         <div
@@ -142,7 +142,7 @@
           class="mx-auto"
           style="text-align: center; margin-top: 30px"
         ></div>
-        <table id="Tab1" class="table">
+        <table id="Tab1" class="table table-light">
           <thead class="thead-dark">
             <tr>
               <th scope="col">#</th>
@@ -173,10 +173,10 @@
             : nativeAlert(message);
         };
       })();
-      $(document).ready(function(){ 
+      $(document).ready(function () {
         function sellProduct(val) {
-            console.log("hi" + val);
-        }           
+          console.log("hi" + val);
+        }
       });
 
       window.addEventListener("load", async function (_window, event) {
@@ -225,7 +225,6 @@
         if (sIndex > 1) {
           $("#Tab").show();
           $("#soldTitle").html("<h3>Sold Products </h3>");
-
         } else {
           $("#Tab").hide();
           $("#soldTitle").html("<h3>No Sold Products Yet</h3>");
@@ -263,18 +262,18 @@
 
         getActiveProducts(contract, accounts[0], "open", (result) => {
           console.log(result);
-          if (result.html !== undefined && result.id !==undefined) {
+          if (result.html !== undefined && result.id !== undefined) {
             $("#openContent").html(result.html);
-            console.log(result)
-            result.id.map(id=> {
+            console.log(result);
+            result.id.map((id) => {
               $("#sell-" + id).click(() => {
-              sell(id);
-            })
+                sell(id);
+              });
 
-            $("#close-" + id).click(() => {
-              close(id);
-            })
-            })
+              $("#close-" + id).click(() => {
+                close(id);
+              });
+            });
 
             $("#openTitle").html("<h3> Open Products </h3>");
           } else {
@@ -282,14 +281,30 @@
             $("#openContent").html("");
             $("#openTitle").html("<h3>No Open Products Yet</h3>");
           }
-        
         });
 
         function sell(val) {
-           contract.methods.sellAuction(val).send({from: accounts[0]}).then(console.log)
+          contract.methods
+            .sellAuction(val)
+            .send({ from: accounts[0] })
+            .then((result) => {
+              alert("Product id :" + val + " is Sold");
+            })
+            .catch((err) => {
+              alert("Failed with error: " + err);
+            });
         }
+
         function close(val) {
-          contract.methods.closeAuction(val).send({from: accounts[0]}).then(console.log)
+          contract.methods
+            .closeAuction(val)
+            .send({ from: accounts[0] })
+            .then((result) => {
+              alert("Product id :" + val + " is Closed");
+            })
+            .catch((err) => {
+              alert("Failed with error: " + err);
+            });
         }
 
         var cIndex = 1;
@@ -324,7 +339,6 @@
           }
         });
       }
-
     </script>
   </body>
 </html>
