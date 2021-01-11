@@ -136,7 +136,12 @@
             console.log(unixTime);
             console.log(web3.eth.defaultAccount);
 
-            contract.methods.addProduct($("#name").val(), $("#description").val(), $("#lowerbound").val(), unixTime).send( {from: web3.eth.defaultAccount}, function(e, d) {
+            var etherInput = $("#lowerbound").val();
+            var etherToWei = web3.utils.toWei(etherInput, 'ether');
+            console.log(etherToWei);
+
+
+            contract.methods.addProduct($("#name").val(), $("#description").val(), etherToWei, unixTime).send( {from: web3.eth.defaultAccount}, function(e, d) {
                 console.log(e);
                 console.log("Submitted");
                 console.log(d);
@@ -174,8 +179,8 @@
                 </div>
                 <div class="input-group">
                     <label for="lowerbound">Lower Bound</label>
-                    <input type="number" name="lowerbound" id="lowerbound"
-                        placeholder="Input lowerbound of your product">
+                    <input type="number" name="lowerbound" id="lowerbound" step="0.000001" min="0.001" max="100000000" 
+                    placeholder="Input must be >=0.001000 ETH">
                 </div>
                 <div class="input-group">
                     <label for="deadline">Deadline</label>
