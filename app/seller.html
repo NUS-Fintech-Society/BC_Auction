@@ -79,12 +79,12 @@
               <a href="index.html" class="nav-item nav-link inter-bold"
                 >Products</a
               >
-              <a href="bids.html" class="nav-item nav-link  inter-bold"
+              <a href="bids.html" class="nav-item nav-link inter-bold"
                 >My Bids</a
               >
             </div>
             <div class="navbar-nav ml-auto">
-              <a href="seller.html" class="nav-item nav-link  active inter-bold "
+              <a href="seller.html" class="nav-item nav-link active inter-bold"
                 >Seller's Page</a
               >
               <a href="uploadproduct.html" class="nav-item nav-link inter-bold"
@@ -105,8 +105,15 @@
       >
         <div id="openTitle" class="mx-auto" style="text-align: center" ;></div>
         <div id="openContent"></div>
-        <br>
-        <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+        <br />
+        <hr
+          style="
+            height: 2px;
+            border-width: 0;
+            color: gray;
+            background-color: gray;
+          "
+        />
 
         <div id="soldTitle" class="mx-auto" style="text-align: center"></div>
         <table id="Tab" class="table">
@@ -122,7 +129,14 @@
           <tbody></tbody>
         </table>
 
-        <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+        <hr
+          style="
+            height: 2px;
+            border-width: 0;
+            color: gray;
+            background-color: gray;
+          "
+        />
         <div
           id="closedTitle"
           class="mx-auto"
@@ -139,11 +153,9 @@
           </thead>
           <tbody></tbody>
         </table>
-
       </div>
     </div>
 
-    
     <script type="module">
       import { isEthEnabled } from "./js/startup.js";
       import { contractAddress, contractAbi } from "./js/contract.js";
@@ -161,6 +173,11 @@
             : nativeAlert(message);
         };
       })();
+      $(document).ready(function(){ 
+        function sellProduct(val) {
+            console.log("hi" + val);
+        }           
+      });
 
       window.addEventListener("load", async function (_window, event) {
         if (!isEthEnabled(window)) {
@@ -205,14 +222,14 @@
             accounts[0].slice(accounts[0].length - 6)
         );
 
-
         if (sIndex > 1) {
-            $("#Tab").show();
-            $("#soldTitle").html("<h3>Sold Products </h3>");
-          } else {
-            $("#Tab").hide();
-            $("#soldTitle").html("<h3>No Sold Products Yet</h3>");
-          }
+          $("#Tab").show();
+          $("#soldTitle").html("<h3>Sold Products </h3>");
+
+        } else {
+          $("#Tab").hide();
+          $("#soldTitle").html("<h3>No Sold Products Yet</h3>");
+        }
         var sIndex = 1;
         getAllClosedSoldProducts(contract, accounts[0], "sold", (product) => {
           if (product !== undefined) {
@@ -239,32 +256,50 @@
         });
 
         if ($("#openContent").length > 1) {
-            $("#openTitle").html("<h3> Open Products </h3>");
-          } else {
-            $("#openTitle").html("<h3>No Open Products Yet</h3>");
-          }
+          $("#openTitle").html("<h3> Open Products </h3>");
+        } else {
+          $("#openTitle").html("<h3>No Open Products Yet</h3>");
+        }
 
         getActiveProducts(contract, accounts[0], "open", (result) => {
-          console.log(result)
-          console.log("hi")
-          if (result !== undefined) {
-            $("#openContent").html(result);
+          console.log(result);
+          if (result.html !== undefined && result.id !==undefined) {
+            $("#openContent").html(result.html);
+            console.log(result)
+            result.id.map(id=> {
+              $("#sell-" + id).click(() => {
+              sell(id);
+            })
+
+            $("#close-" + id).click(() => {
+              close(id);
+            })
+            })
+
             $("#openTitle").html("<h3> Open Products </h3>");
           } else {
-            console.log(result)
+            console.log(result);
             $("#openContent").html("");
             $("#openTitle").html("<h3>No Open Products Yet</h3>");
           }
+        
         });
+
+        function sell(val) {
+           contract.methods.sellAuction(val).send({from: accounts[0]}).then(console.log)
+        }
+        function close(val) {
+          contract.methods.closeAuction(val).send({from: accounts[0]}).then(console.log)
+        }
 
         var cIndex = 1;
         if (cIndex > 1) {
-            $("#Tab1").show();
-            $("#closedTitle").html("<h3> Closed Products </h3>");
-          } else {
-            $("#Tab1").hide();
-            $("#closedTitle").html("<h3>No Closed Products Yet</h3>");
-          }
+          $("#Tab1").show();
+          $("#closedTitle").html("<h3> Closed Products </h3>");
+        } else {
+          $("#Tab1").hide();
+          $("#closedTitle").html("<h3>No Closed Products Yet</h3>");
+        }
         getAllClosedSoldProducts(contract, accounts[0], "closed", (product) => {
           if (product !== undefined) {
             $("#Tab1")
@@ -277,7 +312,7 @@
               ])
               .draw();
             cIndex += 1;
-            console.log(product)
+            console.log(product);
           }
 
           if (cIndex > 1) {
@@ -289,6 +324,7 @@
           }
         });
       }
+
     </script>
   </body>
 </html>

@@ -81,8 +81,9 @@ export function getActiveProducts(contract, account, title, callback) {
     async (_error, launchEvent) => {
       console.log(launchEvent)
       getAllProducts(contract, account, (send) => {
-        console.log(send)
-        callback(send);
+        if (send.html !== undefined && send.id !==undefined) {
+          callback(send);
+        }
       });
     }
   );
@@ -94,8 +95,9 @@ export function getActiveProducts(contract, account, title, callback) {
     },
     async (_error, launchEvent) => {
       getAllProducts(contract, account, (send) => {
-        // console.log(send)
-        callback(send);
+        if (send.html !== undefined && send.id !==undefined) {
+          callback(send);
+        }
       });
     }
   );
@@ -107,7 +109,9 @@ export function getActiveProducts(contract, account, title, callback) {
     },
     async (_error, event) => {
       getAllProducts(contract, account, (send) => {
+        if (send.html !== undefined && send.id !==undefined) {
         callback(send);
+        }
       });
     }
   );
@@ -132,40 +136,50 @@ function getAllProducts(contract, account, callback) {
             <th scope="col">Deadline</th>
             <th scope="col">ProductId</th>
             <th scope="col">Website</th>
+            <th scope="col">Sell</th>
+            <th scope="col">Close</th>
+
+
           </tr>
         </thead>
         <tbody>`;
 
-        // $("#openContent")
-        //                 .html(m);
-
+        var ids= [];
         for (var i = 0; i < result.length; i++) {
           var curr = result[i];
-          // console.log(curr);
-          var row = `<tr>
-         <th scope="row">${i+1}</th>
-         <td>${curr.name} </td>
-         <td>${curr.description} </td>
-         <td>${curr.deadline} </td>
-         <td>${curr.id} </td>
-
+          var row = `<tr id="${curr.id}">
+          <th scope="row">${i+1}</th>
+          <td>${curr.name} </td>
+          <td>${curr.description} </td>
+          <td>${curr.deadline} </td>
+          <td>${curr.id} </td>
          <td> <a href="product.html?id=${curr.id}">click</a></td>
-        </tr>`;
-          // console.log(web3.utils.hexToAscii(curr.id));
-          //$("#openContent").append(row);
+          <td><button type="button" id="sell-${curr.id}">Sell</button></td>
+          <td><button type="button" id="close-${curr.id}">Close</button></td>
+
+         </tr>`;
+
+         console.log(ids.push(curr.id));
           m += row;
         }
         m += `</tbody></table>`;
         // console.log(m);
-        callback(m);
+        console.log(ids)
+        callback({html: m, id: ids});
       } else {
         console.log(result.length)
-
         callback(undefined);
       }
     })
     .catch((error)=> {
       console.log(error)
-      callback();
     });
+}
+
+function sell(val){
+  console.log(val);
+}
+
+function close(val){
+  console.log(val);
 }
