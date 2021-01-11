@@ -1,4 +1,13 @@
 
+a, a:visited {
+    color: #33739E;
+    text-decoration: none;
+    display: block;
+    margin: 10px 0;
+}
+a:hover {
+    text-decoration: none;
+}
 #loadMore {
     padding: 10px;
     text-align: center;
@@ -14,10 +23,20 @@
     -o-transition: all 600ms ease-in-out;
     margin: 0;
     position: absolute;
-    top: 50%;
+    top: 90%;
     left: 47%;
 }
 #loadMore:hover {
     background-color: #33739E;
     color: #fff;
 }
+#details {
+    display: grid;
+    grid-template-columns: repeat(3, 32%);
+    justify-content: space-around;
+    margin: auto;
+    float: none; 
+    margin-bottom: 10px; 
+  }
+  
+  
