@@ -147,6 +147,7 @@ function getAllProducts(contract, account, callback) {
         var ids= [];
         for (var i = 0; i < result.length; i++) {
           var curr = result[i];
+          // hello
           var row = `<tr id="${curr.id}">
           <th scope="row">${i+1}</th>
           <td>${curr.name} </td>
