@@ -291,7 +291,7 @@
               .sellAuction(val)
               .send({ from: accounts[0] })
               .then((result) => {
-                alert("Product id :" + val + " is Sold");
+                alert("Product id :" + val + " is Sold to " + highestBid.bidder );
               })
               .catch((err) => {
                 alert("Failed with error: " + err);
