@@ -14,7 +14,7 @@ export function productComponent (product){
                 <p>Deadline: ${product.deadline}</p>
         </div>
         <div class = "card-footer">
-            <a href="" class="btn">Place Bid</a>
+            <a href="product.html?id=${product.id}" class="btn">Place Bid</a>
         </div>
         </div>
     </div>
@@ -32,6 +32,7 @@ export async function getActiveProducts(contract, callback){
         var product = await contract.methods.getProductDetailsById(productIds[i]).call();
         console.log(product);
         var currentProduct = {
+            id: productIds[i],
             name: product.name,
             desc: product.description,
             seller: product.seller,

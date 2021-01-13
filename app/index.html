@@ -141,18 +141,18 @@
 
             
                 
-            $( document ).ready(function () {
+                $( document ).ready(function () {
                 
-                $('.stuff:hidden').slice(0, 3).show();
+                    $('.stuff:hidden').slice(0, 3).show();
                 
-                $("#loadMore").on('click', function (e) {
-                    e.preventDefault();
-                    $(".stuff:hidden").slice(0, 3).show();
-                    if ($(".stuff:hidden").length == 0) {
-                        $("#loadMore").fadeOut('slow');
-                    }
+                    $("#loadMore").on('click', function (e) {
+                        e.preventDefault();
+                        $(".stuff:hidden").slice(0, 3).show();
+                        if ($(".stuff:hidden").length == 0) {
+                            $("#loadMore").fadeOut('slow');
+                        }
+                    });
                 });
-            });
 
                 $("#account-address")
                     .html(accounts[0].slice(0, 6) + "..." + accounts[0].slice(accounts[0].length - 6));
@@ -166,12 +166,4 @@
         
         </script>
     </body>
-    <!-- <body>
-        <div id="content" class="margin-top" >
-            <div id = "details" class = "row"></div>
-    </div>
-    <footer>
-        <a href="#" id = "loadMore">Load More</a>
-    </footer>
-    </body> -->
 </html>
