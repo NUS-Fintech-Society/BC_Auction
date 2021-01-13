@@ -283,16 +283,22 @@
           }
         });
 
-        function sell(val) {
-          contract.methods
-            .sellAuction(val)
-            .send({ from: accounts[0] })
-            .then((result) => {
-              alert("Product id :" + val + " is Sold");
-            })
-            .catch((err) => {
-              alert("Failed with error: " + err);
-            });
+        async function sell(val) {
+          const highestBid = await contract.methods.getHighestBid(val).call();
+          console.log(highestBid);
+          if (highestBid.bidPrice > 0) {
+            contract.methods
+              .sellAuction(val)
+              .send({ from: accounts[0] })
+              .then((result) => {
+                alert("Product id :" + val + " is Sold to " + highestBid.bidder );
+              })
+              .catch((err) => {
+                alert("Failed with error: " + err);
+              });
+          } else {
+            alert("No bidders yet ");
+          }
         }
 
         function close(val) {
