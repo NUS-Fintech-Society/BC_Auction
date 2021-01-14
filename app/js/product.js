@@ -5,13 +5,13 @@ export function showProduct(contract, productId, callback) {
         callback( `
                 <div class="row">
                     <div class="col">
-                        <h5 class="card-title">Name: ${product.name}</h5>
+                        <h5 class="card-title"><strong>${product.name}</strong></h5>
                         <p class="card-text">
-                            <p>ID: ${product.id} </p>
-                            <p>${product.description}</p>
-                            <p>Seller: ${product.seller}</p>
-                            <p>Deadline: ${date}</p>
-                            Lowest Price: ${price} ETH
+                            
+                            <p><strong>Product Description</strong>: ${product.description}</p>
+                            <p><strong>Seller</strong>: ${product.seller}</p>
+                            <p><strong>Deadline</strong>: ${date}</p>
+                            <p><strong>Lowest Price</strong>: ${price} ETH
                         </p>
                     </div>
                 </div>
