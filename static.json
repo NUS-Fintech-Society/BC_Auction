@@ -2,7 +2,12 @@
     "root": "app/",
     "routes": {
         "/assets/*": "/assets/",
-        "/**": "index.html"
+        "/index*": "index.html",
+        "/product*": "product.html",
+        "/bids*": "bids.html",
+        "/seller*": "seller.html",
+        "/upload*": "uploadproduct.html",
+        "/js/*": "/js/"
     },
     "https_only": true
 }

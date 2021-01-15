@@ -1,8 +1,8 @@
 export function showProduct(contract, productId, callback) {
-    contract.methods.getProductDetailsById(productId).call().then(product => { 
-        var date = new Date(product.deadline*1000);
+    contract.methods.getProductDetailsById(productId).call().then(product => {
+        var date = new Date(product.deadline * 1000);
         var price = product.lowerBound * 0.000000000000000001;
-        callback( `
+        callback(`
                 <div class="row">
                     <div class="col">
                         <h5 class="card-title"><strong>${product.name}</strong></h5>
@@ -15,12 +15,12 @@ export function showProduct(contract, productId, callback) {
                         </p>
                     </div>
                 </div>
-        `);}
-    ); 
+        `);
+    });
 }
 
 export function makeBid(contract, account, productId, bidPrice, callback) {
-    contract.methods.placeBid(productId).send({from: account, value: bidPrice})
+    contract.methods.placeBid(productId).send({ from: account, value: web3.utils.toWei(bidPrice) })
         .on('transactionHash', hash => callback(`Transaction Hash: ${hash}`))
         .on('error', (error, receipt) => callback(`Error has occured: ${error}`));
 }
