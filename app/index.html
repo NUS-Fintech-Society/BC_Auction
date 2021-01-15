@@ -66,7 +66,7 @@
                     </div>
                     <div class="navbar-nav ml-auto">
                         <a href="seller.html" class="nav-item nav-link inter-bold">Seller's Page</a>
-                        <a href="uploadproduct.html" class="nav-item nav-link inter-bold">Sell Now</a>
+                        <a href="uploadproduct.html" class="nav-item nav-link inter-bold">Upload Product</a>
                         <span class="nav-item nav-link inter" id="account-address">Account Address</span>
                     </div>
                 </div>
@@ -138,13 +138,10 @@
                     contractAbi,
                     contractAddress
                 );
-
-            
+                
+                window.numLoaded = 0;
                 
                 $( document ).ready(function () {
-                
-                    $('.stuff:hidden').slice(0, 3).show();
-                
                     $("#loadMore").on('click', function (e) {
                         e.preventDefault();
                         $(".stuff:hidden").slice(0, 3).show();
@@ -159,6 +156,10 @@
 
                 getActiveProducts(contract, (product) => {
                     $("#details").append(productComponent(product));
+                    window.numLoaded += 1;
+                    if (window.numLoaded <= 3) {
+                        $('.stuff:hidden').slice(0, 3).show();
+                    }
                 });
                 
             
