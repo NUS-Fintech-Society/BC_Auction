@@ -122,7 +122,7 @@ export function getActiveProducts(contract, account, title, callback) {
 function getAllProducts(contract, account, callback) {
   contract.methods
     .getMyProducts()
-    .call()
+    .call({ from: account })
     .then((result) => {
       console.log(result);
       if (result.length > 0) {
