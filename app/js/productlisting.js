@@ -30,7 +30,11 @@ export async function getActiveProducts(contract, callback){
     for(i = 0; i <= productIds.length; i++){
 
         var product = await contract.methods.getProductDetailsById(productIds[i]).call();
-        console.log(product);
+        //console.log(product);
+
+        var timestamp = new Date(product.deadline * 1000);
+        // console.log(timestamp);
+        // console.log(new Date());
         var currentProduct = {
             id: productIds[i],
             name: product.name,
@@ -40,7 +44,10 @@ export async function getActiveProducts(contract, callback){
             deadline: timeConverter(product.deadline),
         }
 
-        callback(currentProduct);
+        if (timestamp > new Date()){
+            callback(currentProduct);
+        }
+        
     }
 }
 
