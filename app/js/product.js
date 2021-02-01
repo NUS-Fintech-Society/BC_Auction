@@ -19,6 +19,14 @@ export function showProduct(contract, productId, callback) {
     });
 }
 
+export function showHighestBid(contract, productId, callback) {
+    console.log("hi");
+    contract.methods.getHighestBid(productId).call().then(bid => {
+        var price = bid.bidPrice * 0.000000000000000001;
+        callback(`<p><strong>Highest Bid</strong>: ${price} ETH</p>`);
+    });
+}
+
 export function makeBid(contract, account, productId, bidPrice, callback) {
     contract.methods.placeBid(productId).send({ from: account, value: web3.utils.toWei(bidPrice) })
         .on('transactionHash', hash => callback(`Transaction Hash: ${hash}`))
