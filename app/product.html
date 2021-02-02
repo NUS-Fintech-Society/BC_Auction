@@ -74,7 +74,9 @@
             </nav>
             <div class="card-body">
                 <div id="content" class="margin-top"></div>
-                <form id="form"> 
+                <div id="highestPrice"></div>
+
+                <form id="form" class="margin-top"> 
                     <label for="bid-price" style="color:blue"> <strong>Make a Bid (ETH)</strong> </label>
                     <input type="text" id="bid-price" name="bid-price">
                     <br>
@@ -89,7 +91,7 @@
         <script type="module">
             import { isEthEnabled } from "./js/startup.js";
             import { contractAddress, contractAbi } from "./js/contract.js";
-            import { showProduct, makeBid } from "./js/product.js";
+            import { showProduct, showHighestBid, makeBid } from "./js/product.js";
 
             window.addEventListener("load", async function (_window, event) {
 
@@ -154,6 +156,7 @@
                 console.log(productId);
                 
                 showProduct(contract, productId, result => $("#content").append(result));
+                showHighestBid(contract, productId, result => $("#highestPrice").append(result));
 
                 $("#form").submit(function(e) {
                     var bidPrice = $("#bid-price").val();
